@@ -15,4 +15,24 @@ public class Profissao {
         this.estatuto = estatuto;
         this.nivelMinimoEducacao = nivelMinimoEducacao;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public double getSalarioDia() {
+        return salarioDia;
+    }
+
+    public boolean isFormal() {
+        return formal;
+    }
+
+    public int getEstatuto() {
+        return estatuto;
+    }
+
+    public int getNivelMinimoEducacao() {
+        return nivelMinimoEducacao;
+    }
 }

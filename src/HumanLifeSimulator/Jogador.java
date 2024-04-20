@@ -37,7 +37,7 @@ public class Jogador extends Pessoa{
         System.out.println("Informações do Jogador: ");
         System.out.println("Nome: " + this.getNome());
         System.out.println("Dinheiro: " + this.getDinheiro());
-        System.out.println("Profissão: " + this.profissao);
+        System.out.println("Profissão: " + profissao.getNome());
     }
 
     public static Jogador criarJogador(){
@@ -46,7 +46,7 @@ public class Jogador extends Pessoa{
         System.out.println("Escolha o nome do jogador: ");
         String nome = input.nextLine();
 
-        nome = input.nextLine(); //limpeza buffer;
+        //nome = input.nextLine(); //limpeza buffer;
 
         System.out.println("Qual o objetivo de vida do seu jogador ?");
         System.out.println("1 - MILIONÁRIO 🤑💰💸💵");
@@ -77,8 +77,6 @@ public class Jogador extends Pessoa{
             case 6:
                 objetivoVida = Objetivo.INFLUENCER_FITNESS;
                 break;
-
-
 
         }
 
