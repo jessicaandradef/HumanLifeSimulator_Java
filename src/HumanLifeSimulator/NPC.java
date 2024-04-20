@@ -8,4 +8,9 @@ public class NPC extends Pessoa{
         this.estatutoMinimo = estatutoMinimo;
     }
 
+    public void exibirDetalhes() {
+        System.out.println("Informações do NPC: ");
+        System.out.println("Nome: " + this.getNome());
+        System.out.println("Dinheiro: " + this.getDinheiro());
+    }
 }

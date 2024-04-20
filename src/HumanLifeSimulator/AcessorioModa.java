@@ -10,5 +10,4 @@ public class AcessorioModa extends Propriedade{
         this.marca = marca;
         this.formal = formal;
     }
-
 }
