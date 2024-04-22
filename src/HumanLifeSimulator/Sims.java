@@ -53,7 +53,7 @@ public class Sims {
     public void momentoDia(){
         //primeiro ciclo para o ciclo de vida; definir valor de 50 para ser o numero total de dias;
 
-        for (int cicloVida = 1; cicloVida < 100; cicloVida++){
+        for (int cicloVida = 1; cicloVida <= 100; cicloVida++){
             for (int turnosDia = 0; turnosDia < 3; turnosDia ++){
 
                
