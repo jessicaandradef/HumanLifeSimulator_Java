@@ -3,7 +3,6 @@ package HumanLifeSimulator;
 import HumanLifeSimulator.Enum.Objetivo;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Jogador extends Pessoa{
 
@@ -30,56 +29,64 @@ public class Jogador extends Pessoa{
         this.familia = new ArrayList<NPC>();
     }
 
+    //ate 1 de maio POO
+    //1 de maio ate dia 17 DP
+    //QA - até dia 03/junho
+
+    /**
+     * Método que adiciona uma nova propriedade do jogador no array de propriedades
+     * @param novaPropriedade
+     */
+    public void addPropriedades(Propriedade novaPropriedade){
+        propriedades.add(novaPropriedade);
+    }
+
+    /**
+     * Método que imprime na consola a lista todas as propriedades que o jogador possui
+     */
+    public void listarPropriedades(){
+        for (Propriedade propriedadeAtual: propriedades){
+            System.out.println(" 🔹 Nome da propriedade: " + propriedadeAtual.getNome());
+            System.out.println(" 🔹 Custo da propriedade: " + propriedadeAtual.getCusto());
+            System.out.println(" 🔹 Estatuto: " + propriedadeAtual.getEstatuto());
+            System.out.println("---------------------------------------");
+        }
+    }
+
+    /**
+     * Método que adiciona no array de família do jogador um novo NPC para integrar a familia
+     * @param novoNPC
+     */
+    public void addNPC(NPC novoNPC){
+        familia.add(novoNPC);
+    }
+
+    /**
+     * Método que imprime na consola a lista de integrantes da familia de NPC do jogador;
+     */
+    public void listarFamilia(){
+        for (NPC npcAtual : familia){
+            npcAtual.exibirDetalhes();
+        }
+    }
+
     /**
      * Método que imprime na consola todos os detalhes da pessoa;
      */
     public void exibirDetalhes() {
-        System.out.println("Informações do Jogador: ");
-        System.out.println("Nome: " + this.getNome());
-        System.out.println("Dinheiro: " + this.getDinheiro());
-        System.out.println("Profissão: " + profissao.getNome());
-    }
+        System.out.println("Informações do Jogador: 🕹🎮🎰 ");
+        System.out.println("✨ Nome: " + this.getNome());
+        System.out.println("💰 Dinheiro: " + this.getDinheiro());
+        System.out.println("👨‍🍳 Profissão: " + profissao.getNome());
+        System.out.println("😴 Necessidade de Sono: " + this.necessidadeSono);
+        System.out.println("🥗 Necessidade de Refeição: " + this.necessidadeRefeicao);
+        System.out.println("👫 Necessidade Social: " + this.necessidadeSocial);
+        System.out.println("📚 Educação: " + this.educacao);
+        System.out.println("Lista das propriedades: ");
 
-    public static Jogador criarJogador(){
-        Scanner input = new Scanner(System.in);
+        listarPropriedades();
+        System.out.println("〰 Integrantes da família: 〰 ");
+        listarFamilia();
 
-        System.out.println("Escolha o nome do jogador: ");
-        String nome = input.nextLine();
-
-        //nome = input.nextLine(); //limpeza buffer;
-
-        System.out.println("Qual o objetivo de vida do seu jogador ?");
-        System.out.println("1 - MILIONÁRIO 🤑💰💸💵");
-        System.out.println("2- TER UMA FAMÍLIA COMPLETA 👰🏼‍♀️🤵🏼‍♂️🤰🏼👩🏻‍❤️‍👨🏻👨‍👩‍👧‍👦");
-        System.out.println("3- SER UMA CELEBRIDADE 📽️💁🏼‍♀️✈️📺📸");
-        System.out.println("4- SER UM ATLETA DE CROSSFIT 🏋🏼‍♀️🤸🏼💪🏼🏋🏼‍♀️");
-        System.out.println("5- SER UM PROGRAMADOR BACK-END 💻👩🏼‍💻🤘🏼");
-        System.out.println("6- SER UM INFLUENCER FITNESS 👙📲📸💸🤳🏼🏋");
-        int opcao = input.nextInt();
-        Objetivo objetivoVida = null;
-
-        switch (opcao){
-            case 1:
-                objetivoVida = Objetivo.MILIONARIO;
-                break;
-            case 2:
-                objetivoVida = Objetivo.FAMILIA_COMPLETA;
-                break;
-            case 3:
-                objetivoVida = Objetivo.CELEBRIDADE;
-                break;
-            case 4:
-                objetivoVida = Objetivo.CROSSFITEIRO;
-                break;
-            case 5:
-                objetivoVida = Objetivo.PROGRAMADOR;
-                break;
-            case 6:
-                objetivoVida = Objetivo.INFLUENCER_FITNESS;
-                break;
-
-        }
-
-        return null;
     }
 }
