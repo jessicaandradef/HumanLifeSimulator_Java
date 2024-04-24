@@ -35,4 +35,17 @@ public class Profissao {
     public int getNivelMinimoEducacao() {
         return nivelMinimoEducacao;
     }
+
+    public void exibirDetalhesProfissao(){
+        System.out.println("🔹 Nome: " + this.nome);
+        System.out.println("💰 Valor do salário por dia: " + this.salarioDia);
+        System.out.println("🎋 Estatuto: " + this.estatuto);
+        System.out.println("📑📒 Nível mín. de educação: " + this.nivelMinimoEducacao);
+
+        if (formal){
+            System.out.println("Que chique!🤩 Essa profissão é considerada formal 👨🏼‍💼🧑🏼‍✈️");
+        } else {
+            System.out.println("Bem a vontade... 🏄🏼 essa profissão não é formal 😌🕺🏼");
+        }
+    }
 }

@@ -1,6 +1,10 @@
 package HumanLifeSimulator;
 
 import HumanLifeSimulator.Enum.Objetivo;
+import HumanLifeSimulator.PersonagensJogo.Jogador;
+import HumanLifeSimulator.PersonagensJogo.NPC;
+import HumanLifeSimulator.PropriedadeJogador.Imovel;
+import HumanLifeSimulator.PropriedadeJogador.Veiculo;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,39 +16,76 @@ public class Main {
 
         //jogador1.exibirDetalhes();
 
+      //teste para NPC
+      NPC npc1 = new NPC("jenny marombeira", 30000, 5);
+      NPC npc2 = new NPC("sarinha lindinha", 50000, 10);
+      NPC npc3 = new NPC("Jéssica lalal", 600000,20);
+
+
+      //teste para profissão:
+
+      Profissao profissao1 = new Profissao("Atleta Cross", 10000, false, 30, 50);
+      Profissao profissao2 = new Profissao("Investidor", 700, true, 9, 20);
+
+      Jogador jogador1 = new Jogador("Jessica", 500000, Objetivo.CROSSFITEIRO, profissao1, 6,5,190,30,30);
+      Jogador jogador2 = new Jogador("Luis", 0, Objetivo.MILIONARIO, profissao2, 7, 10, 250, 44,60);
+
 
         //teste para add propriedades:
 
-        Shopping shopping1= new Shopping();
+      Shopping shopping1= new Shopping();
 
-        shopping1.addPropriedade(new Imovel("Loft", 250400, 6, 3));
-        shopping1.addPropriedade(new AcessorioModa("Blusinha assimetrica", 30, 4, "Zara", true));
-        shopping1.addPropriedade(new Veiculo("Carro", 30000, 9, "Mercedes", "A-45" ));
+      //adicionando propriedades no shopping
+
+      Imovel casa = new Imovel("Casa", 100000, 5, 4);
+      Imovel casa1 = new Imovel("Casa1", 100000, 5, 4);
+      Imovel casa2 = new Imovel("Casa2", 100000, 5, 4);
+      Imovel casa3 = new Imovel("Casa3", 100000, 5, 4);
+      Imovel casa4 = new Imovel("Casa4", 100000, 5, 4);
+      Imovel casa5 = new Imovel("Casa5", 100000, 5, 4);
+      Imovel casa6 = new Imovel("Casa6", 100000, 5, 4);
+      Imovel casa7 = new Imovel("Casa7", 100000, 5, 4);
+      Imovel casa8 = new Imovel("Casa8", 100000, 5, 4);
+      Imovel casa9 = new Imovel("Casa9", 100000, 5, 4);
+      Imovel casa10 = new Imovel("Casa10", 100000, 5, 4);
+
+      Veiculo carro = new Veiculo("Mercedes", 15000,4, "Mercedes", "A-45");
+
+      shopping1.addPropriedade(carro);
+      shopping1.addPropriedade(casa);
+      shopping1.addPropriedade(casa1);
+      shopping1.addPropriedade(casa2);
+      shopping1.addPropriedade(casa3);
+      shopping1.addPropriedade(casa4);
+      shopping1.addPropriedade(casa5);
+      shopping1.addPropriedade(casa6);
+      shopping1.addPropriedade(casa7);
+      shopping1.addPropriedade(casa8);
+      shopping1.addPropriedade(casa9);
+      shopping1.addPropriedade(casa10);
+
+
+
+     // shopping1.vender(jogador1);
+      //jogador1.exibirDetalhes();
+
 
        /* for (Propriedade propriedadeAtual : shopping1.getCoisasParaComprar()){
             System.out.println("Nome: " + propriedadeAtual.getNome() + " ;Custo: " + propriedadeAtual.getCusto());
         } */
 
-        //teste para NPC
-        NPC npc1 = new NPC("jenny marombeira", 30000, 5);
-        NPC npc2 = new NPC("sarinha lindinha", 50000, 10);
-        NPC npc3 = new NPC("Jéssica lalal", 600000,20);
+      Sims.criarPessoa();
 
 
-        //teste para profissão:
-
-        Profissao profissao1 = new Profissao("Atleta Cross", 10000, false, 30, 50);
-        Profissao profissao2 = new Profissao("Investidor", 700, true, 9, 20);
-
-        Jogador jogador1 = new Jogador("Jessica", 0, Objetivo.CROSSFITEIRO, profissao1, 6,5,190,30,30);
-        Jogador jogador2 = new Jogador("Luis", 0, Objetivo.MILIONARIO, profissao2, 7, 10, 250, 44,60);
-
-        jogador2.addPropriedades(new Propriedade("bolo", 50, 5));
         jogador2.addNPC(npc1);
         jogador2.addNPC(npc2);
         jogador2.addNPC(npc3);
 
-        jogador2.exibirDetalhes();
+        //shopping1.vender(jogador1);
+
+
+        //  jogador2.exibirDetalhes();
+
 
         //Sims.criarJogador();
 
@@ -70,9 +111,9 @@ public class Main {
        // Jogador jogador2 = Jogador.criarJogador();
         // jogador2.exibirDetalhes();
 
-        shopping1.addPropriedade(new Imovel("Casa de Praia", 250400, 6, 3));
+     /*   shopping1.addPropriedade(new Imovel("Casa de Praia", 250400, 6, 3));
         shopping1.addPropriedade(new AcessorioModa("Vestidinho", 30, 4, "Zara", true));
-        shopping1.addPropriedade(new Veiculo("Mota", 30000, 9, "Mercedes", "A-45" ));
+        shopping1.addPropriedade(new Veiculo("Mota", 30000, 9, "Mercedes", "A-45" )); */
 
        // jogador1.exibirDetalhes(); //mesmo quando há dinheiro para
         //teste de impressão de todos os elementos que há no array de compras

@@ -1,9 +1,15 @@
-package HumanLifeSimulator;
+package HumanLifeSimulator.PersonagensJogo;
 
 public abstract class Pessoa {
-    private String nome; //nome da personagem
-    private double dinheiro  = 0; //dinheiro que a Pessoa ganhou
+    protected String nome;
+    protected double dinheiro;
 
+
+    /**
+     * Método construtor da classe abstrata Pessoa
+     * @param nome da Pessoa
+     * @param dinheiro da Pessoa
+     */
     public Pessoa(String nome, double dinheiro) {
         this.nome = nome;
         this.dinheiro = dinheiro;
@@ -23,5 +29,10 @@ public abstract class Pessoa {
 
     public void setDinheiro(double dinheiro) {
         this.dinheiro = dinheiro;
+    }
+
+    public void exibirDetalhes(){
+        System.out.println("✨ Nome: " + this.nome);
+        System.out.println("💰 Dinheiro: "+ this.dinheiro);
     }
 }
