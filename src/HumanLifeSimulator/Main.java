@@ -3,6 +3,7 @@ package HumanLifeSimulator;
 import HumanLifeSimulator.Enum.Objetivo;
 import HumanLifeSimulator.PersonagensJogo.Jogador;
 import HumanLifeSimulator.PersonagensJogo.NPC;
+import HumanLifeSimulator.PersonagensJogo.Pessoa;
 import HumanLifeSimulator.PropriedadeJogador.Imovel;
 import HumanLifeSimulator.PropriedadeJogador.Veiculo;
 
@@ -74,8 +75,9 @@ public class Main {
             System.out.println("Nome: " + propriedadeAtual.getNome() + " ;Custo: " + propriedadeAtual.getCusto());
         } */
 
-      Sims.criarPessoa();
-
+      Sims sims = new Sims();
+      Pessoa jogador = sims.criarPessoa(); // Criar jogador
+      sims.jogo(jogador); // Iniciar o ciclo do jogo
 
         jogador2.addNPC(npc1);
         jogador2.addNPC(npc2);

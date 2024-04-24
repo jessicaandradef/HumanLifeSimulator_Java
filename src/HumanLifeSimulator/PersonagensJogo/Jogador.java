@@ -75,7 +75,21 @@ public class Jogador extends Pessoa{
         this.educacao = educacao;
     }
 
+    public void setNecessidadeSono(int necessidadeSono) {
+        this.necessidadeSono = necessidadeSono;
+    }
 
+    public void setNecessidadeRefeicao(int necessidadeRefeicao) {
+        this.necessidadeRefeicao = necessidadeRefeicao;
+    }
+
+    public void setNecessidadeSocial(int necessidadeSocial) {
+        this.necessidadeSocial = necessidadeSocial;
+    }
+
+    public void setProfissao(Profissao profissao) {
+        this.profissao = profissao;
+    }
 
     /**
      * Método que adiciona uma nova propriedade do jogador no array de propriedades do Jogador
