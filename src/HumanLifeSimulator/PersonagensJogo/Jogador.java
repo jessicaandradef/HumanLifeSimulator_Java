@@ -48,6 +48,10 @@ public class Jogador extends Pessoa{
         return profissao;
     }
 
+    public Objetivo getObjetivoVida() {
+        return objetivoVida;
+    }
+
     public int getNecessidadeSono() {
         return necessidadeSono;
     }
