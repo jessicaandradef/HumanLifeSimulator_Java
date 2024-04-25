@@ -19,6 +19,10 @@ public class AcessorioModa extends Propriedade{
         this.formal = formal;
     }
 
+    public boolean isFormal() {
+        return formal;
+    }
+
     /**
      * Método que imprime os detalhes de um AcessorioModa;
      */

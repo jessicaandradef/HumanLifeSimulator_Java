@@ -14,6 +14,11 @@ public class NPC extends Pessoa{
         this.estatutoMinimo = estatutoMinimo;
     }
 
+
+    public int getEstatutoMinimo() {
+        return estatutoMinimo;
+    }
+
     public void exibirDetalhes() {
         System.out.println();
 

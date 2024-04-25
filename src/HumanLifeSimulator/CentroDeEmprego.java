@@ -28,7 +28,7 @@ public class CentroDeEmprego {
         int contador = 1;
         for (Profissao profissaoAtual : listaDeProfissoes){
 
-            System.out.println(contador + "- Nome da profissão:" + profissaoAtual.getNome());
+            System.out.println(contador + "- 💠 Nome da profissão: " + profissaoAtual.getNome());
             contador++;
         }
     }

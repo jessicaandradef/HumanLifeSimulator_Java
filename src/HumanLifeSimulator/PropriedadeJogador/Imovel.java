@@ -15,6 +15,10 @@ public class Imovel extends Propriedade{
         this.capacidadePessoas = capacidadePessoas;
     }
 
+    public int getCapacidadePessoas() {
+        return capacidadePessoas;
+    }
+
     /**
      * Método que imprime a capacidade de lotação de um imovel;
      */

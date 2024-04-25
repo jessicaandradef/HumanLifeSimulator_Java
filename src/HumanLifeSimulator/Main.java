@@ -3,7 +3,7 @@ package HumanLifeSimulator;
 import HumanLifeSimulator.Enum.Objetivo;
 import HumanLifeSimulator.PersonagensJogo.Jogador;
 import HumanLifeSimulator.PersonagensJogo.NPC;
-import HumanLifeSimulator.PersonagensJogo.Pessoa;
+import HumanLifeSimulator.PropriedadeJogador.AcessorioModa;
 import HumanLifeSimulator.PropriedadeJogador.Imovel;
 import HumanLifeSimulator.PropriedadeJogador.Veiculo;
 
@@ -52,6 +52,16 @@ public class Main {
 
       Veiculo carro = new Veiculo("Mercedes", 15000,4, "Mercedes", "A-45");
 
+      AcessorioModa acessorioModa1 = new AcessorioModa("Fato de treino", 50, 3, "Nike", false);
+      AcessorioModa acessorioModa2 = new AcessorioModa("Óculos de sol", 150, 1, "RayBan", false);
+      AcessorioModa acessorioModa3 = new AcessorioModa("Saia Jeans", 70, 2, "Diesel", true);
+      AcessorioModa acessorioModa4 = new AcessorioModa("Sneakers", 120, 2, "Adidas", false);
+
+      shopping1.addPropriedade(acessorioModa1);
+      shopping1.addPropriedade(acessorioModa2);
+      shopping1.addPropriedade(acessorioModa3);
+      shopping1.addPropriedade(acessorioModa4);
+
       shopping1.addPropriedade(carro);
       shopping1.addPropriedade(casa);
       shopping1.addPropriedade(casa1);
@@ -65,7 +75,13 @@ public class Main {
       shopping1.addPropriedade(casa9);
       shopping1.addPropriedade(casa10);
 
+      shopping1.imprimirCoisasParaComprar(shopping1.getCoisasParaComprar());
 
+      jogador1.addPropriedade(acessorioModa1);
+      jogador1.addPropriedade(acessorioModa3);
+      jogador1.exibirDetalhes();
+      jogador1.possuiAcessorioFormal(); //teste para confirmar se tem ou nao acessorio formal - eu adicionei 1
+      //teste ok!!
 
      // shopping1.vender(jogador1);
       //jogador1.exibirDetalhes();
@@ -75,9 +91,9 @@ public class Main {
             System.out.println("Nome: " + propriedadeAtual.getNome() + " ;Custo: " + propriedadeAtual.getCusto());
         } */
 
-      Sims sims = new Sims();
+     /* Sims sims = new Sims();
       Pessoa jogador = sims.criarPessoa(); // Criar jogador
-      sims.jogo(jogador); // Iniciar o ciclo do jogo
+      sims.jogo(jogador); // Iniciar o ciclo do jogo   */
 
         jogador2.addNPC(npc1);
         jogador2.addNPC(npc2);
@@ -90,6 +106,12 @@ public class Main {
 
 
         //Sims.criarJogador();
+
+      CentroDeEmprego ce1 = new CentroDeEmprego();
+      ce1.addProfissao(profissao1);
+      ce1.addProfissao(profissao2);
+
+      ce1.imprimirListaProfissoes();
 
 
 

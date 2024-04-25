@@ -92,7 +92,7 @@ public class Sims {
         //instancia dos AcessoriosModa
         AcessorioModa acessorioModa1 = new AcessorioModa("Fato de treino", 50, 3, "Nike", false);
         AcessorioModa acessorioModa2 = new AcessorioModa("Óculos de sol", 150, 1, "RayBan", false);
-        AcessorioModa acessorioModa3 = new AcessorioModa("Saia Jeans", 70, 2, "Diesel", false);
+        AcessorioModa acessorioModa3 = new AcessorioModa("Saia Jeans", 70, 2, "Diesel", true);
         AcessorioModa acessorioModa4 = new AcessorioModa("Sneakers", 120, 2, "Adidas", false);
         AcessorioModa acessorioModa5 = new AcessorioModa("Calça de alfaiataria em linho", 150, 3, "Massimo Dutti", true);
         AcessorioModa acessorioModa6 = new AcessorioModa("Sweater de lã", 160, 1, "Lacoste", true);
@@ -196,6 +196,7 @@ public class Sims {
                 }
                momentoDia((Jogador) criarPessoa());
             }
+            jogador.setDinheiro(jogador.getDinheiro() + 30); //no final de cada dia o dinheiro do jogador aumenta em 30 dinheiros
         }
     }
 
@@ -256,8 +257,10 @@ public class Sims {
                     terFormacao(jogador);
                     break;
                 case 7:
+                    verPropriedades(jogador);
+                    break;
+                case 8:
                     procurarEmprego(jogador);
-                    System.out.println("procurar novo emprego");
                     break;
                 default:
                     System.out.println("Tantas opções disponiveis e tu escolheu logo uma que não existe? 😤😤😤");
@@ -268,19 +271,21 @@ public class Sims {
 
     /**
      * Método que aumenta o dinheiro do jogador com base no salário por dia da sua profissão;
+     * Se por acaso o jogador ainda não tiver emprego, será redirecionado para procurar um emprego;
      * @param jogadorAtual
      */
     public void trabalhar(Jogador jogadorAtual){
 
-        double dinheiroJogador = jogadorAtual.getDinheiro();
-
         Profissao profissao = jogadorAtual.getProfissao();
 
         if (profissao == null) {
-            System.out.println("Pelos vistos ainda não tens um emprego");
+            System.out.println("Pelos vistos ainda não tens um emprego 😪");
+            System.out.println("Tudo bem, consigo te ajudar 🙌🏼");
             System.out.println("Aqui está a lista de empregos disponíveis no Centro de Empregos: ");
+            System.out.println();
 
-            CentroDeEmprego.imprimirListaProfissoes();
+            //redireciona para procurar emprego e fazer alteração do emprego do jogador
+            procurarEmprego(jogadorAtual);
 
         } else {
             double salarioDia = profissao.getSalarioDia();
@@ -327,38 +332,78 @@ public class Sims {
     }
 
     /**
-     * Método que aumenta a educação do jogador em +2 se assim o optar no menu;
+     * Método que aumenta a educação do jogador em +2 se escolher essa opção no menu;
      * @param jogadorAtual
      */
     public void terFormacao (Jogador jogadorAtual){
         jogadorAtual.setEducacao(jogadorAtual.getEducacao() + 2);
     }
 
+    /**
+     *Método que imprime na consola as propriedades que o jogador tem;
+     * @param jogadorAtual
+     */
     public void verPropriedades (Jogador jogadorAtual){
         if (jogadorAtual instanceof Jogador){
             jogadorAtual.listarPropriedades();
         }
     }
 
+    /**
+     * Método para o jogador procurar emprego;
+     * Primeiro imprime todas as profissões disponiveis no Centro de Emprego,
+     * depois verifica se o jogador tem criterios suficientes para o emprego escolhido ou não;
+     * @param jogadorAtual
+     */
     public void procurarEmprego(Jogador jogadorAtual){
         Scanner input = new Scanner(System.in);
 
         CentroDeEmprego.imprimirListaProfissoes(); //imprimir todas as profissões do array listaDeProfissoes;
 
-        System.out.println("Escolha uma profissão: ");
-        int opcao = input.nextInt();
+        System.out.println();
+        System.out.println("👨🏼‍🌾👩🏼‍🍳👨🏼‍✈️🧑🏼‍🚒 Escolha uma profissão: 👮🏼👨🏼‍🌾👷🏼‍♀️👨🏼‍⚕️");
+        String nomeProfissao = input.nextLine(); //profissão de escolha do utilizador depois de ver a lista de empregos
 
         ArrayList<Profissao> listaDeProfissoes = CentroDeEmprego.getListaDeProfissoes();
 
-        if (opcao >= 1 && opcao <= listaDeProfissoes.size()){
-            Profissao profissaoEscolhida = listaDeProfissoes.get(opcao - 1);
+        boolean profissaoEncontrada = false;
+        Profissao profissaoEscolhida = null;
+        for (Profissao profissaoAtual : listaDeProfissoes){
 
-            if (jogadorAtual.getEstatuto() >= profissaoEscolhida.getEstatuto() || jogadorAtual.getEducacao() >= profissaoEscolhida.getNivelMinimoEducacao()){
-                jogadorAtual.setProfissao(profissaoEscolhida);
-            } else {
-                System.out.println("Sinto muito, você ainda não tem critérios para esse cargo 😪");
+            if (profissaoAtual.getNome().equalsIgnoreCase(nomeProfissao)){
+                profissaoEncontrada= true;
+                profissaoEscolhida = profissaoAtual;
+                break;
             }
         }
+
+        //se a profissão for encontrada, verificar se tem criterios para conseguir aquele emprego escolhido ou não;
+        if (profissaoEncontrada){
+            boolean temAcessorioFormal = jogadorAtual.possuiAcessorioFormal(); //método para verificar se o jogador tem um acessorio de moda formal na lista de propriedade;
+
+            if (jogadorAtual.getEstatuto() >= profissaoEscolhida.getEstatuto() && jogadorAtual.getEducacao() >= profissaoEscolhida.getNivelMinimoEducacao() && temAcessorioFormal){
+                jogadorAtual.setProfissao(profissaoEscolhida);
+            } else {
+                System.out.println("😥 Sinto muito, você ainda não atende aos critérios para esse cargo 😪");
+            }
+        }
+    }
+
+    //colocar função no final de cada ciclo;
+
+    /**
+     * Método que atualiza as necessidades do jogador no final de cada ciclo da iteração, ou seja, no final de cada dia.
+     * A necessidade sono diminui 25 pontos, a necessidade refeição diminui 20 pontos e a necessidade social diminui 15 pontos.
+     * @param jogadorAtual
+     */
+    public void atualizarNecessidades(Jogador jogadorAtual){
+        int necessidadeSono = jogadorAtual.getNecessidadeSono() - 25; //necessidadeSono atual - 25 pontos no final de cada ciclo
+        int necessidadeRefeicao = jogadorAtual.getNecessidadeRefeicao() - 20;
+        int necessidadeSocial = jogadorAtual.getNecessidadeSocial() - 15;
+
+        jogadorAtual.setNecessidadeSono(necessidadeSono);
+        jogadorAtual.setNecessidadeRefeicao(necessidadeRefeicao);
+        jogadorAtual.setNecessidadeSocial(necessidadeSocial);
     }
 
     //inserir no menu
@@ -377,5 +422,90 @@ public class Sims {
                 }
             }
         }
+    }
+
+    public void casamento (Jogador jogadorAtual){
+
+        Scanner input = new Scanner(System.in);
+        String escolha;
+
+        for (int dia = 1; dia <= 50; dia++){
+            if (dia == 22){
+                System.out.println("Vejo que estás caminhando bem nessa vida... ✨✨ ");
+                System.out.println("O que achas de dar um próximo grande passo e CASARES ? 🤵🏼‍♂️💒👰🏼");
+                System.out.println("Aceitas? 👩🏼‍❤️‍💋‍👨🏻  (y/n)");
+                escolha = input.next();
+
+                switch (escolha){
+                    case "y":
+                        System.out.println("Chegamos na melhor parte!!!!!! ");
+                        System.out.println("🥰🥰🥰🥰 A ESCOLHA DO PRETENDENTE: 🥰🥰🥰🥰");
+                        jogadorAtual.listarFamilia();
+                        System.out.println();
+
+                        NPC npcEscolhido = escolherNPC(jogadorAtual);
+
+                       if (podeCasar(jogadorAtual, npcEscolhido)){
+                           //se o casamento acontecer, aumenta ao dinheiro do jogador todo o dinheiro que o npc tem;
+                           jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + npcEscolhido.getDinheiro());
+                       }
+
+                }
+
+            }
+        }
+    }
+
+    /**
+     * Método que identifica o NPC que o jogador quer casar;
+     * Percorre o array de NPC do jogador e faz a correspondência com o NPC escolhido;
+     * @param jogadorAtual
+     * @return NPC que o jogador escolheu para casar;
+     */
+    public static NPC escolherNPC(Jogador jogadorAtual){
+
+        Scanner input = new Scanner(System.in);
+        String escolha;
+
+        System.out.println();
+        System.out.println("Escreve o nome do teu futuro noivo/noiva :" );
+        escolha = input.next();
+
+        for (NPC npcAtual : jogadorAtual.getFamilia()){
+            if (npcAtual.getNome().equalsIgnoreCase(escolha)){
+                return npcAtual;
+            }
+        }
+        System.out.println("Essa pessoa não faz parte da lista de pretendentes, desculpe 😪💔");
+        return null;
+    }
+
+    /**
+     * Método que verifica SE o jogador pode casar com o NPC escolhido mediante as exigencias do casamento:
+     * O jogador ter uma propriedade que albergue 2 ou mais pessoas e ter o estatuto mínimo para casar com determinado NPC;
+     * @param jogadorAtual
+     * @param npcEscolhido
+     * @return boolean TRUE: se tiver propriedade e estatudo minimo || FALSE: se faltar alguma exigêngia;
+     */
+    public static boolean podeCasar(Jogador jogadorAtual, NPC npcEscolhido){
+        //booleano para verificar se o jogador tem imovel para abrigar 2 pessoas
+        boolean imovelAdequado = false;
+
+        //ciclo percorrer o array de propriedades
+        for (Propriedade propriedadeAtual : jogadorAtual.getPropriedades()) {
+            if (propriedadeAtual instanceof Imovel) {  //verificar se é instancia de imovel;
+                if (((Imovel) propriedadeAtual).getCapacidadePessoas() >= 2) {
+                    imovelAdequado = true; //se for retorna true
+                    break;
+                }
+            }
+        }
+            //verificar se o jogador tem estatuto minimo suficiente para casar com p NPC
+            boolean estatutoAdequado = jogadorAtual.getEstatuto() >= npcEscolhido.getEstatutoMinimo();
+
+            if (!imovelAdequado || !estatutoAdequado){ //SE não houver imovel ou estatuto adequado retorna false;
+                return false;
+            }
+            return true; //se as 2 condições for verdadeira
     }
 }

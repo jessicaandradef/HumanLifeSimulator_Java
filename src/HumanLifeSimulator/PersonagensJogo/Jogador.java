@@ -2,6 +2,7 @@ package HumanLifeSimulator.PersonagensJogo;
 
 import HumanLifeSimulator.Enum.Objetivo;
 import HumanLifeSimulator.Profissao;
+import HumanLifeSimulator.PropriedadeJogador.AcessorioModa;
 import HumanLifeSimulator.PropriedadeJogador.Propriedade;
 
 import java.util.ArrayList;
@@ -65,6 +66,10 @@ public class Jogador extends Pessoa{
 
     public int getEducacao() {
         return educacao;
+    }
+
+    public ArrayList<NPC> getFamilia() {
+        return familia;
     }
 
     public ArrayList<Propriedade> getPropriedades() {
@@ -136,6 +141,24 @@ public class Jogador extends Pessoa{
         for (NPC npcAtual : this.familia){
             npcAtual.exibirDetalhes();
         }
+    }
+
+    /**
+     * Método que verifica SE o jgador tem pelo menos uma item de acessório formal no arrayList de propriedades
+     * @return true = se houver pelo menos 01 acessorio de moda || false = se não houver nenhum acessorio de moda;
+     */
+    public boolean possuiAcessorioFormal(){
+        for (Propriedade propriedadeAtual : propriedades){
+
+            if (propriedadeAtual instanceof AcessorioModa){
+                if (((AcessorioModa) propriedadeAtual).isFormal()){
+                    System.out.println("Tem acessorio formal");
+                    return true;
+                }
+            }
+        }
+        System.out.println("não tem acessorio formal");
+        return false;
     }
 
     /**
