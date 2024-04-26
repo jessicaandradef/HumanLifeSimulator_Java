@@ -181,8 +181,6 @@ public class Shopping {
                     System.out.println("BYE BYEEEE, não demore a voltar 🤪 ");
                     break;
             }
-
-
-        } while (opcao != 3);
+        } while (opcao != 4);
     }
 }

@@ -37,7 +37,7 @@ public class Profissao {
     }
 
     public void exibirDetalhesProfissao(){
-        System.out.println("🔹 Nome: " + this.nome);
+        System.out.println("🔹 Nome da profissão: " + this.nome);
         System.out.println("💰 Valor do salário por dia: " + this.salarioDia);
         System.out.println("🎋 Estatuto: " + this.estatuto);
         System.out.println("📑📒 Nível mín. de educação: " + this.nivelMinimoEducacao);

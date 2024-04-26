@@ -18,6 +18,8 @@ public class Jogador extends Pessoa{
     private int educacao;
     private ArrayList<Propriedade> propriedades;
     private ArrayList<NPC> familia;
+    private  boolean casado = false;
+    private int condicionamentoFisico;
 
     /**
      * Método construtor da subclasse Jogador
@@ -31,7 +33,7 @@ public class Jogador extends Pessoa{
      * @param estatuto somatorio dos estatutos de todas as suas propriedades
      * @param educacao nivel de formacao da pessoa
      */
-    public Jogador(String nome, double dinheiro, Objetivo objetivoVida, Profissao profissao, int necessidadeSono, int necessidadeRefeicao, int necessidadeSocial, int estatuto, int educacao) {
+    public Jogador(String nome, double dinheiro, Objetivo objetivoVida, Profissao profissao, int necessidadeSono, int necessidadeRefeicao, int necessidadeSocial, int estatuto, int educacao, int condicionamentoFisico) {
         super(nome, dinheiro);
         this.objetivoVida = objetivoVida;
         this.profissao = profissao;
@@ -42,6 +44,15 @@ public class Jogador extends Pessoa{
         this.educacao = educacao;
         this.propriedades = new ArrayList<Propriedade>(); //todas as propriedades
         this.familia = new ArrayList<NPC>(); //familia do jogador
+        this.condicionamentoFisico = condicionamentoFisico;
+    }
+
+    public boolean isCasado() {
+        return casado;
+    }
+
+    public void setCasado(boolean casado) {
+        this.casado = casado;
     }
 
     public Profissao getProfissao() {
@@ -98,6 +109,14 @@ public class Jogador extends Pessoa{
 
     public void setProfissao(Profissao profissao) {
         this.profissao = profissao;
+    }
+
+    public int getCondicionamentoFisico() {
+        return condicionamentoFisico;
+    }
+
+    public void setCondicionamentoFisico(int condicionamentoFisico) {
+        this.condicionamentoFisico = condicionamentoFisico;
     }
 
     /**
@@ -179,19 +198,31 @@ public class Jogador extends Pessoa{
         } else {
             System.out.println("👨‍🍳 Profissão: no momento desempregado ");
         }
+
+        if (this.getObjetivoVida().equals(Objetivo.CROSSFITEIRO)){
+            System.out.println("Condicionamento físico: " + this.getCondicionamentoFisico());
+        }
+
         System.out.println("😴 Necessidade de Sono: " + this.necessidadeSono);
         System.out.println("🥗 Necessidade de Refeição: " + this.necessidadeRefeicao);
         System.out.println("👫 Necessidade Social: " + this.necessidadeSocial);
         System.out.println("📚 Educação: " + this.educacao);
         System.out.println("🎋 Estatuto: " + this.estatuto);
         System.out.println();
-        System.out.println("🏘️🚗 Lista das propriedades: 🏘️🚗");
 
-        listarPropriedades();
+        if (this.familia.size() != 0){
+            System.out.println("👨‍👩‍👧 Integrantes da família: 👨‍👩‍👧 ");
 
+            listarFamilia();
+        }
+
+        if (this.propriedades.size() != 0){
+
+            System.out.println("🏘️🚗 Lista das propriedades: 🏘️🚗");
+
+            listarPropriedades();
+        }
         System.out.println();
-        System.out.println("👨‍👩‍👧 Integrantes da família: 👨‍👩‍👧 ");
 
-        listarFamilia();
     }
 }

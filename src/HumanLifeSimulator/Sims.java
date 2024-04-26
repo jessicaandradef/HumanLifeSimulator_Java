@@ -9,6 +9,7 @@ import HumanLifeSimulator.PropriedadeJogador.Propriedade;
 import HumanLifeSimulator.PropriedadeJogador.Veiculo;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Sims {
@@ -32,6 +33,7 @@ public class Sims {
         int educacao = 0;
         ArrayList<Propriedade> propriedades = new ArrayList<>();
         Objetivo objetivoDeVida = null;
+        int condicionamentoFisico = 0;
 
         Scanner input = new Scanner(System.in);
 
@@ -79,7 +81,7 @@ public class Sims {
                 break;
         }
 
-        Jogador jogador = new Jogador(nome, 0, objetivoDeVida, null, 100, 100, 100, 0, 0);
+        Jogador jogador = new Jogador(nome, 0, objetivoDeVida, null, 100, 100, 100, 0, 0, 0);
        // jogador.exibirDetalhes();
         return jogador;
     }
@@ -104,8 +106,7 @@ public class Sims {
         AcessorioModa acessorioModa12 = new AcessorioModa("Meias ", 15, 1, "Primark", false);
         AcessorioModa acessorioModa13 = new AcessorioModa("Fato clássico", 1500, 3, "Dior", true);
         AcessorioModa acessorioModa14 = new AcessorioModa("Vestido de seda", 1000, 4, "Channel", true);
-        AcessorioModa acessorioModa15 = new AcessorioModa("Top de seda plissado ", 950, 4, "Versace", false);
-        AcessorioModa acessorioModa16 = new AcessorioModa("T-shirt", 5, 3, "Nike", true);
+        AcessorioModa acessorioModa15 = new AcessorioModa("T-shirt", 5, 3, "Nike", true);
 
 
         //instancia dos imoveis
@@ -121,7 +122,7 @@ public class Sims {
         Imovel imovel9 = new Imovel("Duplex", 250000, 5, 5);
         Imovel imovel10 = new Imovel("Triplex", 300000, 5, 6);
         Imovel imovel11 = new Imovel("Apartamento Rooftop", 250000, 4, 4);
-        Imovel imovel12 = new Imovel("Barraca de Camping", 30000, 1, 2);
+        Imovel imovel12 = new Imovel("Barraca de Camping", 10, 1, 2);
         Imovel imovel13 = new Imovel("Quinta ", 320000, 5, 10);
         Imovel imovel14 = new Imovel("Casa de campo", 270000, 5, 6);
         Imovel imovel15 = new Imovel("Palácio", 500000, 5, 12);
@@ -146,16 +147,25 @@ public class Sims {
 
         //instancias dos NPC (familia do jogador)
 
-        NPC npc1 = new NPC("Luis", 200000, 5);
+        NPC npc1 = new NPC("Luis", 200000, 0);
         NPC npc2 = new NPC("Caio", 150000, 4);
         NPC npc3 = new NPC("Sarinha", 100000, 5);
-        NPC npc4 = new NPC("Anna Karla", 80000, 3);
-        NPC npc5 = new NPC("Fiama", 50000, 2);
-        NPC npc6 = new NPC("Marcela", 90000, 4);
+        NPC npc4 = new NPC("Anna", 80000, 3);
+        NPC npc5 = new NPC("Manu", 50000, 2);
+        NPC npc6 = new NPC("Marcelo", 90000, 4);
         NPC npc7 = new NPC("Bruna", 120000, 3);
         NPC npc8 = new NPC("Veronica", 140000, 5);
         NPC npc9 = new NPC("Paulo", 95000, 3);
         NPC npc10 = new NPC("Tiago", 50000, 2);
+
+        //npc para adoção: NPC aleatório sem dinheiro ou estatutoMinimo ao Array da família
+
+        NPC npcAdocao1 = new NPC("Bibi", 0, 2);
+        NPC npcAdocao2 = new NPC("Bibi", 0, 2);
+        NPC npcAdocao3 = new NPC("Bibi", 0, 2);
+        NPC npcAdocao4 = new NPC("Bibi", 0, 2);
+
+
 
         //instancias das profissões
 
@@ -183,7 +193,7 @@ public class Sims {
         centroDeEmprego.addProfissao(profissao9);
         centroDeEmprego.addProfissao(profissao10);
 
-        //adicionar propriedades no Shopping
+        //adicionar propriedades de acessorios de moda no Shopping
         Shopping shopping = new Shopping();
         shopping.addPropriedade(acessorioModa1);
         shopping.addPropriedade(acessorioModa2);
@@ -195,6 +205,58 @@ public class Sims {
         shopping.addPropriedade(acessorioModa8);
         shopping.addPropriedade(acessorioModa9);
         shopping.addPropriedade(acessorioModa10);
+        shopping.addPropriedade(acessorioModa11);
+        shopping.addPropriedade(acessorioModa12);
+        shopping.addPropriedade(acessorioModa13);
+        shopping.addPropriedade(acessorioModa14);
+        shopping.addPropriedade(acessorioModa15);
+
+
+        //adicionar propriedades de imóveis no Shopping
+        shopping.addPropriedade(imovel1);
+        shopping.addPropriedade(imovel2);
+        shopping.addPropriedade(imovel3);
+        shopping.addPropriedade(imovel4);
+        shopping.addPropriedade(imovel5);
+        shopping.addPropriedade(imovel6);
+        shopping.addPropriedade(imovel7);
+        shopping.addPropriedade(imovel8);
+        shopping.addPropriedade(imovel9);
+        shopping.addPropriedade(imovel10);
+        shopping.addPropriedade(imovel11);
+        shopping.addPropriedade(imovel12);
+        shopping.addPropriedade(imovel13);
+        shopping.addPropriedade(imovel14);
+        shopping.addPropriedade(imovel15);
+
+        //adicionar propriedades de veiculos no Shopping
+        shopping.addPropriedade(veiculo1);
+        shopping.addPropriedade(veiculo2);
+        shopping.addPropriedade(veiculo3);
+        shopping.addPropriedade(veiculo4);
+        shopping.addPropriedade(veiculo5);
+        shopping.addPropriedade(veiculo6);
+        shopping.addPropriedade(veiculo7);
+        shopping.addPropriedade(veiculo8);
+        shopping.addPropriedade(veiculo9);
+        shopping.addPropriedade(veiculo10);
+        shopping.addPropriedade(veiculo11);
+        shopping.addPropriedade(veiculo12);
+        shopping.addPropriedade(veiculo13);
+        shopping.addPropriedade(veiculo14);
+        shopping.addPropriedade(veiculo15);
+
+        addNPC(npc1);
+        addNPC(npc2);
+        addNPC(npc3);
+        addNPC(npc4);
+        addNPC(npc5);
+        addNPC(npc6);
+        addNPC(npc7);
+        addNPC(npc8);
+        addNPC(npc9);
+        addNPC(npc10);
+
 
 
 
@@ -202,30 +264,53 @@ public class Sims {
         //50 será o total de dias;
         for (int dia = 1; dia <= 50; dia++) {
 
-            for (int momentoDia = 1; momentoDia <= 4; momentoDia++) {
+            switch (dia){
+                case 5:
+                    rotinaUniversidade(jogador);
+                    break;
+                case 3:
+                    casamento(jogador);
+                    break;
+                case 30:
+                    tempoChuvoso(jogador);
+                    break;
+                case 40:
+                    competicaoCrossfit(jogador);
+                    break;
 
-                switch (momentoDia) {
-                    case 1: //pela manhã
-                        System.out.println("É hora de começar mais um dia ... 🤗🤗🤗");
-                        System.out.println();
-                        System.out.println("\t\t\t\t\t\t🌤️🌤️🌤️🌤️🌤️🌤️  M A N H Ã  🌤️🌤️🌤️🌤️🌤️🌤️");
-                        break;
-                    case 2: //meio dia
-                        System.out.println("\t\t\t\t\t\t☀️☀️☀️☀️☀️☀️  M E I O - D I A  ☀️☀️☀️☀️☀️☀️");
-                        break;
-                    case 3: // meio da tarde
-                        System.out.println("\t\t\t\t\t\t🌇🌇🌇🌇🌇🌇  T A R D E  🌇🌇🌇🌇🌇🌇");
-                        break;
-                    case 4: //noite
-                        System.out.println("\t\t\t\t\t\t🌛🌠🌛🌠🌛🌠  N O I T E  🌛🌠🌛🌠🌛🌠");
-                        break;
-                }
-                momentoDia(jogador, shopping, centroDeEmprego);
+                default:
+                    for (int momentoDia = 1; momentoDia <= 4; momentoDia++) {
+
+                        switch (momentoDia) {
+                            case 1: //pela manhã
+                                System.out.println();
+                                System.out.println("\t\t\t\t\t\t\t\t\t\t\t\tÉ hora de começar mais um dia ... 🤗🤗🤗");
+                                System.out.println();
+                                System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🌤️🌤️🌤️🌤️🌤️🌤️  M A N H Ã  🌤️🌤️🌤️🌤️🌤️🌤️");
+                                break;
+                            case 2: //meio dia
+                                System.out.println();
+                                System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t☀️☀️☀️☀️☀️☀️  M E I O - D I A  ☀️☀️☀️☀️☀️☀️");
+                                break;
+                            case 3: // meio da tarde
+                                System.out.println();
+                                System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🌇🌇🌇🌇🌇🌇  T A R D E  🌇🌇🌇🌇🌇🌇");
+                                break;
+                            case 4: //noite
+                                System.out.println();
+                                System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🌛🌠🌛🌠🌛🌠  N O I T E  🌛🌠🌛🌠🌛🌠");
+                                break;
+                        }
+                        momentoDia(jogador, shopping, centroDeEmprego);
+                    }
+                    atualizarNecessidades(jogador);
+
+                    if (jogador.isCasado()){
+                        jogador.setDinheiro(jogador.getDinheiro() + 30);
+                    }//no final de cada dia o dinheiro do jogador aumenta em 30 dinheiros SE ELE CASAR
+                    jogador.exibirDetalhes();
             }
-            atualizarNecessidades(jogador);
-            jogador.setDinheiro(jogador.getDinheiro() + 30); //no final de cada dia o dinheiro do jogador aumenta em 30 dinheiros
-            jogador.exibirDetalhes();
-        }
+            }
     }
 
     public void momentoDia(Jogador jogador, Shopping shopping, CentroDeEmprego centroDeEmprego) {   //precisei colocar Shopping para conseguir aceder ao que foi instanciado
@@ -233,34 +318,39 @@ public class Sims {
         Scanner input = new Scanner(System.in);
 
         System.out.println();
-        System.out.println("Bora movimentar esse jogo! 😜 Posso te dar umas opções para ocupares teu tempo agora: 👌");
+        System.out.println("\t\t\t\t\t\tBora movimentar esse jogo! 😜 Posso te dar umas opções para ocupares teu tempo agora: 👌");
         System.out.println();
 
-        System.out.println("1. " + "🔸----- O que achas de começar agora um belo dia de trabalho? 👨🏼‍💻🤑 Não vai te custar nadinha 😊 -----🔸");
+        System.out.println("\t\t\t\t\t\t1. " + "🔸----- O que achas de começar agora um belo dia de trabalho? 👨🏼‍💻🤑 Não vai te custar nadinha 😊 -----🔸");
         System.out.println();
 
-        System.out.println("2. " + "🔸----- Estás com sono? 😴😴😴 Que tal descansar e dormir um pouco? -----🔸");
+        System.out.println("\t\t\t\t\t\t2. " + "🔸----- Estás com sono? 😴😴😴 Que tal descansar e dormir um pouco? -----🔸");
         System.out.println();
 
-        System.out.println("3. " + "🔸----- Pensando melhor uma boa refeição não seria nada mal agora, hein ? 🍕🍔🍟 Queres comer? 🥞🥙🌮 -----🔸");
+        System.out.println("\t\t\t\t\t\t3. " + "🔸----- Pensando melhor uma boa refeição não seria nada mal agora, hein ? 🍕🍔🍟 Queres comer? 🥞🥙🌮 -----🔸");
         System.out.println();
 
-        System.out.println("4. " + "🔸----- Preferes sair da preguiça e ir treinar? 🏃🏼‍♂️💪🏼 A aula de CrossFit começa agora mesmo 🤸🏼‍♂️🏋🏼‍♂️🏋🏼‍♀️💪🏼 -----🔸");
+        System.out.println("\t\t\t\t\t\t4. " + "🔸----- Preferes sair da preguiça e ir treinar? 🏃🏼‍♂️💪🏼 A aula de CrossFit começa agora mesmo 🤸🏼‍♂️🏋🏼‍♂️🏋🏼‍♀️💪🏼 -----🔸");
         System.out.println();
 
-        System.out.println("5. " + "🔸----- Torrar uma boa grana comprando no shopping não seria má ideia, vem comigo 💸💸💸💸 -----🔸");
+        System.out.println("\t\t\t\t\t\t5. " + "🔸----- Torrar uma boa grana comprando no shopping não seria má ideia, vem comigo 💸💸💸💸 -----🔸");
         System.out.println();
 
-        System.out.println("6. " + "🔸----- Estudar um pouco me parece uma excelente ideia, que tal uma formação em POO ? 📚💻 -----🔸");
+        System.out.println("\t\t\t\t\t\t6. " + "🔸----- Estudar um pouco me parece uma excelente ideia, que tal uma formação em POO ? 📚💻 -----🔸");
         System.out.println();
 
-        System.out.println("7. " + "🔸----- Faz tempo que não visitas as tuas propriedades... vamos dar um passeio por elas ? 🚗🌅🏡 -----🔸");
+        System.out.println("\t\t\t\t\t\t7. " + "🔸----- Faz tempo que não visitas as tuas propriedades... vamos dar um passeio por elas ? 🚗🌅🏡 -----🔸");
         System.out.println();
 
-        System.out.println("8. " + "🔸----- Estás aborrecido com teu trabalho atual e queres procurar um novo? 😭🥵🥺 Eu te entendo, vem que te ajudo nisso 😎😎😎 -----🔸");
+        System.out.println("\t\t\t\t\t\t8. " + "🔸----- Estás aborrecido com teu trabalho atual e queres procurar um novo? 😭🥵🥺 Eu te entendo, vem que te ajudo nisso 😎😎😎 -----🔸");
         System.out.println();
 
-        System.out.println("✨ Ótimo, agora me diz o que te apetece fazer agora? ");
+        if (jogador.isCasado()){ //só vai passar para essa opção de adocação depois de casar
+            System.out.println("\t\t\t\t\t\t9. " + "🔸----- 🍼🍼🍼 Agora que estás casado, seria uma boa altura para aumentar a família? Que tal adotar um bebê? 🍼🍼🍼👶🏽👶🏽👶🏽 -----🔸");
+            System.out.println();
+        }
+
+        System.out.println("\t\t\t\t\t\t✨ Ótimo, agora me diz o que te apetece fazer agora? ");
         System.out.println();
 
         int opcao = input.nextInt();
@@ -279,7 +369,7 @@ public class Sims {
                 treinar(jogador);
                 break;
             case 5:
-                fazerCompras(jogador,shopping ); //para conseguir aceder à lista de propriedades tive que colocar como parametro da função
+                fazerCompras(jogador,shopping );
                 break;
             case 6:
                 terFormacao(jogador);
@@ -290,6 +380,10 @@ public class Sims {
             case 8:
                 procurarEmprego(jogador);
                 break;
+            case 9:
+                if (jogador.isCasado()) {
+                    //invocar o metodo adotar menino
+                }
             default:
                 System.out.println("Tantas opções disponiveis e tu escolheu logo uma que não existe? 😤😤😤");
                 System.out.println("Escolhe uma opção do menu, vai la. 😎🤪");
@@ -301,9 +395,12 @@ public class Sims {
         Scanner input = new Scanner(System.in);
 
         if (jogadorAtual.getProfissao() == null) {
+            System.out.println();
             System.out.println("Estas prestes a dar um grande passo na tua vida profissional:");
             System.out.println("Conseguir o teu primeiro emprego 🤩🤩🤩🤩🤩");
-            System.out.println("Esses são os empregos disponíveis atualmente: ");
+            System.out.println();
+            System.out.println("🔘 Esses são os empregos disponíveis atualmente no Centro de Empregos: 🔘 ");
+            System.out.println();
 
             CentroDeEmprego.imprimirListaProfissoes();
 
@@ -318,8 +415,10 @@ public class Sims {
 
                 jogadorAtual.setProfissao(profissaoEscolhida);
 
-                System.out.println("PARABÉÉÉÉÉNS! Agora tens um emprego!!!");
-                System.out.println("Agora já podes começar a ganhar dinheiro trabalhando no teu novo cargo de " + jogadorAtual.getProfissao().getNome());
+                System.out.println("PARABÉÉÉÉÉNS! 🎉🎉🎉🎉 Agora tens um emprego, já podes começar a ganhar dinheiro trabalhando !!!");
+                System.out.println();
+                System.out.println("Esses são os detalhes da tua nova profissão: ");
+                jogadorAtual.getProfissao().exibirDetalhesProfissao();
             } else {
                 System.out.println("Escolhe uma profissão válida, por favor ");
             }
@@ -329,10 +428,6 @@ public class Sims {
 
             System.out.println(" Você foi recompensado com " + profissaoAtual.getSalarioDia() + " dinheiros pelo seu dia de trabalho 💸😉");
         }
-
-
-
-
     }
 
     /**
@@ -393,12 +488,27 @@ public class Sims {
      * @param jogadorAtual
      */
     public void treinar(Jogador jogadorAtual) {
-        jogadorAtual.setNecessidadeSocial(100);
-        jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + 150);
-        System.out.println("💪🏼💪🏼💪🏼 Você foi premiado pela sua excelente disposição em fazer um treino de CROSSFIT!! ");
-        System.out.println("Ganhou 150 dinheiros 💸💸💸");
-        jogadorAtual.exibirDetalhes();
 
+        if (jogadorAtual.getObjetivoVida().equals(Objetivo.CROSSFITEIRO)){
+            jogadorAtual.setCondicionamentoFisico(jogadorAtual.getCondicionamentoFisico() + 250);
+            jogadorAtual.setNecessidadeSocial(jogadorAtual.getNecessidadeSocial() + 100);
+            System.out.println();
+            System.out.println("Pelos vistos o teu objetivo de vida é ser um eterno Crossfitter... 🤩🤩🤩");
+            System.out.println("Sendo assim, ganhaste 200 dinheiros por ser atleta da modalidade 💪🏼💪🏼💪🏼");
+            System.out.println("Ganhou também 50 pontos no teu social pela tua interação com outros atletas 👭👩🏻‍🤝‍👨🏻👩🏻‍🤝‍👨🏻 ");
+            System.out.println();
+
+        } else {
+            System.out.println();
+            jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + 150);
+            jogadorAtual.setNecessidadeSocial(jogadorAtual.getNecessidadeSocial() + 100);
+            System.out.println("💪🏼💪🏼💪🏼 Você foi premiado pela sua excelente disposição em fazer um treino de CROSSFIT!! ");
+            System.out.println("💸💸💸 Ganhou 150 dinheiros 💸💸💸");
+            System.out.println("Ganhou também 50 pontos no teu social pela tua interação com outros atletas 👭👩🏻‍🤝‍👨🏻👩🏻‍🤝‍👨🏻 ");
+            System.out.println();
+
+        }
+        jogadorAtual.exibirDetalhes();
     }
 
     /**
@@ -414,7 +524,6 @@ public class Sims {
 
     /**
      * Método que aumenta a educação do jogador em +2 se escolher essa opção no menu;
-     *
      * @param jogadorAtual
      */
     public void terFormacao(Jogador jogadorAtual) {
@@ -506,10 +615,23 @@ public class Sims {
                 String escolha = input.next();
 
                 if (escolha.equalsIgnoreCase("y")) {
-                    jogadorAtual.setEducacao(50); //aumenta educação em 50 dinheiros
+                    jogadorAtual.setEducacao(50); //aumenta educação em 50
                     jogadorAtual.setDinheiro(3000); //reduz 3000 do dinheiro total;
                 }
             }
+        }
+    }
+
+    //criando um arrayList de pretendentes para adicionar os NPC para o futuro casamento
+    public static ArrayList<NPC> pretendentes = new ArrayList<NPC>();
+    public void addNPC(NPC npc){
+
+        pretendentes.add(npc);
+    }
+
+    public void imprimirListaNpc(){
+        for (NPC npcAtual: pretendentes){
+            npcAtual.exibirDetalhes();
         }
     }
 
@@ -526,8 +648,7 @@ public class Sims {
         Scanner input = new Scanner(System.in);
         String escolha;
 
-        for (int dia = 1; dia <= 50; dia++) {
-            if (dia == 22) {
+
                 System.out.println("Vejo que estás caminhando bem nessa vida... ✨✨ ");
                 System.out.println("O que achas de dar um próximo grande passo e CASARES? 🤵🏼‍♂️💒👰🏼");
                 System.out.println("👩🏼‍❤️‍💋‍👨🏻👩🏼‍❤️‍💋‍👨🏻👩🏼‍❤️‍💋‍👨🏻👩🏼‍❤️‍💋‍👨🏻 Aceitas? 👩🏼‍❤️‍💋‍👨🏻👩🏼‍❤️‍💋‍👨🏻👩🏼‍❤️‍💋‍👨🏻👩🏼‍❤️‍💋‍👨🏻 (y/n)");
@@ -539,7 +660,7 @@ public class Sims {
                         System.out.println("Chegamos na melhor parte!!!!!! ");
                         System.out.println("🥰🥰🥰🥰 A ESCOLHA DO PRETENDENTE: 🥰🥰🥰🥰");
                         System.out.println();
-                        jogadorAtual.listarFamilia();
+                        imprimirListaNpc();
                         System.out.println();
 
                         NPC npcEscolhido = escolherNPC(jogadorAtual);
@@ -548,23 +669,31 @@ public class Sims {
                         if (podeCasar(jogadorAtual, npcEscolhido)) {
                             //se o casamento acontecer, aumenta ao dinheiro do jogador todo o dinheiro que o npc tem;
                             jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + npcEscolhido.getDinheiro());
-                        }
+                            npcEscolhido.setDinheiro(0);
 
+                            jogadorAtual.addNPC(npcEscolhido);
+
+                            jogadorAtual.setCasado(true);
+                        } else {
+                            System.out.println("ERRO!");
+                        }
                         break;
+
                     case "n":
+                        System.out.println();
                         System.out.println("🍾🍷🍸🍹🥂🍻🍺");
                         System.out.println("Eitaaaaa, queres continuar na vida de copos e amigos");
                         System.out.println("Eu compreendo, talvez ainda não tenhas encontrado um grande amor para tua vida...");
                         System.out.println("Partites o coração de alguém... 💔❤️‍🩹💔❤️‍🩹");
                         System.out.println("Vida que segue !! 🍻🍺 ");
+                        System.out.println();
                         break;
                     default:
                         System.out.println("Sei posso ter te pegado de surpresa...");
                         System.out.println("Mas para essa pergunta só há 2 opções de resposta: ");
                         System.out.println("YYYYEEESSSSS OU NNNNOOOOOOO ");
                         break;
-                }
-            }
+
         }
     }
 
@@ -584,7 +713,7 @@ public class Sims {
         System.out.println("Escreve o nome do teu futuro noivo/noiva :");
         escolha = input.next();
 
-        for (NPC npcAtual : jogadorAtual.getFamilia()) {
+        for (NPC npcAtual : pretendentes) {
             if (npcAtual.getNome().equalsIgnoreCase(escolha)) {
                 return npcAtual;
             }
@@ -623,6 +752,24 @@ public class Sims {
         return true; //se as 2 condições for verdadeira
     }
 
+    public static void adotarCrianca(Jogador jogadorAtual){
+
+        Random random = new Random();
+        ArrayList<NPC> bebesParaAdocao = new ArrayList<NPC>();
+
+        for (NPC npcAtual : pretendentes){
+            if (npcAtual.getDinheiro() == 0 || npcAtual.getEstatutoMinimo() == 0){
+                bebesParaAdocao.add(npcAtual);
+            }
+        }
+
+        int indiceBebe = random.nextInt(bebesParaAdocao.size());
+        NPC bebeAleatorio = bebesParaAdocao.get(indiceBebe);
+
+        jogadorAtual.addNPC(bebeAleatorio);
+        System.out.println();
+    }
+
     //Eventos aleatorios do jogo: 1) simular o jogador doente
 
     /**
@@ -632,8 +779,6 @@ public class Sims {
      */
     public static void ficarDoente(Jogador jogadorAtual) {
 
-        for (int dia = 1; dia <= 50; dia++) {
-            if (dia == 15) {
                 Scanner input = new Scanner(System.in);
 
                 System.out.println("ATCHIMMM 🤧🤧🤧💦💦💦 ATCHIMMM 🤧🤧🤧💦💦💦");
@@ -663,8 +808,6 @@ public class Sims {
                         System.out.println("Escolhe uma opção valida");
                         break;
                 }
-            }
-        }
     }
 
     //Eventos aleatorios do jogo: 2) simular um campeonato de crossfit
@@ -676,10 +819,11 @@ public class Sims {
      * @param jogadorAtual
      */
     public static void competicaoCrossfit(Jogador jogadorAtual) {
+
+        //colocar dias aleatorios entre 30 e 40 por exemplo
+        //num aleatorio entre 0 e 1
         Scanner input = new Scanner(System.in);
 
-        for (int dia = 1; dia <= 50; dia++) {
-            if (dia == 35) {
 
                 System.out.println("📢📢📢 BREAKING NEWS 📢📢📢");
                 System.out.println();
@@ -729,8 +873,6 @@ public class Sims {
                     default:
                         System.out.println("Escolha uma opção válida");
                         break;
-                }
-            }
 
         }
     }
@@ -767,7 +909,6 @@ public class Sims {
                 for (Propriedade propriedadeAtual: jogadorAtual.getPropriedades()){
                     valorTotalPropriedade += propriedadeAtual.getCusto();
                 }
-
                 if ((jogadorAtual.getDinheiro() + valorTotalPropriedade) >= 1000000){
                     return true;
                 }
