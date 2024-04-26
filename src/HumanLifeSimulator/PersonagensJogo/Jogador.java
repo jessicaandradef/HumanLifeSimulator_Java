@@ -173,7 +173,12 @@ public class Jogador extends Pessoa{
         System.out.println();
         super.exibirDetalhes();
         System.out.println("🙏🏼 Objetivo de vida: " + this.objetivoVida);
-        System.out.println("👨‍🍳 Profissão: " + this.profissao.getNome());
+        //adicionei uma condição if já que a profissao começa Null por default
+        if (this.profissao != null){
+            System.out.println("👨‍🍳 Profissão: " + this.profissao.getNome());
+        } else {
+            System.out.println("👨‍🍳 Profissão: no momento desempregado ");
+        }
         System.out.println("😴 Necessidade de Sono: " + this.necessidadeSono);
         System.out.println("🥗 Necessidade de Refeição: " + this.necessidadeRefeicao);
         System.out.println("👫 Necessidade Social: " + this.necessidadeSocial);
@@ -186,6 +191,7 @@ public class Jogador extends Pessoa{
 
         System.out.println();
         System.out.println("👨‍👩‍👧 Integrantes da família: 👨‍👩‍👧 ");
+
         listarFamilia();
     }
 }

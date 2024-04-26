@@ -3,7 +3,6 @@ package HumanLifeSimulator;
 import HumanLifeSimulator.Enum.Objetivo;
 import HumanLifeSimulator.PersonagensJogo.Jogador;
 import HumanLifeSimulator.PersonagensJogo.NPC;
-import HumanLifeSimulator.PersonagensJogo.Pessoa;
 import HumanLifeSimulator.PropriedadeJogador.AcessorioModa;
 import HumanLifeSimulator.PropriedadeJogador.Imovel;
 import HumanLifeSimulator.PropriedadeJogador.Propriedade;
@@ -19,7 +18,7 @@ public class Sims {
      *
      * @return
      */
-    public static Pessoa criarPessoa() {
+    public static Jogador criarPessoa() {
 
         //variaveis para guardar os atributos iniciais do jogador;
 
@@ -80,32 +79,34 @@ public class Sims {
                 break;
         }
 
-        Pessoa jogador = new Jogador(nome, 0, objetivoDeVida, null, 100, 100, 100, 0, 0);
-        jogador.exibirDetalhes();
+        Jogador jogador = new Jogador(nome, 0, objetivoDeVida, null, 100, 100, 100, 0, 0);
+       // jogador.exibirDetalhes();
         return jogador;
     }
 
     /**
      * Método onde estão todas as instâncias de todos os objetos e onde está no fluxo da aplicação;
      */
-    public void jogo(Pessoa jogador) {
+    public void jogo(Jogador jogador) {
 
         //instancia dos AcessoriosModa
         AcessorioModa acessorioModa1 = new AcessorioModa("Fato de treino", 50, 3, "Nike", false);
-        AcessorioModa acessorioModa2 = new AcessorioModa("Óculos de sol", 150, 1, "RayBan", false);
+        AcessorioModa acessorioModa2 = new AcessorioModa("Óculos de sol", 20, 1, "RayBan", false);
         AcessorioModa acessorioModa3 = new AcessorioModa("Saia Jeans", 70, 2, "Diesel", true);
         AcessorioModa acessorioModa4 = new AcessorioModa("Sneakers", 120, 2, "Adidas", false);
         AcessorioModa acessorioModa5 = new AcessorioModa("Calça de alfaiataria em linho", 150, 3, "Massimo Dutti", true);
-        AcessorioModa acessorioModa6 = new AcessorioModa("Sweater de lã", 160, 1, "Lacoste", true);
+        AcessorioModa acessorioModa6 = new AcessorioModa("Sweater de lã", 100, 1, "Lacoste", true);
         AcessorioModa acessorioModa7 = new AcessorioModa("Cinto de pele ", 70, 1, "Mango", true);
         AcessorioModa acessorioModa8 = new AcessorioModa("Relógio em aço inoxidável ", 250, 3, "Daniel Wellington", false);
         AcessorioModa acessorioModa9 = new AcessorioModa("Pulseira de ouro", 2000, 4, "Hermès", true);
-        AcessorioModa acessorioModa10 = new AcessorioModa("Perfume", 150, 4, "Jo Malone", true);
+        AcessorioModa acessorioModa10 = new AcessorioModa("Perfume", 35, 4, "Jo Malone", true);
         AcessorioModa acessorioModa11 = new AcessorioModa("Biquine", 50, 3, "Nike", false);
         AcessorioModa acessorioModa12 = new AcessorioModa("Meias ", 15, 1, "Primark", false);
         AcessorioModa acessorioModa13 = new AcessorioModa("Fato clássico", 1500, 3, "Dior", true);
         AcessorioModa acessorioModa14 = new AcessorioModa("Vestido de seda", 1000, 4, "Channel", true);
         AcessorioModa acessorioModa15 = new AcessorioModa("Top de seda plissado ", 950, 4, "Versace", false);
+        AcessorioModa acessorioModa16 = new AcessorioModa("T-shirt", 5, 3, "Nike", true);
+
 
         //instancia dos imoveis
 
@@ -161,7 +162,7 @@ public class Sims {
         Profissao profissao1 = new Profissao("Atleta CrossFit", 300, false, 2, 2);
         Profissao profissao2 = new Profissao("Software Developer", 350, true, 1, 4);
         Profissao profissao3 = new Profissao("Design Interiores", 250, false, 2, 3);
-        Profissao profissao4 = new Profissao("Agricultor", 200, false, 1, 1);
+        Profissao profissao4 = new Profissao("Agricultor", 200, false, 0, 0);
         Profissao profissao5 = new Profissao("Contabilista", 210, true, 2, 3);
         Profissao profissao6 = new Profissao("Chef de Cozinha", 240, true, 3, 3);
         Profissao profissao7 = new Profissao("Professor", 200, true, 3, 4);
@@ -169,39 +170,65 @@ public class Sims {
         Profissao profissao9 = new Profissao("Gerente de Loja", 230, false, 2, 2);
         Profissao profissao10 = new Profissao("Nutricionista", 230, true, 2, 3);
 
+        //adicionar os empregos no Centro de Emprego
         CentroDeEmprego centroDeEmprego = new CentroDeEmprego();
+        centroDeEmprego.addProfissao(profissao1);
         centroDeEmprego.addProfissao(profissao4);
         centroDeEmprego.addProfissao(profissao2);
         centroDeEmprego.addProfissao(profissao3);
-        centroDeEmprego.addProfissao(profissao4);
+        centroDeEmprego.addProfissao(profissao5);
+        centroDeEmprego.addProfissao(profissao6);
+        centroDeEmprego.addProfissao(profissao7);
+        centroDeEmprego.addProfissao(profissao8);
+        centroDeEmprego.addProfissao(profissao9);
+        centroDeEmprego.addProfissao(profissao10);
+
+        //adicionar propriedades no Shopping
+        Shopping shopping = new Shopping();
+        shopping.addPropriedade(acessorioModa1);
+        shopping.addPropriedade(acessorioModa2);
+        shopping.addPropriedade(acessorioModa3);
+        shopping.addPropriedade(acessorioModa4);
+        shopping.addPropriedade(acessorioModa5);
+        shopping.addPropriedade(acessorioModa6);
+        shopping.addPropriedade(acessorioModa7);
+        shopping.addPropriedade(acessorioModa8);
+        shopping.addPropriedade(acessorioModa9);
+        shopping.addPropriedade(acessorioModa10);
+
 
 
         // 2 ciclos aninhados: um para o dia e outro para os momentos do dia(4 momentos do dia );
         //50 será o total de dias;
         for (int dia = 1; dia <= 50; dia++) {
+
             for (int momentoDia = 1; momentoDia <= 4; momentoDia++) {
 
                 switch (momentoDia) {
                     case 1: //pela manhã
-                        System.out.println("🌤️🌤️🌤️🌤️🌤️🌤️  M A N H Ã  🌤️🌤️🌤️🌤️🌤️🌤️");
+                        System.out.println("É hora de começar mais um dia ... 🤗🤗🤗");
+                        System.out.println();
+                        System.out.println("\t\t\t\t\t\t🌤️🌤️🌤️🌤️🌤️🌤️  M A N H Ã  🌤️🌤️🌤️🌤️🌤️🌤️");
                         break;
                     case 2: //meio dia
-                        System.out.println("☀️☀️☀️☀️☀️☀️  M E I O - D I A  ☀️☀️☀️☀️☀️☀️");
+                        System.out.println("\t\t\t\t\t\t☀️☀️☀️☀️☀️☀️  M E I O - D I A  ☀️☀️☀️☀️☀️☀️");
                         break;
                     case 3: // meio da tarde
-                        System.out.println("🌇🌇🌇🌇🌇🌇  T A R D E  🌇🌇🌇🌇🌇🌇");
+                        System.out.println("\t\t\t\t\t\t🌇🌇🌇🌇🌇🌇  T A R D E  🌇🌇🌇🌇🌇🌇");
                         break;
                     case 4: //noite
-                        System.out.println("🌛🌠🌛🌠🌛🌠  N O I T E  🌛🌠🌛🌠🌛🌠");
+                        System.out.println("\t\t\t\t\t\t🌛🌠🌛🌠🌛🌠  N O I T E  🌛🌠🌛🌠🌛🌠");
                         break;
                 }
-                momentoDia((Jogador) criarPessoa());
+                momentoDia(jogador, shopping, centroDeEmprego);
             }
+            atualizarNecessidades(jogador);
             jogador.setDinheiro(jogador.getDinheiro() + 30); //no final de cada dia o dinheiro do jogador aumenta em 30 dinheiros
+            jogador.exibirDetalhes();
         }
     }
 
-    public void momentoDia(Jogador jogador) {
+    public void momentoDia(Jogador jogador, Shopping shopping, CentroDeEmprego centroDeEmprego) {   //precisei colocar Shopping para conseguir aceder ao que foi instanciado
 
         Scanner input = new Scanner(System.in);
 
@@ -240,7 +267,7 @@ public class Sims {
 
         switch (opcao) {
             case 1:
-                trabalhar(jogador);
+                primeiroEmprego(jogador);
                 break;
             case 2:
                 dormir(jogador);
@@ -252,7 +279,7 @@ public class Sims {
                 treinar(jogador);
                 break;
             case 5:
-                fazerCompras(jogador);
+                fazerCompras(jogador,shopping ); //para conseguir aceder à lista de propriedades tive que colocar como parametro da função
                 break;
             case 6:
                 terFormacao(jogador);
@@ -268,6 +295,44 @@ public class Sims {
                 System.out.println("Escolhe uma opção do menu, vai la. 😎🤪");
                 break;
         }
+    }
+
+    public void primeiroEmprego(Jogador jogadorAtual){
+        Scanner input = new Scanner(System.in);
+
+        if (jogadorAtual.getProfissao() == null) {
+            System.out.println("Estas prestes a dar um grande passo na tua vida profissional:");
+            System.out.println("Conseguir o teu primeiro emprego 🤩🤩🤩🤩🤩");
+            System.out.println("Esses são os empregos disponíveis atualmente: ");
+
+            CentroDeEmprego.imprimirListaProfissoes();
+
+            System.out.println();
+            System.out.println("Digite aqui o número do emprego que você quer: ");
+            int escolha = input.nextInt();
+
+            ArrayList<Profissao> listaDeProfissao = CentroDeEmprego.getListaDeProfissoes();
+
+            if (escolha >= 1 && escolha <= listaDeProfissao.size()){
+                Profissao profissaoEscolhida = listaDeProfissao.get(escolha - 1);
+
+                jogadorAtual.setProfissao(profissaoEscolhida);
+
+                System.out.println("PARABÉÉÉÉÉNS! Agora tens um emprego!!!");
+                System.out.println("Agora já podes começar a ganhar dinheiro trabalhando no teu novo cargo de " + jogadorAtual.getProfissao().getNome());
+            } else {
+                System.out.println("Escolhe uma profissão válida, por favor ");
+            }
+        } else {
+            Profissao profissaoAtual = jogadorAtual.getProfissao();
+            jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + profissaoAtual.getSalarioDia());
+
+            System.out.println(" Você foi recompensado com " + profissaoAtual.getSalarioDia() + " dinheiros pelo seu dia de trabalho 💸😉");
+        }
+
+
+
+
     }
 
     /**
@@ -304,6 +369,8 @@ public class Sims {
     public void dormir(Jogador jogadorAtual) {
 
         jogadorAtual.setNecessidadeSono(100);
+        System.out.println("😴😴  Com esse cochilo tu aumentou a necessidade de sono em " + jogadorAtual.getNecessidadeSono());
+        jogadorAtual.exibirDetalhes();
     }
 
     /**
@@ -315,6 +382,9 @@ public class Sims {
 
         jogadorAtual.setNecessidadeRefeicao(100);
         jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() - 5);
+        System.out.println("De barriga cheia tudo fica melhor, né ? 🥪☺️");
+        System.out.println("A tua refeição custou " + jogadorAtual.getDinheiro() + " dinheiros. 💸💸💸");
+
     }
 
     /**
@@ -324,6 +394,11 @@ public class Sims {
      */
     public void treinar(Jogador jogadorAtual) {
         jogadorAtual.setNecessidadeSocial(100);
+        jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + 150);
+        System.out.println("💪🏼💪🏼💪🏼 Você foi premiado pela sua excelente disposição em fazer um treino de CROSSFIT!! ");
+        System.out.println("Ganhou 150 dinheiros 💸💸💸");
+        jogadorAtual.exibirDetalhes();
+
     }
 
     /**
@@ -331,8 +406,8 @@ public class Sims {
      *
      * @param jogadorAtual
      */
-    public void fazerCompras(Jogador jogadorAtual) {
-        Shopping shopping = new Shopping();
+    public void fazerCompras(Jogador jogadorAtual, Shopping shopping) {
+        // coloquei shopping como parametro da função. Shopping shopping = new Shopping();
 
         shopping.vender(jogadorAtual);
     }
@@ -396,6 +471,10 @@ public class Sims {
                 System.out.println("😥 Sinto muito, você ainda não atende aos critérios para esse cargo 😪");
             }
         }
+
+        //teste para ver se foi aplicado o novo cargo
+       // System.out.println(jogadorAtual.getProfissao());
+        jogadorAtual.exibirDetalhes();
     }
 
     //colocar função no final de cada ciclo;
@@ -683,7 +762,7 @@ public class Sims {
 
         switch (objetivoVida){
             case MILIONARIO:
-                
+
                 int valorTotalPropriedade = 0;
                 for (Propriedade propriedadeAtual: jogadorAtual.getPropriedades()){
                     valorTotalPropriedade += propriedadeAtual.getCusto();

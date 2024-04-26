@@ -17,6 +17,11 @@ public class Main {
 
         //jogador1.exibirDetalhes();
 
+      Sims jogo = new Sims();
+      Jogador jogadorAtual = jogo.criarPessoa();
+
+      jogo.jogo(jogadorAtual);
+
       //teste para NPC
       NPC npc1 = new NPC("jenny marombeira", 30000, 5);
       NPC npc2 = new NPC("sarinha lindinha", 50000, 10);
