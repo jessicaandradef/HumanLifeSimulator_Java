@@ -82,7 +82,7 @@ public class Sims {
         }
 
         Jogador jogador = new Jogador(nome, 0, objetivoDeVida, null, 100, 100, 100, 0, 0, 0);
-       // jogador.exibirDetalhes();
+       jogador.exibirDetalhes();
         return jogador;
     }
 
@@ -111,43 +111,43 @@ public class Sims {
 
         //instancia dos imoveis
 
-        Imovel imovel1 = new Imovel("Casa de praia", 150000, 4, 6);
-        Imovel imovel2 = new Imovel("Loft", 170000, 2, 2);
-        Imovel imovel3 = new Imovel("Casa geminada", 300000, 4, 5);
-        Imovel imovel4 = new Imovel("Sobrado", 15000, 3, 3);
-        Imovel imovel5 = new Imovel("Apartamento R/C", 190000, 4, 3);
-        Imovel imovel6 = new Imovel("Studio", 170000, 3, 2);
-        Imovel imovel7 = new Imovel("Flat", 155000, 2, 2);
-        Imovel imovel8 = new Imovel("Bangalô", 200000, 4, 3);
-        Imovel imovel9 = new Imovel("Duplex", 250000, 5, 5);
-        Imovel imovel10 = new Imovel("Triplex", 300000, 5, 6);
-        Imovel imovel11 = new Imovel("Apartamento Rooftop", 250000, 4, 4);
-        Imovel imovel12 = new Imovel("Barraca de Camping", 10, 1, 2);
-        Imovel imovel13 = new Imovel("Quinta ", 320000, 5, 10);
-        Imovel imovel14 = new Imovel("Casa de campo", 270000, 5, 6);
-        Imovel imovel15 = new Imovel("Palácio", 500000, 5, 12);
+        Imovel imovel1 = new Imovel("Casa de praia", 70000, 4, 6);
+        Imovel imovel2 = new Imovel("Loft", 40000, 2, 2);
+        Imovel imovel3 = new Imovel("Casa geminada", 55000, 4, 4);
+        Imovel imovel4 = new Imovel("Sobrado", 10000, 3, 3);
+        Imovel imovel5 = new Imovel("Apartamento R/C", 45000, 4, 3);
+        Imovel imovel6 = new Imovel("Studio", 30000, 3, 2);
+        Imovel imovel7 = new Imovel("Flat", 35000, 2, 2);
+        Imovel imovel8 = new Imovel("Bangalô", 40000, 4, 3);
+        Imovel imovel9 = new Imovel("Duplex", 80000, 5, 5);
+        Imovel imovel10 = new Imovel("Triplex", 90000, 5, 6);
+        Imovel imovel11 = new Imovel("Apartamento Rooftop", 65000, 4, 4);
+        Imovel imovel12 = new Imovel("Barraca de Camping", 100, 1, 2);
+        Imovel imovel13 = new Imovel("Quinta ", 60000, 5, 10);
+        Imovel imovel14 = new Imovel("Casa de campo", 50000, 5, 6);
+        Imovel imovel15 = new Imovel("Palácio", 100000, 5, 12);
 
         //instancia dos veículos
 
-        Veiculo veiculo1 = new Veiculo("Carro elétrico", 50000, 4, "Tesla", "ZZZ");
-        Veiculo veiculo2 = new Veiculo("Mota ", 25000, 3, "Yamaha", "MT-125");
-        Veiculo veiculo3 = new Veiculo("Scotter", 5000, 2, "Vespa", "Zard");
-        Veiculo veiculo4 = new Veiculo("Super carro de corrida", 300000, 5, "Lamborghini ", "Urus ");
-        Veiculo veiculo5 = new Veiculo("Lancha ", 70000, 4, "Focker ", "MasterCraft");
-        Veiculo veiculo6 = new Veiculo("Barquinho pescador", 25000, 3, "Hodgon", "Rei dos Mares");
-        Veiculo veiculo7 = new Veiculo("Camião", 70000, 3, "Volkswagem", "Tomba Tudo");
+        Veiculo veiculo1 = new Veiculo("Carro elétrico", 7000, 4, "Tesla", "ZZZ");
+        Veiculo veiculo2 = new Veiculo("Mota ", 2000, 3, "Yamaha", "MT-125");
+        Veiculo veiculo3 = new Veiculo("Scotter", 3000, 2, "Vespa", "Zard");
+        Veiculo veiculo4 = new Veiculo("Super carro de corrida", 10000, 5, "Lamborghini ", "Urus ");
+        Veiculo veiculo5 = new Veiculo("Lancha ", 30000, 4, "Focker ", "MasterCraft");
+        Veiculo veiculo6 = new Veiculo("Barquinho pescador", 1000, 3, "Hodgon", "Rei dos Mares");
+        Veiculo veiculo7 = new Veiculo("Camião", 12000, 3, "Volkswagem", "Tomba Tudo");
         Veiculo veiculo8 = new Veiculo("Bike para criança", 100, 1, "AllBike", "Miudinhos");
-        Veiculo veiculo9 = new Veiculo("Bike de aventura/montanha", 3000, 3, "AllBike", "Aventureiros");
+        Veiculo veiculo9 = new Veiculo("Bike de aventura/montanha", 500, 3, "AllBike", "Aventureiros");
         Veiculo veiculo10 = new Veiculo("Trotinete", 350, 2, "Segway", "NineBot");
-        Veiculo veiculo11 = new Veiculo("Iate", 150000, 4, "Yachts", "Ferretti");
+        Veiculo veiculo11 = new Veiculo("Iate", 50000, 4, "Yachts", "Ferretti");
         Veiculo veiculo12 = new Veiculo("Carro de mão", 25, 4, "Tesla", "ZZZ");
-        Veiculo veiculo13 = new Veiculo("Helicoptero", 100000, 5, "Pantera do Céu", "BlackPanther");
-        Veiculo veiculo14 = new Veiculo("Jetski ", 7000, 2, "Hayley Sea", "HS-55");
+        Veiculo veiculo13 = new Veiculo("Helicoptero", 90000, 5, "Pantera do Céu", "BlackPanther");
+        Veiculo veiculo14 = new Veiculo("Jetski ", 4000, 2, "Hayley Sea", "HS-55");
         Veiculo veiculo15 = new Veiculo("Velocipe", 70, 1, "Kids Toys", "Reizinho dos Passeios");
 
         //instancias dos NPC (familia do jogador)
 
-        NPC npc1 = new NPC("Luis", 200000, 0);
+        NPC npc1 = new NPC("Luis", 200000, 2);
         NPC npc2 = new NPC("Caio", 150000, 4);
         NPC npc3 = new NPC("Sarinha", 100000, 5);
         NPC npc4 = new NPC("Anna", 80000, 3);
@@ -160,10 +160,12 @@ public class Sims {
 
         //npc para adoção: NPC aleatório sem dinheiro ou estatutoMinimo ao Array da família
 
-        NPC npcAdocao1 = new NPC("Bibi", 0, 2);
-        NPC npcAdocao2 = new NPC("Bibi", 0, 2);
-        NPC npcAdocao3 = new NPC("Bibi", 0, 2);
-        NPC npcAdocao4 = new NPC("Bibi", 0, 2);
+        NPC npcAdocao1 = new NPC("Bibi", 0, 0);
+        NPC npcAdocao2 = new NPC("Lolo", 0, 0);
+        NPC npcAdocao3 = new NPC("Nuno", 0, 0);
+        NPC npcAdocao4 = new NPC("Mila", 0, 0);
+        NPC npcAdocao5 = new NPC("Ruizinho", 0, 0);
+
 
 
 
@@ -256,6 +258,11 @@ public class Sims {
         addNPC(npc8);
         addNPC(npc9);
         addNPC(npc10);
+        addNPC(npcAdocao1);
+        addNPC(npcAdocao2);
+        addNPC(npcAdocao3);
+        addNPC(npcAdocao4);
+        addNPC(npcAdocao5);
 
 
 
@@ -265,17 +272,23 @@ public class Sims {
         for (int dia = 1; dia <= 50; dia++) {
 
             switch (dia){
-                case 5:
+                case 6:
                     rotinaUniversidade(jogador);
                     break;
                 case 3:
                     casamento(jogador);
                     break;
-                case 30:
+                case 8:
+                    ficarDoente(jogador);
+                    break;
+                case 10:
                     tempoChuvoso(jogador);
                     break;
-                case 40:
+                case 12:
                     competicaoCrossfit(jogador);
+                    break;
+                case 14:
+                    eventoPublico(jogador);
                     break;
 
                 default:
@@ -304,13 +317,12 @@ public class Sims {
                         momentoDia(jogador, shopping, centroDeEmprego);
                     }
                     atualizarNecessidades(jogador);
-
-                    if (jogador.isCasado()){
+                    if (jogador.isCasado()){ //no final de cada dia o dinheiro do jogador aumenta em 30 dinheiros se ele for casado
                         jogador.setDinheiro(jogador.getDinheiro() + 30);
-                    }//no final de cada dia o dinheiro do jogador aumenta em 30 dinheiros SE ELE CASAR
+                    }
                     jogador.exibirDetalhes();
             }
-            }
+        }
     }
 
     public void momentoDia(Jogador jogador, Shopping shopping, CentroDeEmprego centroDeEmprego) {   //precisei colocar Shopping para conseguir aceder ao que foi instanciado
@@ -336,7 +348,7 @@ public class Sims {
         System.out.println("\t\t\t\t\t\t5. " + "🔸----- Torrar uma boa grana comprando no shopping não seria má ideia, vem comigo 💸💸💸💸 -----🔸");
         System.out.println();
 
-        System.out.println("\t\t\t\t\t\t6. " + "🔸----- Estudar um pouco me parece uma excelente ideia, que tal uma formação em POO ? 📚💻 -----🔸");
+        System.out.println("\t\t\t\t\t\t6. " + "🔸----- Estudar me parece uma excelente ideia, que tal uma nova formação ? 📚💻 -----🔸");
         System.out.println();
 
         System.out.println("\t\t\t\t\t\t7. " + "🔸----- Faz tempo que não visitas as tuas propriedades... vamos dar um passeio por elas ? 🚗🌅🏡 -----🔸");
@@ -382,7 +394,8 @@ public class Sims {
                 break;
             case 9:
                 if (jogador.isCasado()) {
-                    //invocar o metodo adotar menino
+                    adotarCrianca(jogador);
+                    break;
                 }
             default:
                 System.out.println("Tantas opções disponiveis e tu escolheu logo uma que não existe? 😤😤😤");
@@ -414,6 +427,7 @@ public class Sims {
                 Profissao profissaoEscolhida = listaDeProfissao.get(escolha - 1);
 
                 jogadorAtual.setProfissao(profissaoEscolhida);
+                jogadorAtual.setEstatuto(profissaoEscolhida.getEstatuto()); //atualizar estatuto do jogador com o estatuto da profissão
 
                 System.out.println("PARABÉÉÉÉÉNS! 🎉🎉🎉🎉 Agora tens um emprego, já podes começar a ganhar dinheiro trabalhando !!!");
                 System.out.println();
@@ -427,34 +441,10 @@ public class Sims {
             jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + profissaoAtual.getSalarioDia());
 
             System.out.println(" Você foi recompensado com " + profissaoAtual.getSalarioDia() + " dinheiros pelo seu dia de trabalho 💸😉");
+            System.out.println("O teu saldo atual é de " + jogadorAtual.getDinheiro() +" dinheiros 🤑🤑. Continuas assim que vais terminar bem!!");
         }
     }
 
-    /**
-     * Método que aumenta o dinheiro do jogador com base no salário por dia da sua profissão;
-     * Se por acaso o jogador ainda não tiver emprego, será redirecionado para procurar um emprego;
-     *
-     * @param jogadorAtual
-     */
-    public void trabalhar(Jogador jogadorAtual) {
-
-        Profissao profissao = jogadorAtual.getProfissao();
-
-        if (profissao == null) {
-            System.out.println("Pelos vistos ainda não tens um emprego 😪");
-            System.out.println("Tudo bem, consigo te ajudar 🙌🏼");
-            System.out.println("Aqui está a lista de empregos disponíveis no Centro de Empregos: ");
-            System.out.println();
-
-            //redireciona para procurar emprego e fazer alteração do emprego do jogador
-            procurarEmprego(jogadorAtual);
-
-        } else {
-            double salarioDia = profissao.getSalarioDia();
-            //aumentar dinheiro
-            jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + salarioDia);
-        }
-    }
 
     /**
      * Método que repõe a necessidade de sono de volta a 100;
@@ -464,8 +454,7 @@ public class Sims {
     public void dormir(Jogador jogadorAtual) {
 
         jogadorAtual.setNecessidadeSono(100);
-        System.out.println("😴😴  Com esse cochilo tu aumentou a necessidade de sono em " + jogadorAtual.getNecessidadeSono());
-        jogadorAtual.exibirDetalhes();
+        System.out.println("😴😴  Com esse cochilo você aumentou a necessidade de sono em " + jogadorAtual.getNecessidadeSono() + " pontos!");
     }
 
     /**
@@ -478,7 +467,7 @@ public class Sims {
         jogadorAtual.setNecessidadeRefeicao(100);
         jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() - 5);
         System.out.println("De barriga cheia tudo fica melhor, né ? 🥪☺️");
-        System.out.println("A tua refeição custou " + jogadorAtual.getDinheiro() + " dinheiros. 💸💸💸");
+        System.out.println("A tua refeição custou 5 dinheiros! 🤑🤑 Teu saldo total é de : " + jogadorAtual.getDinheiro() + " dinheiros. 💸💸💸");
 
     }
 
@@ -489,16 +478,21 @@ public class Sims {
      */
     public void treinar(Jogador jogadorAtual) {
 
+        //se o jogadorAtual tiver o objetivo de vida crossfitter, aumanta o condicionamento físico também
         if (jogadorAtual.getObjetivoVida().equals(Objetivo.CROSSFITEIRO)){
             jogadorAtual.setCondicionamentoFisico(jogadorAtual.getCondicionamentoFisico() + 250);
+            jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + 200);
             jogadorAtual.setNecessidadeSocial(jogadorAtual.getNecessidadeSocial() + 100);
             System.out.println();
             System.out.println("Pelos vistos o teu objetivo de vida é ser um eterno Crossfitter... 🤩🤩🤩");
             System.out.println("Sendo assim, ganhaste 200 dinheiros por ser atleta da modalidade 💪🏼💪🏼💪🏼");
             System.out.println("Ganhou também 50 pontos no teu social pela tua interação com outros atletas 👭👩🏻‍🤝‍👨🏻👩🏻‍🤝‍👨🏻 ");
             System.out.println();
+            System.out.println("💪🏽💪🏽💪🏽 Teu condicionamento físico está aumentando e ficando incrível!! 😧 Já consigo ver teus gominhos daqui, PARABENS! 💪🏽💪🏽💪🏽 ");
 
-        } else {
+            System.out.println();
+
+        } else {  //se não tiver o objetivo de vida ser crossfitter
             System.out.println();
             jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + 150);
             jogadorAtual.setNecessidadeSocial(jogadorAtual.getNecessidadeSocial() + 100);
@@ -517,17 +511,24 @@ public class Sims {
      * @param jogadorAtual
      */
     public void fazerCompras(Jogador jogadorAtual, Shopping shopping) {
-        // coloquei shopping como parametro da função. Shopping shopping = new Shopping();
 
         shopping.vender(jogadorAtual);
     }
 
     /**
-     * Método que aumenta a educação do jogador em +2 se escolher essa opção no menu;
+     * Método que aumenta a educação do jogador em +30 e o estatuto em +5 se escolher essa opção no menu;
      * @param jogadorAtual
      */
     public void terFormacao(Jogador jogadorAtual) {
-        jogadorAtual.setEducacao(jogadorAtual.getEducacao() + 2);
+        jogadorAtual.setEducacao(jogadorAtual.getEducacao() + 30);
+        jogadorAtual.setEstatuto(jogadorAtual.getEstatuto() + 5);
+        System.out.println();
+        System.out.println("Parabéns pelo teu esforço contínuo!! 🤩🤩🤩");
+        System.out.println();
+        System.out.println("Essa formação tem um custo de 30 dinheiros, tenho certeza que será um bom investimento 💻💻");
+        System.out.println("Através do conhecimento vais longe! Continue assim 🥳🥳🥳");
+        System.out.println("Com essa nova formação você aumentou a sua educação em 30 pontos e seu estatuto em 5 pontos😉");
+        System.out.println();
     }
 
     /**
@@ -536,9 +537,14 @@ public class Sims {
      * @param jogadorAtual
      */
     public void verPropriedades(Jogador jogadorAtual) {
-        if (jogadorAtual instanceof Jogador) {
-            jogadorAtual.listarPropriedades();
+
+        System.out.println("🏘️🏙️🏚️🏕️    TUAS PROPRIEDADES    🏘️🏙️🏚️🏕️");
+        for (Propriedade propriedadeAtual : jogadorAtual.getPropriedades()){
+            if (propriedadeAtual instanceof Imovel){
+                propriedadeAtual.exibirDetalhesPropriedade();
+            }
         }
+
     }
 
     /**
@@ -554,30 +560,44 @@ public class Sims {
         CentroDeEmprego.imprimirListaProfissoes(); //imprimir todas as profissões do array listaDeProfissoes;
 
         System.out.println();
-        System.out.println("👨🏼‍🌾👩🏼‍🍳👨🏼‍✈️🧑🏼‍🚒 Escolha uma profissão: 👮🏼👨🏼‍🌾👷🏼‍♀️👨🏼‍⚕️");
+        System.out.println("👨🏼‍🌾👩🏼‍🍳👨🏼‍✈️🧑🏼‍🚒 Escreva o nome da profissão: 👮🏼👨🏼‍🌾👷🏼‍♀️👨🏼‍⚕️");
         String nomeProfissao = input.nextLine(); //profissão de escolha do utilizador depois de ver a lista de empregos
 
         ArrayList<Profissao> listaDeProfissoes = CentroDeEmprego.getListaDeProfissoes();
 
         boolean profissaoEncontrada = false;
         Profissao profissaoEscolhida = null;
+
         for (Profissao profissaoAtual : listaDeProfissoes) {
 
             if (profissaoAtual.getNome().equalsIgnoreCase(nomeProfissao)) {
                 profissaoEncontrada = true;
                 profissaoEscolhida = profissaoAtual;
-                break;
-            }
-        }
 
-        //se a profissão for encontrada, verificar se tem criterios para conseguir aquele emprego escolhido ou não;
-        if (profissaoEncontrada) {
-            boolean temAcessorioFormal = jogadorAtual.possuiAcessorioFormal(); //método para verificar se o jogador tem um acessorio de moda formal na lista de propriedade;
+                if (profissaoEscolhida.isFormal()){ //verificar se a profissão é formal é true
+                    if (jogadorAtual.possuiAcessorioFormal()){ //se o jogador tem pelo menos 1 acessorio formal
+                        if (jogadorAtual.getEstatuto() >= profissaoEscolhida.getEstatuto() && jogadorAtual.getEducacao() >= profissaoEscolhida.getNivelMinimoEducacao()){
+                            jogadorAtual.setProfissao(profissaoEscolhida);
+                            System.out.println("Parabens, você acabou de ser admitido para o cargo de " + profissaoEscolhida.getNome());
+                            System.out.println("Vamos celebrar 🥂🥂🥂🥂🥂🥂");
+                            System.out.println();
+                        } else {
+                            System.out.println("Sinto muito, você ainda não tem critérios para esse cargo 😣😣");
+                        }
+                    }else{
+                        System.out.println("Desculpe, para esse cargo você precisa de pelo menos 01 acessório formal");
+                        System.out.println("Podes ir as compras no SHOPPING SIMS DEV 👔👗👜👞👠");
+                        System.out.println();
+                    }
+                }else {
+                    if (jogadorAtual.getEstatuto() >= profissaoEscolhida.getEstatuto() && jogadorAtual.getEducacao() >= profissaoEscolhida.getNivelMinimoEducacao()){
+                        jogadorAtual.setProfissao(profissaoEscolhida);
+                    } else {
+                        System.out.println("Poxa 😥😥 você ainda não atende aos critérios do cargo");
+                        System.out.println("Continua a procura, nao desista!! ");
 
-            if (jogadorAtual.getEstatuto() >= profissaoEscolhida.getEstatuto() && jogadorAtual.getEducacao() >= profissaoEscolhida.getNivelMinimoEducacao() && temAcessorioFormal) {
-                jogadorAtual.setProfissao(profissaoEscolhida);
-            } else {
-                System.out.println("😥 Sinto muito, você ainda não atende aos critérios para esse cargo 😪");
+                    }
+                }
             }
         }
 
@@ -604,22 +624,29 @@ public class Sims {
         jogadorAtual.setNecessidadeSocial(necessidadeSocial);
     }
 
-    //inserir no menu
-    //teste para essa questão: Dia 5 deve escolher se quer ir para a universidade, caso sim, a educação aumenta 50, mas contrai uma divida de 3.000 dinheiros.
     public void rotinaUniversidade(Jogador jogadorAtual) {
         Scanner input = new Scanner(System.in);
 
-        for (int dia = 1; dia <= 50; dia++) {
-            if (dia == 5) {
-                System.out.println("Hoje é dia 05, queres ir a universidade ? (y/n) 🏫📚");
-                String escolha = input.next();
+        System.out.println("Hoje é um dia muito especial  🏫📚");
+        System.out.println();
+        System.out.println("⭐⭐⭐ Estás indo rumo a um futuro brilhante com as formações que tens feito ao longo desse tempo... ⭐⭐⭐");
+        System.out.println();
+        System.out.println("🏫📚🏫📚       Gostarias de dar um passo a frente e entrar na UNIVERSIDADE SIMS DEV ?   (y/n)    🏫📚🏫📚");
+        String escolha = input.next();
 
                 if (escolha.equalsIgnoreCase("y")) {
-                    jogadorAtual.setEducacao(50); //aumenta educação em 50
-                    jogadorAtual.setDinheiro(3000); //reduz 3000 do dinheiro total;
+                    jogadorAtual.setEducacao(jogadorAtual.getEducacao() +  50); //aumenta educação em 50
+                    jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() - 3000); //reduz 3000 do dinheiro total;
+                    System.out.println();
+                    System.out.println("PARABÉNS por essa conquista incrivel! 💻🤩💻🤩");
+                    System.out.println("Tenho certeza que esse investimento vai valer muito a pena!");
+                    System.out.println("Boa sorte na tua jornada 🥂🥂🥂🥂🥂🥂");
+
+                } else {
+                    System.out.println("Pelos vistos não tens a intenção de fazer universidade... 😣 ");
+                    System.out.println("Desejo boa sorte no caminho que desejares trilhar 😉😉 ");
+
                 }
-            }
-        }
     }
 
     //criando um arrayList de pretendentes para adicionar os NPC para o futuro casamento
@@ -631,7 +658,9 @@ public class Sims {
 
     public void imprimirListaNpc(){
         for (NPC npcAtual: pretendentes){
-            npcAtual.exibirDetalhes();
+            if (npcAtual.getDinheiro() > 0){
+                npcAtual.exibirDetalhes();
+            }
         }
     }
 
@@ -667,15 +696,28 @@ public class Sims {
                         System.out.println();
 
                         if (podeCasar(jogadorAtual, npcEscolhido)) {
-                            //se o casamento acontecer, aumenta ao dinheiro do jogador todo o dinheiro que o npc tem;
-                            jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + npcEscolhido.getDinheiro());
-                            npcEscolhido.setDinheiro(0);
 
-                            jogadorAtual.addNPC(npcEscolhido);
+                            System.out.println();
+                            System.out.println("\t\t\t\t\t\t🎶🎶🎶 PANPANPANPAN 🎶🎶🎶 PANPANPANPAN 🎶🎶🎶 PANPANPANPAN 🎶🎶🎶 PANPANPANPAN 🎶🎶🎶");
+                            System.out.println();
+                            System.out.println(jogadorAtual.getNome() + ", você aceita " + npcEscolhido.getNome() + " como seu futuro/a esposo/a ?   (y/n)");
+                            escolha = input.next();
 
-                            jogadorAtual.setCasado(true);
-                        } else {
-                            System.out.println("ERRO!");
+                            if (escolha.equalsIgnoreCase("y")){
+
+                                //se o casamento acontecer, aumenta ao dinheiro do jogador todo o dinheiro que o npc tem;
+                                jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + npcEscolhido.getDinheiro());
+                                npcEscolhido.setDinheiro(0);
+
+                                jogadorAtual.addNPC(npcEscolhido); //npn escolhido entra oficialmente para a familia 😎
+
+                                jogadorAtual.setCasado(true);
+
+                                System.out.println("🎉🎉🎉🎉🥂🥂🥂 EU VOS DECLARO CASADOOOOOS 🎉🎉🎉🎉🥂🥂🥂 ");
+                            } else {
+                                System.out.println("Casamento cancelado, partistes o coração do teu pretendente 😭");
+                            }
+
                         }
                         break;
 
@@ -684,16 +726,15 @@ public class Sims {
                         System.out.println("🍾🍷🍸🍹🥂🍻🍺");
                         System.out.println("Eitaaaaa, queres continuar na vida de copos e amigos");
                         System.out.println("Eu compreendo, talvez ainda não tenhas encontrado um grande amor para tua vida...");
-                        System.out.println("Partites o coração de alguém... 💔❤️‍🩹💔❤️‍🩹");
+                        System.out.println("Partistes o coração de alguém... 💔❤️‍🩹💔❤️‍🩹");
                         System.out.println("Vida que segue !! 🍻🍺 ");
                         System.out.println();
                         break;
                     default:
-                        System.out.println("Sei posso ter te pegado de surpresa...");
+                        System.out.println("Sei que posso ter te pegado de surpresa...");
                         System.out.println("Mas para essa pergunta só há 2 opções de resposta: ");
-                        System.out.println("YYYYEEESSSSS OU NNNNOOOOOOO ");
+                        System.out.println("YYYYEEESSSSS OU NNNNOOOOOOO, me responde ai, vai ☺️😉😋 ");
                         break;
-
         }
     }
 
@@ -710,11 +751,15 @@ public class Sims {
         String escolha;
 
         System.out.println();
-        System.out.println("Escreve o nome do teu futuro noivo/noiva :");
+        System.out.println("Escreve o NOME do teu futuro noivo/noiva :");
         escolha = input.next();
 
         for (NPC npcAtual : pretendentes) {
-            if (npcAtual.getNome().equalsIgnoreCase(escolha)) {
+            if (npcAtual.getNome().equalsIgnoreCase(escolha) && npcAtual.getDinheiro() > 0) {
+                System.out.println();
+                System.out.println("Pretendente escolhido!! Agora vem a melhor parte: ");
+                System.out.println("💒💒💍💍 A CERIMÔNIA DE CASAMENTO 💍💍💒💒");
+
                 return npcAtual;
             }
         }
@@ -752,13 +797,32 @@ public class Sims {
         return true; //se as 2 condições for verdadeira
     }
 
+    public static int capacidadeImovel(Jogador jogadorAtual){
+
+        int capacidadeMaxima = 0;
+
+        for (Propriedade propriedadeAtual : jogadorAtual.getPropriedades()){
+            if (propriedadeAtual instanceof Imovel){
+                Imovel imovelAtual = (Imovel) propriedadeAtual;
+                int capacidadeAtual = imovelAtual.getCapacidadePessoas();
+
+                if (capacidadeAtual > capacidadeMaxima){
+                    capacidadeMaxima = capacidadeAtual;
+                }
+
+            }
+        }
+        return capacidadeMaxima;
+    }
+
+
     public static void adotarCrianca(Jogador jogadorAtual){
 
         Random random = new Random();
         ArrayList<NPC> bebesParaAdocao = new ArrayList<NPC>();
 
         for (NPC npcAtual : pretendentes){
-            if (npcAtual.getDinheiro() == 0 || npcAtual.getEstatutoMinimo() == 0){
+            if (npcAtual.getDinheiro() == 0 && npcAtual.getEstatutoMinimo() == 0){
                 bebesParaAdocao.add(npcAtual);
             }
         }
@@ -766,8 +830,21 @@ public class Sims {
         int indiceBebe = random.nextInt(bebesParaAdocao.size());
         NPC bebeAleatorio = bebesParaAdocao.get(indiceBebe);
 
-        jogadorAtual.addNPC(bebeAleatorio);
-        System.out.println();
+        if (capacidadeImovel(jogadorAtual) > jogadorAtual.getFamilia().size()+1){
+            jogadorAtual.addNPC(bebeAleatorio);
+            System.out.println();
+            System.out.println("Parabens! Vocês acabaram de adotar uma criança! ");
+            System.out.println("O nome do seu bebê é " + bebeAleatorio.getNome());
+            System.out.println("👶🏽🍼🍭👶🏽🍼🍭👶🏽🍼🍭👶🏽🍼🍭👶🏽🍼🍭👶🏽");
+            System.out.println();
+
+        } else {
+            System.out.println("😭😭😭😭😭😭");
+            System.out.println("Desculpe, você e seu esposo/a ainda não tem uma casa com capacidade para abrigar toda a familia ");
+            System.out.println("Minha sugestão é comprar um novo imóvel para conseguir abrigar a todos");
+            System.out.println("Podes ir na imobiliaria SIMS DEV para ver os imóveis disponíveis para compra 🤩");
+            System.out.println("🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡");
+        }
     }
 
     //Eventos aleatorios do jogo: 1) simular o jogador doente
@@ -800,7 +877,7 @@ public class Sims {
                         System.out.println("O entregador vai te deixar o remédio em casa.");
                         System.out.println("O Benuron custa 1 dinheiro, teu contribuinte já está na fatura 😊💸");
 
-                        jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() - 1); //valor do benuron;
+                        jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() - 15); //valor do benuron;
 
                         break;
 
@@ -850,13 +927,20 @@ public class Sims {
 
                         System.out.println();
                         if (escolha.equalsIgnoreCase("y")){
-                            System.out.println("🏆🏆🏆🏆🏆 Parabens, ganhaste com muita raça essa competição! 🏆🏆🏆🏆🏆");
-                            System.out.println("Teu prêmio foi: ");
-                            System.out.println("🥇💶💰💵 1000 DINHEIROS 🥇💶💰💵");
 
-                            jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + 2000);
-                            jogadorAtual.setNecessidadeRefeicao(jogadorAtual.getNecessidadeRefeicao() - 5);
-                            jogadorAtual.setNecessidadeSono(jogadorAtual.getNecessidadeSono()-3);
+                            if (jogadorAtual.getCondicionamentoFisico() > 1000){
+                                System.out.println("🏆🏆🏆🏆🏆 Parabens, ganhaste com muita raça essa competição! 🏆🏆🏆🏆🏆");
+                                System.out.println("Teu prêmio foi: ");
+                                System.out.println("🥇💶💰💵 1000 DINHEIROS 🥇💶💰💵");
+
+                                jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + 2000);
+                                jogadorAtual.setNecessidadeRefeicao(jogadorAtual.getNecessidadeRefeicao() - 5);
+                                jogadorAtual.setNecessidadeSono(jogadorAtual.getNecessidadeSono()-3);
+                            } else {
+                                System.out.println("😣😣 Apesar da tua vontade em participar do campeonato de Cross, ainda não tens condionamento físico para participar");
+                                System.out.println("Treina mais e aos poucos vais conseguindo se superar e melhorar! Até a próxima e não desista 💪🏽💪🏽😉😉");
+                            }
+
 
                         } else if (escolha.equalsIgnoreCase("n")) {
                             System.out.println("❌❌❌❌ Sem tempo para descanso, você foi desclassificado por não iniciar o WOD ❌❌❌❌");
@@ -898,6 +982,40 @@ public class Sims {
 
     }
 
+    public void eventoPublico(Jogador jogadorAtual){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Você foi convidado a participar de um evento de Tecnologia 🎮🕹️💻📺🎥");
+        System.out.println("Me parece uma execelente oportunidade de interagir com outras pessoas e fazer um bom networking 🤩🤩🤩");
+        System.out.println("Tens interesse em participar ?   (y/n)");
+        String escolha = input.next();
+
+        switch (escolha){
+            case "y":
+                System.out.println("Tens interesse em participar do COFFEE BREAK ?  (y/n)");
+                String opcao =input.next();
+                if (opcao.equalsIgnoreCase("y")) {
+                    System.out.println("Estas a se divertir no evento e a conhecer novas pessoas!!");
+                    System.out.println("Ganhastes 100 pontos por interação com outras pessoas e 50 pontos no teu estatuto");
+                    jogadorAtual.setNecessidadeSocial(jogadorAtual.getNecessidadeSocial() + 100);
+                    jogadorAtual.setEstatuto(jogadorAtual.getEstatuto() + 50);
+                } else {
+                    System.out.println("Mesmo sem querer interagir no COFFEE BREAK, você foi premiado com 30 pontos no estatuto.");
+                    jogadorAtual.setEstatuto(jogadorAtual.getEstatuto() + 50);
+                }
+                break;
+            case "n":
+                System.out.println(" Poxa, você perdeu uma excelente oportunidade de conhecer pessoas novas. ");
+                System.out.println("A recusa do convite te fez perder 20 pontos na necessidade social. 😣😣");
+                jogadorAtual.setNecessidadeSocial(jogadorAtual.getNecessidadeSocial() - 20);
+                break;
+            default:
+                System.out.println("Escolhe uma opção válida");
+                break;
+        }
+
+    }
+
     public boolean verificarVitoria(Jogador jogadorAtual){
 
         Objetivo objetivoVida = jogadorAtual.getObjetivoVida();
@@ -918,9 +1036,35 @@ public class Sims {
                     return true;
                 }
                 break;
-
+            case CELEBRIDADE:
+                if (jogadorAtual.getEstatuto() > 700) {
+                    return true;
+                }
+                break;
+            case CROSSFITEIRO:
+                if (jogadorAtual.getCondicionamentoFisico() > 2000 && jogadorAtual.getNecessidadeSono() >= 100){
+                    return true;
+                }
+                break;
+            case PROGRAMADOR:
+                if (jogadorAtual.getEducacao() > 1500 && jogadorAtual.getNecessidadeSono() > 100){
+                    return true;
+                }
+                break;
+            case INFLUENCER_FITNESS:
+                if (jogadorAtual.getNecessidadeSocial() > 1500 && jogadorAtual.getDinheiro() > 100000){
+                    return true;
+                }
+                break;
+            case NOMADE_DIGITAL:
+                if (jogadorAtual.getDinheiro() > 150000 && jogadorAtual.getEducacao() > 100){
+                    return true;
+                }
+                break;
+            default:
+                System.out.println("Não houve jogador vencedor!");
+                break;
         }
-
         return false;
     }
 

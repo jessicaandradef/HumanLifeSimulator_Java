@@ -55,6 +55,10 @@ public class Jogador extends Pessoa{
         this.casado = casado;
     }
 
+    public void setEstatuto(int estatuto) {
+        this.estatuto = estatuto;
+    }
+
     public Profissao getProfissao() {
         return profissao;
     }
@@ -175,12 +179,10 @@ public class Jogador extends Pessoa{
 
             if (propriedadeAtual instanceof AcessorioModa){
                 if (((AcessorioModa) propriedadeAtual).isFormal()){
-                    System.out.println("Tem acessorio formal");
                     return true;
                 }
             }
         }
-        System.out.println("não tem acessorio formal");
         return false;
     }
 
@@ -192,7 +194,8 @@ public class Jogador extends Pessoa{
         System.out.println();
         super.exibirDetalhes();
         System.out.println("🙏🏼 Objetivo de vida: " + this.objetivoVida);
-        //adicionei uma condição if já que a profissao começa Null por default
+
+        //adicionei uma condição já que a profissão começa Null por default
         if (this.profissao != null){
             System.out.println("👨‍🍳 Profissão: " + this.profissao.getNome());
         } else {
@@ -200,7 +203,7 @@ public class Jogador extends Pessoa{
         }
 
         if (this.getObjetivoVida().equals(Objetivo.CROSSFITEIRO)){
-            System.out.println("Condicionamento físico: " + this.getCondicionamentoFisico());
+            System.out.println("🤸🏽💪🏽 Condicionamento físico: " + this.getCondicionamentoFisico());
         }
 
         System.out.println("😴 Necessidade de Sono: " + this.necessidadeSono);
@@ -214,6 +217,7 @@ public class Jogador extends Pessoa{
             System.out.println("👨‍👩‍👧 Integrantes da família: 👨‍👩‍👧 ");
 
             listarFamilia();
+            System.out.println();
         }
 
         if (this.propriedades.size() != 0){
@@ -221,7 +225,9 @@ public class Jogador extends Pessoa{
             System.out.println("🏘️🚗 Lista das propriedades: 🏘️🚗");
 
             listarPropriedades();
+            System.out.println();
         }
+
         System.out.println();
 
     }

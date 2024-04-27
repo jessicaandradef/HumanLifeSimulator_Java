@@ -51,9 +51,12 @@ public class Shopping {
                 break;
             }
 
-            System.out.println("ID: " + contador);
+            System.out.println();
+            System.out.println("▫️ ID: " + contador);
             propriedadeAtual.exibirDetalhesPropriedade();
+            System.out.println();
             System.out.println("▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️");
+
             contador++;
 
         }
@@ -119,9 +122,10 @@ public class Shopping {
                     Propriedade imovelEscolhido = vitrineImoveis.get(idImovel); //tenho acesso ao id do imovel que o usuario deseja comprar
 
                     if (pessoaAtual instanceof Jogador) { //verificar se pessoaAtual é instancia de Jogador para conseguir comprar imovel
-                        if (((Jogador) pessoaAtual).addPropriedade(imovelEscolhido)) { //casting para converter pessoaAtual em Jogador; presumo que pessoaAtual é uma referencia a um obj do tipo Jogador
+                        if (((Jogador) pessoaAtual).addPropriedade(imovelEscolhido)) { //casting para converter pessoaAtual em Jogador e add a propriedade
                             vitrineImoveis.remove(imovelEscolhido); //remover imovel da vitrine
                             this.coisasParaComprar.remove(imovelEscolhido); //remover imovel do array CoisasParaComprar
+                            ((Jogador) pessoaAtual).setEstatuto(imovelEscolhido.getEstatuto() + ((Jogador) pessoaAtual).getEstatuto());
                         }
                     }
 

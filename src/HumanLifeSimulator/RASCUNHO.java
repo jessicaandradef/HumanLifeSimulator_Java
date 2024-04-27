@@ -67,7 +67,44 @@ public class RASCUNHO {
         }
 
   */
+        /* public void procurarEmprego(Jogador jogadorAtual) {
+        Scanner input = new Scanner(System.in);
 
+        CentroDeEmprego.imprimirListaProfissoes(); //imprimir todas as profissões do array listaDeProfissoes;
+
+        System.out.println();
+        System.out.println("👨🏼‍🌾👩🏼‍🍳👨🏼‍✈️🧑🏼‍🚒 Escreva o nome da profissão: 👮🏼👨🏼‍🌾👷🏼‍♀️👨🏼‍⚕️");
+        String nomeProfissao = input.nextLine(); //profissão de escolha do utilizador depois de ver a lista de empregos
+
+        ArrayList<Profissao> listaDeProfissoes = CentroDeEmprego.getListaDeProfissoes();
+
+        boolean profissaoEncontrada = false;
+        Profissao profissaoEscolhida = null;
+
+        for (Profissao profissaoAtual : listaDeProfissoes) {
+
+            if (profissaoAtual.getNome().equalsIgnoreCase(nomeProfissao)) {
+                profissaoEncontrada = true;
+                profissaoEscolhida = profissaoAtual;
+                break;
+            }
+        }
+
+        //se a profissão for encontrada, verificar se tem criterios para conseguir aquele emprego escolhido ou não;
+        if (profissaoEncontrada) {
+            boolean temAcessorioFormal = jogadorAtual.possuiAcessorioFormal(); //método para verificar se o jogador tem um acessorio de moda formal na lista de propriedade;
+
+            if (jogadorAtual.getEstatuto() >= profissaoEscolhida.getEstatuto() && jogadorAtual.getEducacao() >= profissaoEscolhida.getNivelMinimoEducacao() && temAcessorioFormal) {
+                jogadorAtual.setProfissao(profissaoEscolhida);
+            } else {
+                System.out.println("😥 Sinto muito, você ainda não atende aos critérios para esse cargo 😪");
+            }
+        }
+
+        //teste para ver se foi aplicado o novo cargo
+       // System.out.println(jogadorAtual.getProfissao());
+        jogadorAtual.exibirDetalhes();
+    }*/
 }
 
 
