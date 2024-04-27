@@ -41,16 +41,17 @@ public class Sims {
         nome = input.nextLine();
 
         System.out.println();
-        System.out.println("Qual o objetivo de vida do seu jogador ?");
+        System.out.println("\t\t\t\t\t\t\t\t\t\t Qual o objetivo de vida do seu jogador ?");
         System.out.println();
-        System.out.println("1- MILIONÁRIO 🤑💰💸💵");
-        System.out.println("2- TER UMA FAMÍLIA COMPLETA 👰🏼‍♀️🤵🏼‍♂️🤰🏼👩🏻‍❤️‍👨🏻👨‍👩‍👧‍👦");
-        System.out.println("3- SER UMA CELEBRIDADE 📽️💁🏼‍♀️✈️📺📸");
-        System.out.println("4- SER UM ATLETA DE CROSSFIT 🏋️🤸🏼💪🏼🏃🏼‍♂️");
-        System.out.println("5- SER UM PROGRAMADOR BACK-END 💻👩🏼‍💻🤘🏼");
-        System.out.println("6- SER UM INFLUENCER FITNESS 👙📲📸💸🤳🏼");
-        System.out.println("7- SER UM NÔMADE DIGITAL 🌏🧭🏞️🏕️🏝️🏖️");
-
+        System.out.println("\t\t\t\t\t\t\t\t\t\t🤑💰💸💵       1- SER UM  M I L I O N Á R I O   🤑💰💸💵");
+        System.out.println("\t\t\t\t\t\t\t\t\t\t👰🏼‍♀️🤵🏼‍♂️🤰🏼👩🏻‍❤️‍👨🏻       2- TER UMA   F A M Í L I A   C O M P L E T A   👰🏼‍♀️🤵🏼‍♂️🤰🏼👩🏻‍❤️‍👨🏻");
+        System.out.println("\t\t\t\t\t\t\t\t\t\t📽️💁🏼‍♀️✈️📺📸     3- SER UMA   C E L E B R I D A D E     📽️💁🏼‍♀️✈️📺📸");
+        System.out.println("\t\t\t\t\t\t\t\t\t\t🏋️🤸🏼💪🏼🏃🏼‍       4- SER UM   A T L E T A   D E   C R O S S F I T   🏋️🤸🏼💪🏼🏃🏼‍♂️");
+        System.out.println("\t\t\t\t\t\t\t\t\t\t💻👩🏼‍💻🤘🏼💻       5- SER UM   P R O G R A M A D O R   B A C K-E N D   💻👩🏼‍💻🤘🏼💻");
+        System.out.println("\t\t\t\t\t\t\t\t\t\t👙📲📸💸🤳🏼     6- SER UM   I N F L U E N C E R   F I T N E S S    👙📲📸💸🤳🏼");
+        System.out.println("\t\t\t\t\t\t\t\t\t\t🌏🧭🏞️🏕️🏝️🏖️   7- SER UM   N Ô M A D E   D I G I T A L   🌏🧭🏞️🏕️🏝️🏖️");
+        System.out.println();
+        System.out.println("\t\t\t\t\t\t\t\t\t\t◻️ Escolhe aqui a tua opção: ");
         int opcao = input.nextInt();
 
         switch (opcao) {
@@ -82,7 +83,6 @@ public class Sims {
         }
 
         Jogador jogador = new Jogador(nome, 0, objetivoDeVida, null, 100, 100, 100, 0, 0, 0);
-       jogador.exibirDetalhes();
         return jogador;
     }
 
@@ -269,13 +269,13 @@ public class Sims {
 
         // 2 ciclos aninhados: um para o dia e outro para os momentos do dia(4 momentos do dia );
         //50 será o total de dias;
-        for (int dia = 1; dia <= 50; dia++) {
+        for (int dia = 1; dia <= 3; dia++) {
 
             switch (dia){
                 case 6:
                     rotinaUniversidade(jogador);
                     break;
-                case 3:
+                case 5:
                     casamento(jogador);
                     break;
                 case 8:
@@ -319,9 +319,13 @@ public class Sims {
                     atualizarNecessidades(jogador);
                     if (jogador.isCasado()){ //no final de cada dia o dinheiro do jogador aumenta em 30 dinheiros se ele for casado
                         jogador.setDinheiro(jogador.getDinheiro() + 30);
+                        custoDespesaFamilia(jogador);
                     }
-                    jogador.exibirDetalhes();
             }
+        } if (verificarVitoria(jogador)){
+            System.out.println("Você ganhou o jogo");
+        } else {
+            System.out.println("voce perdeu");
         }
     }
 
@@ -357,8 +361,11 @@ public class Sims {
         System.out.println("\t\t\t\t\t\t8. " + "🔸----- Estás aborrecido com teu trabalho atual e queres procurar um novo? 😭🥵🥺 Eu te entendo, vem que te ajudo nisso 😎😎😎 -----🔸");
         System.out.println();
 
+        System.out.println("\t\t\t\t\t\t9. " + "🔸----- Um pouco curioso para saber teu status no jogo ? 🎮🪄 Posso te mostrar como estás no momento 😉😉😉 -----🔸");
+        System.out.println();
+
         if (jogador.isCasado()){ //só vai passar para essa opção de adocação depois de casar
-            System.out.println("\t\t\t\t\t\t9. " + "🔸----- 🍼🍼🍼 Agora que estás casado, seria uma boa altura para aumentar a família? Que tal adotar um bebê? 🍼🍼🍼👶🏽👶🏽👶🏽 -----🔸");
+            System.out.println("\t\t\t\t\t\t10. " + "🔸----- 🍼🍼🍼 Agora que estás casado, seria uma boa altura para aumentar a família? Que tal adotar um bebê? 🍼🍼🍼👶🏽👶🏽👶🏽 -----🔸");
             System.out.println();
         }
 
@@ -393,6 +400,9 @@ public class Sims {
                 procurarEmprego(jogador);
                 break;
             case 9:
+                jogador.exibirDetalhes();
+                break;
+            case 10:
                 if (jogador.isCasado()) {
                     adotarCrianca(jogador);
                     break;
@@ -404,6 +414,12 @@ public class Sims {
         }
     }
 
+    /**
+     * Método que permite ao utilizador escolher a primeira profissão (array de profissões da classe CentroDeEmprego);
+     * Ao escolher a profissão atualiza a profissão do jogador;
+     * SE o jogador já tiver profissão, ele recebe o salário do dia mediante a profissão definida;
+     * @param jogadorAtual
+     */
     public void primeiroEmprego(Jogador jogadorAtual){
         Scanner input = new Scanner(System.in);
 
@@ -502,7 +518,6 @@ public class Sims {
             System.out.println();
 
         }
-        jogadorAtual.exibirDetalhes();
     }
 
     /**
@@ -533,18 +548,25 @@ public class Sims {
 
     /**
      * Método que imprime na consola as propriedades que o jogador tem;
-     *
      * @param jogadorAtual
      */
     public void verPropriedades(Jogador jogadorAtual) {
 
         System.out.println("🏘️🏙️🏚️🏕️    TUAS PROPRIEDADES    🏘️🏙️🏚️🏕️");
+
+        boolean temImovel = false;
         for (Propriedade propriedadeAtual : jogadorAtual.getPropriedades()){
-            if (propriedadeAtual instanceof Imovel){
+
+              if (propriedadeAtual instanceof Imovel){
                 propriedadeAtual.exibirDetalhesPropriedade();
+                temImovel = true;
             }
         }
 
+        if (!temImovel){
+            System.out.println("Ainda não tens nenhum imóvel registado em teu nome. 😥🤷🏽‍♀️");
+            System.out.println("Podes ver o que tem disponível para compra na IMOBILIARIA SIMS DEV 🏙️🏙️🏙️🏙️");
+        }
     }
 
     /**
@@ -600,13 +622,7 @@ public class Sims {
                 }
             }
         }
-
-        //teste para ver se foi aplicado o novo cargo
-       // System.out.println(jogadorAtual.getProfissao());
-        jogadorAtual.exibirDetalhes();
     }
-
-    //colocar função no final de cada ciclo;
 
     /**
      * Método que atualiza as necessidades do jogador no final de cada ciclo da iteração, ou seja, no final de cada dia.
@@ -615,15 +631,47 @@ public class Sims {
      * @param jogadorAtual
      */
     public void atualizarNecessidades(Jogador jogadorAtual) {
-        int necessidadeSono = jogadorAtual.getNecessidadeSono() - 25; //necessidadeSono atual - 25 pontos no final de cada ciclo
+        int necessidadeSono = jogadorAtual.getNecessidadeSono() - 25;
         int necessidadeRefeicao = jogadorAtual.getNecessidadeRefeicao() - 20;
         int necessidadeSocial = jogadorAtual.getNecessidadeSocial() - 15;
 
         jogadorAtual.setNecessidadeSono(necessidadeSono);
         jogadorAtual.setNecessidadeRefeicao(necessidadeRefeicao);
         jogadorAtual.setNecessidadeSocial(necessidadeSocial);
+
     }
 
+    /**
+     * Método que reduz 10 dinheiros do jogador atual a cada integrante da família (array de família do jogador);
+     * Esse método verifica também se o jogador tem valor inferior a -3500 dinheiros, se tiver filhos, serão retirados
+     * @param jogadorAtual
+     */
+    public void custoDespesaFamilia(Jogador jogadorAtual){
+
+        int custoPorPessoa = 10;
+
+        for (NPC npcAtual : jogadorAtual.getFamilia()){
+            jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() - custoPorPessoa);
+        }
+
+        if (jogadorAtual.getDinheiro() < -3500){
+            for (NPC npcAtual : pretendentes) {
+                if (npcAtual.getDinheiro() == 0 && npcAtual.getEstatutoMinimo() == 0){
+                    pretendentes.remove(npcAtual);
+                }
+            }
+            System.out.println("Seu saldo atual é inferior a -3500 dinheiros 💸💸💸");
+            System.out.println("Sinto informar mas com esse valor não há condições para cuidar dos seus bebês 💔💔💔");
+            System.out.println();
+            System.out.println("❤️‍🩹❤️‍🩹❤️‍🩹😭😭😭 A SEGURANÇA SOCIAL TIROU SEUS FILHOS DA SUA FAMÍLIA ❤️‍🩹❤️‍🩹❤️‍🩹😭😭😭");
+            System.out.println();
+        }
+    }
+
+    /**
+     *
+     * @param jogadorAtual
+     */
     public void rotinaUniversidade(Jogador jogadorAtual) {
         Scanner input = new Scanner(System.in);
 
@@ -663,7 +711,6 @@ public class Sims {
             }
         }
     }
-
 
     /**
      * Método que permite do jogador a opção de CASAMENTO no dia 22 do jogo;
@@ -741,7 +788,6 @@ public class Sims {
     /**
      * Método que identifica o NPC que o jogador quer casar;
      * Percorre o array de NPC do jogador e faz a correspondência com o NPC escolhido;
-     *
      * @param jogadorAtual
      * @return NPC que o jogador escolheu para casar;
      */
@@ -797,6 +843,11 @@ public class Sims {
         return true; //se as 2 condições for verdadeira
     }
 
+    /**
+     * Método que verifica o imovel de maior capacidade do jogador
+     * @param jogadorAtual
+     * @return retorna a capacidade atual do imovel
+     */
     public static int capacidadeImovel(Jogador jogadorAtual){
 
         int capacidadeMaxima = 0;
@@ -815,7 +866,13 @@ public class Sims {
         return capacidadeMaxima;
     }
 
-
+    /**
+     * Método que possibilita adição de um NPC aleatório ao array de familia do jogador atual;
+     * Esse método só é liberado após o casamento do jogador;
+     * É criado um novo array de NPC para adoção onde o NPC tem dinheiro = 0 e estatuto = 0;
+     * Se o jogador tiver imovel com capacidade suficiente, a adoção é realizada;
+     * @param jogadorAtual
+     */
     public static void adotarCrianca(Jogador jogadorAtual){
 
         Random random = new Random();
@@ -846,8 +903,6 @@ public class Sims {
             System.out.println("🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡");
         }
     }
-
-    //Eventos aleatorios do jogo: 1) simular o jogador doente
 
     /**
      * Método de um acontecimento aleatorio onde o jogador ficará doente no dia 15;
@@ -887,7 +942,6 @@ public class Sims {
                 }
     }
 
-    //Eventos aleatorios do jogo: 2) simular um campeonato de crossfit
 
     /**
      * Método de um acontecimento aleatorio onde o jogador poderá participar de uma competição de CROSSFIT no dia 35;
@@ -929,15 +983,15 @@ public class Sims {
                         if (escolha.equalsIgnoreCase("y")){
 
                             if (jogadorAtual.getCondicionamentoFisico() > 1000){
-                                System.out.println("🏆🏆🏆🏆🏆 Parabens, ganhaste com muita raça essa competição! 🏆🏆🏆🏆🏆");
+                                System.out.println("🏆🏆🏆🏆🏆 Parabens, você ganhou com muita raça essa competição! 🏆🏆🏆🏆🏆");
                                 System.out.println("Teu prêmio foi: ");
                                 System.out.println("🥇💶💰💵 1000 DINHEIROS 🥇💶💰💵");
 
                                 jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + 2000);
-                                jogadorAtual.setNecessidadeRefeicao(jogadorAtual.getNecessidadeRefeicao() - 5);
-                                jogadorAtual.setNecessidadeSono(jogadorAtual.getNecessidadeSono()-3);
+                                jogadorAtual.setNecessidadeRefeicao(jogadorAtual.getNecessidadeRefeicao() - 20);
+                                jogadorAtual.setNecessidadeSono(jogadorAtual.getNecessidadeSono()-20);
                             } else {
-                                System.out.println("😣😣 Apesar da tua vontade em participar do campeonato de Cross, ainda não tens condionamento físico para participar");
+                                System.out.println("😣😣 Apesar da tua vontade em participar do campeonato de Cross, ainda não tens condicionamento físico para participar");
                                 System.out.println("Treina mais e aos poucos vais conseguindo se superar e melhorar! Até a próxima e não desista 💪🏽💪🏽😉😉");
                             }
 
@@ -948,7 +1002,6 @@ public class Sims {
                         } else {
                             System.out.println("Opção invalida. ");
                         }
-
                         break;
                     case "n":
                         System.out.println("Você decidiu não participar da competição... 😪");
@@ -957,12 +1010,14 @@ public class Sims {
                     default:
                         System.out.println("Escolha uma opção válida");
                         break;
-
         }
     }
 
-    //Eventos aleatorios do jogo: 3) simular um tempo ruim chuvoso
-
+    /**
+     * Método de um evento aleatório onde o jogador terá um dia com condições climáticas ruins
+     * Isso terá influencia nos treinos do dia, tendo redução dos pontos de necessidade de sono e necessidade social;
+     * @param jogadorAtual
+     */
     public static void tempoChuvoso(Jogador jogadorAtual){
 
         System.out.println(" ⛈️⛈️⛈️⛈️ ALERTA: FORTE TEMPORAL HOJE NO PORTO ⛈️⛈️⛈️⛈️");
@@ -978,10 +1033,16 @@ public class Sims {
         System.out.println("Aproveita e descansa um pouco 😴😴");
 
         jogadorAtual.setNecessidadeSono(jogadorAtual.getNecessidadeSono()-30);
-        jogadorAtual.setNecessidadeRefeicao(jogadorAtual.getNecessidadeRefeicao()+20);
+        jogadorAtual.setNecessidadeRefeicao(jogadorAtual.getNecessidadeSocial()-50);
 
     }
 
+    /**
+     * Método de um evento aleatório onde o jogador será convidado a participar de um evento de tecnologia
+     * Se por acaso aceitar os pontos são alterados devido a interação e networking;
+     * Se recusar será retirado pontos
+     * @param jogadorAtual
+     */
     public void eventoPublico(Jogador jogadorAtual){
         Scanner input = new Scanner(System.in);
 
@@ -995,13 +1056,13 @@ public class Sims {
                 System.out.println("Tens interesse em participar do COFFEE BREAK ?  (y/n)");
                 String opcao =input.next();
                 if (opcao.equalsIgnoreCase("y")) {
-                    System.out.println("Estas a se divertir no evento e a conhecer novas pessoas!!");
+                    System.out.println("Estas a se divertir no evento e a conhecer novas pessoas! 🧒🏽👩🏽👩🏽‍🦱👩🏽‍🦳👱🏽‍♂️👳🏽‍♀️");
                     System.out.println("Ganhastes 100 pontos por interação com outras pessoas e 50 pontos no teu estatuto");
                     jogadorAtual.setNecessidadeSocial(jogadorAtual.getNecessidadeSocial() + 100);
                     jogadorAtual.setEstatuto(jogadorAtual.getEstatuto() + 50);
                 } else {
                     System.out.println("Mesmo sem querer interagir no COFFEE BREAK, você foi premiado com 30 pontos no estatuto.");
-                    jogadorAtual.setEstatuto(jogadorAtual.getEstatuto() + 50);
+                    jogadorAtual.setEstatuto(jogadorAtual.getEstatuto() + 30);
                 }
                 break;
             case "n":
@@ -1016,6 +1077,11 @@ public class Sims {
 
     }
 
+    /**
+     * Método que verifica no final do jogo se o jogador atingiu o ser objetivo de dia que foi definido no início do jogo;
+     * @param jogadorAtual
+     * @return TRUE = se atingiu as condições para ser vencedor || FALSE = se não atingir;
+     */
     public boolean verificarVitoria(Jogador jogadorAtual){
 
         Objetivo objetivoVida = jogadorAtual.getObjetivoVida();
@@ -1028,37 +1094,136 @@ public class Sims {
                     valorTotalPropriedade += propriedadeAtual.getCusto();
                 }
                 if ((jogadorAtual.getDinheiro() + valorTotalPropriedade) >= 1000000){
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t💸💸💸💸💸 VOCÊ CONSEGUIU ATINGIR O SEU OBJETIVO SENDO O MAIS NOVO MILIONÁRIO 💸💸💸💸💸 ");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\tAgora vamos comemorar e tenho certeza que dinheiro não será mais problema 🤩🤩🤩 ");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🥂🎇💰🥂🎇💰🥂🎇💰🥂🎇💰🥂🎇💰🥂🎇💰🥂🎇💰🥂🎇💰🥂🎇💰🥂🎇💰🥂🎇💰🥂🎇💰");
+
                     return true;
+                }else {
+                    System.out.println("😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭");
+                    System.out.println();
+                    System.out.println("💸💸😥😥 Você não conseguiu atingir o seu objetivo de vida de ser MILIONÁRIO 💸💸😥😥");
+                    System.out.println("Mas não desista, da próxima vez quem sabe ... 🤷🏽‍♀️🤷🏽‍♀️🤷🏽‍♀️");
                 }
                 break;
             case FAMILIA_COMPLETA:
-                if (jogadorAtual.getFamilia().size() > 4){
+                if (jogadorAtual.getFamilia().size() > 5){
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t👨‍👩‍👧‍👦👨‍👨‍👧‍👧👩‍👧👩‍👧‍👧👩‍👩‍👦‍👦👨‍👧‍👧 VOCÊ CONSEGUIU ATINGIR O SEU OBJETIVO DE TER UMA FAMÍLIA COMPLETA 👨‍👩‍👧‍👦👨‍👨‍👧‍👧👩‍👧👩‍👧‍👧👩‍👩‍👦‍👦👨‍👧‍👧 ");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAgora vamos comemorar todos juntos !! 🤩🤩🤩 ");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇");
                     return true;
+                } else {
+                    System.out.println("😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭");
+                    System.out.println();
+                    System.out.println("😥😥 Você não conseguiu atingir o seu objetivo de vida de ter uma FAMILIA COMPLETA 😥😥");
+                    System.out.println("Mas não desista, da próxima vez quem sabe ... 🤷🏽‍♀️🤷🏽‍♀️🤷🏽‍♀️");
                 }
                 break;
             case CELEBRIDADE:
                 if (jogadorAtual.getEstatuto() > 700) {
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t 👗👠📲📸📺 VOCÊ CONSEGUIU ATINGIR O SEU OBJETIVO DE SER UMA CELEBRIDADE 👗👠📲📸📺 ");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\tAgora vamos comemorar e postar tudo no Instagram! A fama será teu melhor amigo 🤩🤩🤩 ");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇");
                     return true;
+                } else {
+                    System.out.println("😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭");
+                    System.out.println();
+                    System.out.println("😥😥 Você não conseguiu atingir o seu objetivo de vida de ser uma CELEBRIDADE 😥😥");
+                    System.out.println("Mas não desista, da próxima vez quem sabe ... 🤷🏽‍♀️🤷🏽‍♀️🤷🏽‍♀️");
                 }
                 break;
             case CROSSFITEIRO:
-                if (jogadorAtual.getCondicionamentoFisico() > 2000 && jogadorAtual.getNecessidadeSono() >= 100){
+                if (jogadorAtual.getCondicionamentoFisico() > 10 && jogadorAtual.getNecessidadeSocial() >= 30){
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🤸🏽‍♀️🤸🏽‍♂️💪🏽💪🏽🏃🏽🏃🏽 VOCÊ CONSEGUIU ATINGIR O SEU OBJETIVO SENDO O MAIS NOVO CROSSFITTER 🤸🏽‍♀️‍🤸🏽‍♂️💪🏽💪🏽🏃🏽🏃🏽 ");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\tAgora vamos comemorar e treinar muitoooo maissssss 😎😎😎😎😎 ");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇");
                     return true;
+                } else {
+                    System.out.println("😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭");
+                    System.out.println();
+                    System.out.println("😥😥 Você não conseguiu atingir o seu objetivo de vida de ser um CROSSFITTER 😥😥");
+                    System.out.println("Mas não desista, da próxima vez quem sabe ... 🤷🏽‍♀️🤷🏽‍♀️🤷🏽‍♀️");
                 }
                 break;
             case PROGRAMADOR:
-                if (jogadorAtual.getEducacao() > 1500 && jogadorAtual.getNecessidadeSono() > 100){
+                if (jogadorAtual.getEducacao() > 1500 && jogadorAtual.getEstatuto() > 200){
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t‍💻👩🏽‍💻💻👨🏽‍💻🖥️ VOCÊ CONSEGUIU ATINGIR O SEU OBJETIVO SENDO O MAIS NOVO NERD PROGRAMADOR 💻👩🏽‍💻💻👨🏽‍💻🖥️ ");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\tAgora vamos comemorar e programar muito maiissssss 😎😎😎😎😎 ");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇");
                     return true;
+                } else {
+                    System.out.println("😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭");
+                    System.out.println();
+                    System.out.println("😥😥 Você não conseguiu atingir o seu objetivo de vida de ser um PROGRAMADOR 😥😥");
+                    System.out.println("Mas não desista, da próxima vez quem sabe ... 🤷🏽‍♀️🤷🏽‍♀️🤷🏽‍♀️");
                 }
                 break;
             case INFLUENCER_FITNESS:
-                if (jogadorAtual.getNecessidadeSocial() > 1500 && jogadorAtual.getDinheiro() > 100000){
+                if (jogadorAtual.getNecessidadeSocial() > 10000 && jogadorAtual.getDinheiro() > 200000){
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t‍🥗📲📸🏊🏽‍♀️🤳🏽🚴🏽  VOCÊ CONSEGUIU ATINGIR O SEU OBJETIVO SENDO O MAIS NOVO INFLUENCER FITNESS 🥗📲📸🏊🏽‍♀️🤳🏽🚴🏽 ");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\tAgora vamos comemorar e postar no Instagram para todos os seguidores 😎😎😎😎😎 ");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇");
                     return true;
+                } else {
+                    System.out.println("😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭");
+                    System.out.println();
+                    System.out.println("😥😥 Você não conseguiu atingir o seu objetivo de vida de ser um INFLUENCER FITNESS 😥😥");
+                    System.out.println("Mas não desista, da próxima vez quem sabe ... 🤷🏽‍♀️🤷🏽‍♀️🤷🏽‍♀️");
                 }
                 break;
             case NOMADE_DIGITAL:
-                if (jogadorAtual.getDinheiro() > 150000 && jogadorAtual.getEducacao() > 100){
+                if (jogadorAtual.getDinheiro() > 150000 && jogadorAtual.getEducacao() > 2000){
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t 🌍🏞️🏕️🏖️🛤️🗺️️🤳🏽  VOCÊ CONSEGUIU ATINGIR O SEU OBJETIVO SENDO NôMADE DIGITAL 🌍🏞️🏕️🏖️🛤️🗺️️🤳🏽");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\tAgora vamos comemorar viajando e curtindo por ai 😎😎😎😎😎 ");
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇");
                     return true;
+                } else {
+                    System.out.println("😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭");
+                    System.out.println();
+                    System.out.println("😥😥 Você não conseguiu atingir o seu objetivo de vida de ser um NÔMADE DIGITAL 😥😥");
+                    System.out.println("Mas não desista, da próxima vez quem sabe ... 🤷🏽‍♀️🤷🏽‍♀️🤷🏽‍♀️");
                 }
                 break;
             default:
@@ -1067,5 +1232,4 @@ public class Sims {
         }
         return false;
     }
-
 }
