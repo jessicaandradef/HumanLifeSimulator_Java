@@ -265,11 +265,9 @@ public class Sims {
         addNPC(npcAdocao5);
 
 
-
-
         // 2 ciclos aninhados: um para o dia e outro para os momentos do dia(4 momentos do dia );
         //50 será o total de dias;
-        for (int dia = 1; dia <= 3; dia++) {
+        for (int dia = 1; dia <= 100; dia++) {
 
             switch (dia){
                 case 6:
@@ -323,7 +321,7 @@ public class Sims {
                     }
             }
         } if (verificarVitoria(jogador)){
-            System.out.println("Você ganhou o jogo");
+            System.out.println("Parabéns pela vitória!");
         } else {
             System.out.println("voce perdeu");
         }
@@ -377,6 +375,7 @@ public class Sims {
         switch (opcao) {
             case 1:
                 primeiroEmprego(jogador);
+                System.out.println("🪄");
                 break;
             case 2:
                 dormir(jogador);
@@ -638,6 +637,12 @@ public class Sims {
         jogadorAtual.setNecessidadeSono(necessidadeSono);
         jogadorAtual.setNecessidadeRefeicao(necessidadeRefeicao);
         jogadorAtual.setNecessidadeSocial(necessidadeSocial);
+
+        if (jogadorAtual.getNecessidadeSono() < 25 ){
+            System.out.println("⛔⛔⛔ ATENÇÃO: ESTÁS A FICAR SEM RESERVA DE SONO... ⛔⛔⛔");
+            System.out.println(" Aconselho ir dormir para aumentar tua disposição e renovar teus pontos ");
+
+        }
 
     }
 
