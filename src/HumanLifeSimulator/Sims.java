@@ -147,16 +147,16 @@ public class Sims {
 
         //instancias dos NPC (familia do jogador)
 
-        NPC npc1 = new NPC("Luis", 200000, 2);
-        NPC npc2 = new NPC("Caio", 150000, 4);
-        NPC npc3 = new NPC("Sarinha", 100000, 5);
-        NPC npc4 = new NPC("Anna", 80000, 3);
-        NPC npc5 = new NPC("Manu", 50000, 2);
-        NPC npc6 = new NPC("Marcelo", 90000, 4);
-        NPC npc7 = new NPC("Bruna", 120000, 3);
-        NPC npc8 = new NPC("Veronica", 140000, 5);
-        NPC npc9 = new NPC("Paulo", 95000, 3);
-        NPC npc10 = new NPC("Tiago", 50000, 2);
+        NPC npc1 = new NPC("Luis", 30000, 2);
+        NPC npc2 = new NPC("Caio", 9000, 4);
+        NPC npc3 = new NPC("Sarinha", 10000, 5);
+        NPC npc4 = new NPC("Anna", 8000, 3);
+        NPC npc5 = new NPC("Manu", 15000, 2);
+        NPC npc6 = new NPC("Marcelo", 20000, 4);
+        NPC npc7 = new NPC("Bruna", 25000, 3);
+        NPC npc8 = new NPC("Veronica", 17000, 5);
+        NPC npc9 = new NPC("Paulo", 6000, 3);
+        NPC npc10 = new NPC("Tiago", 22000, 2);
 
         //npc para adoção: NPC aleatório sem dinheiro ou estatutoMinimo ao Array da família
 
@@ -165,8 +165,6 @@ public class Sims {
         NPC npcAdocao3 = new NPC("Nuno", 0, 0);
         NPC npcAdocao4 = new NPC("Mila", 0, 0);
         NPC npcAdocao5 = new NPC("Ruizinho", 0, 0);
-
-
 
 
         //instancias das profissões
@@ -270,22 +268,22 @@ public class Sims {
         for (int dia = 1; dia <= 100; dia++) {
 
             switch (dia){
-                case 6:
+                case 30:
                     rotinaUniversidade(jogador);
                     break;
-                case 3:
+                case 22:
                     casamento(jogador);
                     break;
-                case 8:
+                case 4:
                     ficarDoente(jogador);
                     break;
                 case 10:
                     tempoChuvoso(jogador);
                     break;
-                case 12:
+                case 15:
                     competicaoCrossfit(jogador);
                     break;
-                case 14:
+                case 40:
                     eventoPublico(jogador);
                     break;
 
@@ -520,7 +518,6 @@ public class Sims {
 
     /**
      * Método que invoca o método vender da classe Shopping;
-     *
      * @param jogadorAtual
      */
     public void fazerCompras(Jogador jogadorAtual, Shopping shopping) {
@@ -568,10 +565,9 @@ public class Sims {
     }
 
     /**
-     * Método para o jogador procurar emprego;
+     * Método para o jogador procurar emprego um novo emprego e fazer set da profissão atual;
      * Primeiro imprime todas as profissões disponiveis no Centro de Emprego,
-     * depois verifica se o jogador tem criterios suficientes para o emprego escolhido ou não;
-     *
+     * depois verifica se o jogador tem os criterios suficientes para fazer a mudança para o emprego escolhido ou não;
      * @param jogadorAtual
      */
     public void procurarEmprego(Jogador jogadorAtual) {
@@ -585,47 +581,53 @@ public class Sims {
 
         ArrayList<Profissao> listaDeProfissoes = CentroDeEmprego.getListaDeProfissoes();
 
-        boolean profissaoEncontrada = false;
+       boolean profissaoEncontrada = false; //boolean para verificar se emprego foi achado ou não;
         Profissao profissaoEscolhida = null;
 
         for (Profissao profissaoAtual : listaDeProfissoes) {
 
             if (profissaoAtual.getNome().equalsIgnoreCase(nomeProfissao)) {
-                profissaoEncontrada = true;
-                profissaoEscolhida = profissaoAtual;
+               profissaoEncontrada = true; //altera variavel para true
+                profissaoEscolhida = profissaoAtual; //a profissão escolhida será a profissão atual
 
                 if (profissaoEscolhida.isFormal()){ //verificar se a profissão é formal é true
                     if (jogadorAtual.possuiAcessorioFormal()){ //se o jogador tem pelo menos 1 acessorio formal
                         if (jogadorAtual.getEstatuto() >= profissaoEscolhida.getEstatuto() && jogadorAtual.getEducacao() >= profissaoEscolhida.getNivelMinimoEducacao()){
-                            jogadorAtual.setProfissao(profissaoEscolhida);
+                            jogadorAtual.setProfissao(profissaoEscolhida);  //altera o cargo do jogador se atender aos criterios para a mudança
                             System.out.println("Parabens, você acabou de ser admitido para o cargo de " + profissaoEscolhida.getNome());
                             System.out.println("Vamos celebrar 🥂🥂🥂🥂🥂🥂");
                             System.out.println();
-                        } else {
+                        } else { //se o jogador tiver um acessorio formal mas não tiver o restante dos critérios
                             System.out.println("Sinto muito, você ainda não tem critérios para esse cargo 😣😣");
+                            System.out.println();
+
                         }
-                    }else{
+                    }else{ //se o jogador escolher uma profissão formal e ainda não tiver um acessorio formal nas suas propriedades
                         System.out.println("Desculpe, para esse cargo você precisa de pelo menos 01 acessório formal");
                         System.out.println("Podes ir as compras no SHOPPING SIMS DEV 👔👗👜👞👠");
                         System.out.println();
                     }
-                }else {
+                }else { //se a profissão escolhida não for formal
                     if (jogadorAtual.getEstatuto() >= profissaoEscolhida.getEstatuto() && jogadorAtual.getEducacao() >= profissaoEscolhida.getNivelMinimoEducacao()){
-                        jogadorAtual.setProfissao(profissaoEscolhida);
+                        jogadorAtual.setProfissao(profissaoEscolhida); //set do emprego se atender aos criterios
+                        System.out.println("Parabens, você acabou de ser admitido para o cargo de " + profissaoEscolhida.getNome());
+                        System.out.println("Vamos celebrar 🥂🥂🥂🥂🥂🥂");
                     } else {
                         System.out.println("Poxa 😥😥 você ainda não atende aos critérios do cargo");
                         System.out.println("Continua a procura, nao desista!! ");
-
                     }
                 }
             }
+
+        } if (!profissaoEncontrada){ //se a profissão não for encontrada no array de profissões
+            System.out.println("Essa profissão não existe, sorry ");
         }
     }
 
     /**
      * Método que atualiza as necessidades do jogador no final de cada ciclo da iteração, ou seja, no final de cada dia.
      * A necessidade sono diminui 25 pontos, a necessidade refeição diminui 20 pontos e a necessidade social diminui 15 pontos.
-     *
+     *Alerta o usuario se necessidadeSono e necessidadeRefeição estiver abaixo de 25 pontos;
      * @param jogadorAtual
      */
     public void atualizarNecessidades(Jogador jogadorAtual) {
@@ -671,7 +673,7 @@ public class Sims {
             jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() - custoPorPessoa);
         }
 
-        if (jogadorAtual.getDinheiro() < -3500){
+        if (jogadorAtual.getDinheiro() < 5000){
             for (NPC npcAtual : pretendentes) {
                 if (npcAtual.getDinheiro() == 0 && npcAtual.getEstatutoMinimo() == 0){
                     pretendentes.remove(npcAtual);
@@ -717,12 +719,20 @@ public class Sims {
 
     //criando um arrayList de pretendentes para adicionar os NPC para o futuro casamento
     public static ArrayList<NPC> pretendentes = new ArrayList<NPC>();
-    
+
+    /**
+     * Método que permite adicionar um NPC no array da lista de pretendentes;
+     * @param npc
+     */
     public void addNPC(NPC npc){
 
         pretendentes.add(npc);
     }
 
+    /**
+     * Método que permite a impressão dos NPC disponíveis no array de pretendentes com dinheiro acima de 0;
+     * Esses serão os NPC aptos para pretendentes do casamento;
+     */
     public void imprimirListaNpc(){
         for (NPC npcAtual: pretendentes){
             if (npcAtual.getDinheiro() > 0){
@@ -734,7 +744,7 @@ public class Sims {
     /**
      * Método que permite do jogador a opção de CASAMENTO no dia 22 do jogo;
      * O jogador tem a possibilidade de aceitar ou recusar e partir o coração de alguem;
-     * Se aceitar, é feito a verificação da escolha do NPC; será verificado também se atende aos criterios do casamento;
+     * Se aceitar, é feito a verificação da escolha do NPC; será verificado também se atende aos criterios do casamento invocando os métodos necessários para a verificação;
      *
      * @param jogadorAtual
      */
@@ -758,7 +768,7 @@ public class Sims {
                         imprimirListaNpc();
                         System.out.println();
 
-                        NPC npcEscolhido = escolherNPC(jogadorAtual);
+                        NPC npcEscolhido = escolherNPC(jogadorAtual); //invoca método de escolher o npc
                         System.out.println();
 
                         if (podeCasar(jogadorAtual, npcEscolhido)) {
@@ -773,17 +783,19 @@ public class Sims {
 
                                 //se o casamento acontecer, aumenta ao dinheiro do jogador todo o dinheiro que o npc tem;
                                 jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + npcEscolhido.getDinheiro());
-                                npcEscolhido.setDinheiro(0);
+                                npcEscolhido.setDinheiro(0); //atualiza o dinheiro do NPC para 0;
 
                                 jogadorAtual.addNPC(npcEscolhido); //npn escolhido entra oficialmente para a familia 😎
 
-                                jogadorAtual.setCasado(true);
+                                jogadorAtual.setCasado(true); //atualiza estado do jogador
 
                                 System.out.println("🎉🎉🎉🎉🥂🥂🥂 EU VOS DECLARO CASADOOOOOS 🎉🎉🎉🎉🥂🥂🥂 ");
+                                System.out.println();
                             } else {
                                 System.out.println("Casamento cancelado, partistes o coração do teu pretendente 😭");
-                            }
+                                System.out.println();
 
+                            }
                         }
                         break;
 
@@ -819,8 +831,8 @@ public class Sims {
         System.out.println("Escreve o NOME do teu futuro noivo/noiva :");
         escolha = input.next();
 
-        for (NPC npcAtual : pretendentes) {
-            if (npcAtual.getNome().equalsIgnoreCase(escolha) && npcAtual.getDinheiro() > 0) {
+        for (NPC npcAtual : pretendentes) { //percorre a lista de pretendentes
+            if (npcAtual.getNome().equalsIgnoreCase(escolha) && npcAtual.getDinheiro() > 0) { //condição para escolher o npc
                 System.out.println();
                 System.out.println("Pretendente escolhido!! Agora vem a melhor parte: ");
                 System.out.println("💒💒💍💍 A CERIMÔNIA DE CASAMENTO 💍💍💒💒");
@@ -844,7 +856,7 @@ public class Sims {
         //booleano para verificar se o jogador tem imovel para abrigar 2 pessoas
         boolean imovelAdequado = false;
 
-        //ciclo percorrer o array de propriedades para identificar as propriedades do jogador
+        //percorre o array de propriedades para identificar as propriedades do jogador
         for (Propriedade propriedadeAtual : jogadorAtual.getPropriedades()) {
             if (propriedadeAtual instanceof Imovel) {  //verificar se é instancia de imovel;
                 if (((Imovel) propriedadeAtual).getCapacidadePessoas() >= 2) { //se for, verificar se tem capacidade para mais de 2 pessoas
@@ -878,19 +890,19 @@ public class Sims {
     /**
      * Método que verifica o imovel de maior capacidade do jogador
      * @param jogadorAtual
-     * @return retorna a capacidade atual do imovel
+     * @return retorna o número da capacidade atual do imovel do jogador
      */
     public static int capacidadeImovel(Jogador jogadorAtual){
 
         int capacidadeMaxima = 0;
 
-        for (Propriedade propriedadeAtual : jogadorAtual.getPropriedades()){
-            if (propriedadeAtual instanceof Imovel){
-                Imovel imovelAtual = (Imovel) propriedadeAtual;
+        for (Propriedade propriedadeAtual : jogadorAtual.getPropriedades()){ //percorrer a lista de propriedades do jogador
+            if (propriedadeAtual instanceof Imovel){ //verificar se é instancia de imovel
+                Imovel imovelAtual = (Imovel) propriedadeAtual; //casting
                 int capacidadeAtual = imovelAtual.getCapacidadePessoas();
 
                 if (capacidadeAtual > capacidadeMaxima){
-                    capacidadeMaxima = capacidadeAtual;
+                    capacidadeMaxima = capacidadeAtual; //atualização da variavel se for maior
                 }
 
             }
@@ -908,19 +920,19 @@ public class Sims {
     public static void adotarCrianca(Jogador jogadorAtual){
 
         Random random = new Random();
-        ArrayList<NPC> bebesParaAdocao = new ArrayList<NPC>();
+        ArrayList<NPC> bebesParaAdocao = new ArrayList<NPC>(); //novo array para armazenar os bebes disponiveis para adoção;
 
         for (NPC npcAtual : pretendentes){
-            if (npcAtual.getDinheiro() == 0 && npcAtual.getEstatutoMinimo() == 0){
+            if (npcAtual.getDinheiro() == 0 && npcAtual.getEstatutoMinimo() == 0){ //verifica na lista os NPC com dinheiro 0 e estatuto 0;
                 bebesParaAdocao.add(npcAtual);
             }
         }
 
-        int indiceBebe = random.nextInt(bebesParaAdocao.size());
+        int indiceBebe = random.nextInt(bebesParaAdocao.size()); //indice aleatorio tendo em consideração o tamanho do array de bebês
         NPC bebeAleatorio = bebesParaAdocao.get(indiceBebe);
 
-        if (capacidadeImovel(jogadorAtual) > jogadorAtual.getFamilia().size()+1){
-            jogadorAtual.addNPC(bebeAleatorio);
+        if (capacidadeImovel(jogadorAtual) > jogadorAtual.getFamilia().size()+1){ //condição para verificar se p imovel de maior capacidade do jogador é superior ao array de familia atual + jogador
+            jogadorAtual.addNPC(bebeAleatorio); //se for , adiciona o bebe
             System.out.println();
             System.out.println("Parabens! Vocês acabaram de adotar uma criança! ");
             System.out.println("O nome do seu bebê é " + bebeAleatorio.getNome());
