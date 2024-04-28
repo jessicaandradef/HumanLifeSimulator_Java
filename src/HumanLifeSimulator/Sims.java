@@ -273,7 +273,7 @@ public class Sims {
                 case 6:
                     rotinaUniversidade(jogador);
                     break;
-                case 5:
+                case 3:
                     casamento(jogador);
                     break;
                 case 8:
@@ -375,7 +375,6 @@ public class Sims {
         switch (opcao) {
             case 1:
                 primeiroEmprego(jogador);
-                System.out.println("🪄");
                 break;
             case 2:
                 dormir(jogador);
@@ -639,9 +638,22 @@ public class Sims {
         jogadorAtual.setNecessidadeSocial(necessidadeSocial);
 
         if (jogadorAtual.getNecessidadeSono() < 25 ){
-            System.out.println("⛔⛔⛔ ATENÇÃO: ESTÁS A FICAR SEM RESERVA DE SONO... ⛔⛔⛔");
-            System.out.println(" Aconselho ir dormir para aumentar tua disposição e renovar teus pontos ");
 
+            System.out.println();
+            System.out.println();
+            System.out.println("⛔⛔⛔ ATENÇÃO: ESTÁS A FICAR SEM RESERVA DE SONO... ⛔⛔⛔");
+            System.out.println(" 😴😴😴 Aconselho ir dormir para aumentar tua disposição e renovar teus pontos 😴😴😴");
+            System.out.println();
+            System.out.println();
+
+        } else if (jogadorAtual.getNecessidadeRefeicao() <25 ) {
+
+            System.out.println();
+            System.out.println();
+            System.out.println("⛔⛔⛔ ATENÇÃO: ESTÁS A FICAR SEM RESERVA DE COMIDA... ⛔⛔⛔");
+            System.out.println(" 🥗🥙🍜🍳🥞 Aconselho uma boa refeição para aumentar tua disposição e renovar teus pontos 🥗🥙🍜🍳🥞");
+            System.out.println();
+            System.out.println();
         }
 
     }
@@ -674,7 +686,8 @@ public class Sims {
     }
 
     /**
-     *
+     *Método que permite um evento aleatório no jogo que é a ida à universidade;
+     * Se o jogador aceitar o convite, é reduzido o valor do custo do evento, e aumenta o valor da educação do jogador;
      * @param jogadorAtual
      */
     public void rotinaUniversidade(Jogador jogadorAtual) {
@@ -704,6 +717,7 @@ public class Sims {
 
     //criando um arrayList de pretendentes para adicionar os NPC para o futuro casamento
     public static ArrayList<NPC> pretendentes = new ArrayList<NPC>();
+    
     public void addNPC(NPC npc){
 
         pretendentes.add(npc);
@@ -843,6 +857,19 @@ public class Sims {
         boolean estatutoAdequado = jogadorAtual.getEstatuto() >= npcEscolhido.getEstatutoMinimo();
 
         if (!imovelAdequado || !estatutoAdequado) { //SE não houver imovel ou estatuto adequado retorna false;
+
+           if (!imovelAdequado){
+               System.out.println();
+               System.out.println("OPS... apesar de teres escolhido o teu noivo/a o casamento não poderá acontecer... 😣😣😣");
+               System.out.println("Você ainda não tem imóvel com capacidade suficiente para abrigar o casal 💔❤️‍🩹😭");
+               System.out.println("Sugiro comprares um imóvel com capacidade para 2 pessoas 🏡🏡🏡");
+               System.out.println();
+           } else if (!estatutoAdequado) {
+               System.out.println();
+               System.out.println("OPS... apesar de teres escolhido o teu noivo/a o casamento não poderá acontecer... 😣😣😣");
+               System.out.println("Você tem um estatuto mínimo inferior ao estatuto do seu pretendente  💔❤️‍🩹😭");
+               System.out.println();
+           }
             return false;
         }
         return true; //se as 2 condições for verdadeira
