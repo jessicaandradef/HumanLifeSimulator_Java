@@ -1128,6 +1128,14 @@ public class Sims {
      */
     public boolean verificarVitoria(Jogador jogadorAtual){
 
+        if (jogadorAtual.getDinheiro() < 0){ //se o jogador tiver dividas, perde sempre
+            System.out.println("😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭");
+            System.out.println();
+            System.out.println("💸💸😥😥 Você não conseguiu atingir vencer o jogo pois tem dívidas acumuladas 💸💸😥😥");
+            System.out.println("Mas não desista, da próxima vez quem sabe ... 🤷🏽‍♀️🤷🏽‍♀️🤷🏽‍♀️");
+            return false;
+        }
+
         Objetivo objetivoVida = jogadorAtual.getObjetivoVida();
 
         switch (objetivoVida){
@@ -1195,7 +1203,7 @@ public class Sims {
                 }
                 break;
             case CROSSFITEIRO:
-                if (jogadorAtual.getCondicionamentoFisico() > 10 && jogadorAtual.getNecessidadeSocial() >= 30){
+                if (jogadorAtual.getCondicionamentoFisico() > 10000 && jogadorAtual.getNecessidadeSocial() >= 30){
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
@@ -1214,7 +1222,7 @@ public class Sims {
                 }
                 break;
             case PROGRAMADOR:
-                if (jogadorAtual.getEducacao() > 1500 && jogadorAtual.getEstatuto() > 200){
+                if (jogadorAtual.getEducacao() > 5000 && jogadorAtual.getEstatuto() > 200){
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
@@ -1233,7 +1241,7 @@ public class Sims {
                 }
                 break;
             case INFLUENCER_FITNESS:
-                if (jogadorAtual.getNecessidadeSocial() > 10000 && jogadorAtual.getDinheiro() > 200000){
+                if (jogadorAtual.getNecessidadeSocial() > 10000 && jogadorAtual.getDinheiro() > 300000){
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
