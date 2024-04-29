@@ -114,7 +114,7 @@ public class Sims {
         Imovel imovel1 = new Imovel("Casa de praia", 70000, 4, 6);
         Imovel imovel2 = new Imovel("Loft", 40000, 2, 2);
         Imovel imovel3 = new Imovel("Casa geminada", 55000, 4, 4);
-        Imovel imovel4 = new Imovel("Sobrado", 10000, 3, 3);
+        Imovel imovel4 = new Imovel("Sobrado", 1000, 3, 3);
         Imovel imovel5 = new Imovel("Apartamento R/C", 45000, 4, 3);
         Imovel imovel6 = new Imovel("Studio", 30000, 3, 2);
         Imovel imovel7 = new Imovel("Flat", 35000, 2, 2);
@@ -271,7 +271,7 @@ public class Sims {
                 case 30:
                     rotinaUniversidade(jogador);
                     break;
-                case 22:
+                case 2:
                     casamento(jogador);
                     break;
                 case 4:
@@ -316,6 +316,7 @@ public class Sims {
                     if (jogador.isCasado()){ //no final de cada dia o dinheiro do jogador aumenta em 30 dinheiros se ele for casado
                         jogador.setDinheiro(jogador.getDinheiro() + 30);
                         custoDespesaFamilia(jogador);
+                        retirarFilhos(jogador);
                     }
             }
         } if (verificarVitoria(jogador)){
@@ -673,10 +674,18 @@ public class Sims {
             jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() - custoPorPessoa);
         }
 
-        if (jogadorAtual.getDinheiro() < 5000){
-            for (NPC npcAtual : pretendentes) {
+    }
+
+    public void retirarFilhos(Jogador jogadorAtual){
+
+        if (jogadorAtual.getDinheiro() < -3500 && jogadorAtual.getFamilia().size() > 1){
+
+            ArrayList<NPC> familia = jogadorAtual.getFamilia();
+            ArrayList<NPC> copiaFamilia = new ArrayList<>(familia);
+
+            for (NPC npcAtual : copiaFamilia) {
                 if (npcAtual.getDinheiro() == 0 && npcAtual.getEstatutoMinimo() == 0){
-                    pretendentes.remove(npcAtual);
+                    familia.remove(npcAtual);
                 }
             }
             System.out.println("Seu saldo atual é inferior a -3500 dinheiros 💸💸💸");
@@ -753,6 +762,8 @@ public class Sims {
         Scanner input = new Scanner(System.in);
         String escolha;
 
+                 System.out.println();
+                System.out.println();
 
                 System.out.println("Vejo que estás caminhando bem nessa vida... ✨✨ ");
                 System.out.println("O que achas de dar um próximo grande passo e CASARES? 🤵🏼‍♂️💒👰🏼");
