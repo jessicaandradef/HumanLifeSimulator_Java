@@ -16,8 +16,7 @@ public class Sims {
 
     /**
      * Método que permite criar Pessoa a partir da consola;
-     *
-     * @return
+     * @return retorna uma instância de Jogador;
      */
     public static Jogador criarPessoa() {
 
@@ -37,7 +36,8 @@ public class Sims {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.println("✨ Escolha o nome do jogador: ✨");
+        System.out.println();
+        System.out.println("✨✨✨✨✨\t\t\t\t\tEscolha o nome do jogador:\t\t\t\t\t ✨✨✨✨✨");
         nome = input.nextLine();
 
         System.out.println();
@@ -87,11 +87,13 @@ public class Sims {
     }
 
     /**
-     * Método onde estão todas as instâncias de todos os objetos e onde está no fluxo da aplicação;
+     * Método onde estão todas as instâncias de todos os objetos e onde está o fluxo da aplicação;
      */
     public void jogo(Jogador jogador) {
 
-        //instancia dos AcessoriosModa
+        Scanner input = new Scanner(System.in);
+
+        //instância dos AcessoriosModa
         AcessorioModa acessorioModa1 = new AcessorioModa("Fato de treino", 50, 3, "Nike", false);
         AcessorioModa acessorioModa2 = new AcessorioModa("Óculos de sol", 20, 1, "RayBan", false);
         AcessorioModa acessorioModa3 = new AcessorioModa("Saia Jeans", 70, 2, "Diesel", true);
@@ -265,16 +267,16 @@ public class Sims {
 
         // 2 ciclos aninhados: um para o dia e outro para os momentos do dia(4 momentos do dia );
         //50 será o total de dias;
-        for (int dia = 1; dia <= 100; dia++) {
+        for (int dia = 1; dia <= 2; dia++) {
 
             switch (dia){
                 case 30:
                     rotinaUniversidade(jogador);
                     break;
-                case 2:
+                case 4:
                     casamento(jogador);
                     break;
-                case 4:
+                case 5:
                     ficarDoente(jogador);
                     break;
                 case 10:
@@ -322,7 +324,21 @@ public class Sims {
         } if (verificarVitoria(jogador)){
             System.out.println("Parabéns pela vitória!");
         } else {
-            System.out.println("voce perdeu");
+            System.out.println();
+            System.out.println("Deseja jogar o jogo novamente?  (y/n)   ");   //reiniciar o jogo se jogador perder;
+            String escolha = input.next();
+
+            if (escolha.equalsIgnoreCase("y")){
+                System.out.println();
+                System.out.println("Seu desejo é uma ordem! Iniciando novo jogo 🌟🌟🌟");
+                reiniciarJogo();
+                System.out.println();
+
+            } else {
+                System.out.println();
+                System.out.println("Obrigada por jogar no SIMS DEV! Te espero na próxima  😉😉😉😉");
+                System.out.println("BYE BYE 👋🏽👋🏽👋🏽👋🏽");
+            }
         }
     }
 
@@ -401,7 +417,7 @@ public class Sims {
                 break;
             case 10:
                 if (jogador.isCasado()) {
-                    adotarCrianca(jogador);
+                    adotarCrianca(jogador); //opção do menu desbloqueada se jogador for casado, possibilidade de adotar criança;
                     break;
                 }
             default:
@@ -410,6 +426,21 @@ public class Sims {
                 break;
         }
     }
+
+    /**
+     * Método que permite ao jogador reiniciar o jogo se por acaso perder o jogo;
+     * Será criado uma nova instância Sims;
+     * Será invocado o método criarPessoa para criar novo jogador,
+     * e a partir disso será criado uma instância de Jogador.
+     */
+    public static void reiniciarJogo(){
+
+        Sims jogo = new Sims();
+        Jogador novoJogador = criarPessoa(); //
+        jogo.jogo(novoJogador); //chama o método jogo() na instância jogo
+
+    }
+
 
     /**
      * Método que permite ao utilizador escolher a primeira profissão (array de profissões da classe CentroDeEmprego);
@@ -1157,9 +1188,11 @@ public class Sims {
                     valorTotalPropriedade += propriedadeAtual.getCusto();
                 }
                 if ((jogadorAtual.getDinheiro() + valorTotalPropriedade) >= 1000000){
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println();
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
                     System.out.println();
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t💸💸💸💸💸 VOCÊ CONSEGUIU ATINGIR O SEU OBJETIVO SENDO O MAIS NOVO MILIONÁRIO 💸💸💸💸💸 ");
                     System.out.println();
@@ -1169,6 +1202,8 @@ public class Sims {
 
                     return true;
                 }else {
+                    System.out.println();
+                    System.out.println();
                     System.out.println("😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭");
                     System.out.println();
                     System.out.println("💸💸😥😥 Você não conseguiu atingir o seu objetivo de vida de ser MILIONÁRIO 💸💸😥😥");
@@ -1177,9 +1212,11 @@ public class Sims {
                 break;
             case FAMILIA_COMPLETA:
                 if (jogadorAtual.getFamilia().size() > 5){
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println();
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
                     System.out.println();
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t👨‍👩‍👧‍👦👨‍👨‍👧‍👧👩‍👧👩‍👧‍👧👩‍👩‍👦‍👦👨‍👧‍👧 VOCÊ CONSEGUIU ATINGIR O SEU OBJETIVO DE TER UMA FAMÍLIA COMPLETA 👨‍👩‍👧‍👦👨‍👨‍👧‍👧👩‍👧👩‍👧‍👧👩‍👩‍👦‍👦👨‍👧‍👧 ");
                     System.out.println();
@@ -1188,6 +1225,8 @@ public class Sims {
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇");
                     return true;
                 } else {
+                    System.out.println();
+                    System.out.println();
                     System.out.println("😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭");
                     System.out.println();
                     System.out.println("😥😥 Você não conseguiu atingir o seu objetivo de vida de ter uma FAMILIA COMPLETA 😥😥");
@@ -1196,9 +1235,11 @@ public class Sims {
                 break;
             case CELEBRIDADE:
                 if (jogadorAtual.getEstatuto() > 700) {
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println();
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
                     System.out.println();
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t 👗👠📲📸📺 VOCÊ CONSEGUIU ATINGIR O SEU OBJETIVO DE SER UMA CELEBRIDADE 👗👠📲📸📺 ");
                     System.out.println();
@@ -1207,6 +1248,8 @@ public class Sims {
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇");
                     return true;
                 } else {
+                    System.out.println();
+                    System.out.println();
                     System.out.println("😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭");
                     System.out.println();
                     System.out.println("😥😥 Você não conseguiu atingir o seu objetivo de vida de ser uma CELEBRIDADE 😥😥");
@@ -1215,9 +1258,11 @@ public class Sims {
                 break;
             case CROSSFITEIRO:
                 if (jogadorAtual.getCondicionamentoFisico() > 10000 && jogadorAtual.getNecessidadeSocial() >= 30){
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println();
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
                     System.out.println();
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🤸🏽‍♀️🤸🏽‍♂️💪🏽💪🏽🏃🏽🏃🏽 VOCÊ CONSEGUIU ATINGIR O SEU OBJETIVO SENDO O MAIS NOVO CROSSFITTER 🤸🏽‍♀️‍🤸🏽‍♂️💪🏽💪🏽🏃🏽🏃🏽 ");
                     System.out.println();
@@ -1226,6 +1271,8 @@ public class Sims {
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇");
                     return true;
                 } else {
+                    System.out.println();
+                    System.out.println();
                     System.out.println("😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭");
                     System.out.println();
                     System.out.println("😥😥 Você não conseguiu atingir o seu objetivo de vida de ser um CROSSFITTER 😥😥");
@@ -1234,9 +1281,11 @@ public class Sims {
                 break;
             case PROGRAMADOR:
                 if (jogadorAtual.getEducacao() > 5000 && jogadorAtual.getEstatuto() > 200){
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println();
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
                     System.out.println();
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t‍💻👩🏽‍💻💻👨🏽‍💻🖥️ VOCÊ CONSEGUIU ATINGIR O SEU OBJETIVO SENDO O MAIS NOVO NERD PROGRAMADOR 💻👩🏽‍💻💻👨🏽‍💻🖥️ ");
                     System.out.println();
@@ -1245,6 +1294,8 @@ public class Sims {
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇");
                     return true;
                 } else {
+                    System.out.println();
+                    System.out.println();
                     System.out.println("😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭");
                     System.out.println();
                     System.out.println("😥😥 Você não conseguiu atingir o seu objetivo de vida de ser um PROGRAMADOR 😥😥");
@@ -1253,9 +1304,11 @@ public class Sims {
                 break;
             case INFLUENCER_FITNESS:
                 if (jogadorAtual.getNecessidadeSocial() > 10000 && jogadorAtual.getDinheiro() > 300000){
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println();
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
                     System.out.println();
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t‍🥗📲📸🏊🏽‍♀️🤳🏽🚴🏽  VOCÊ CONSEGUIU ATINGIR O SEU OBJETIVO SENDO O MAIS NOVO INFLUENCER FITNESS 🥗📲📸🏊🏽‍♀️🤳🏽🚴🏽 ");
                     System.out.println();
@@ -1264,6 +1317,8 @@ public class Sims {
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇");
                     return true;
                 } else {
+                    System.out.println();
+                    System.out.println();
                     System.out.println("😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭");
                     System.out.println();
                     System.out.println("😥😥 Você não conseguiu atingir o seu objetivo de vida de ser um INFLUENCER FITNESS 😥😥");
@@ -1272,9 +1327,11 @@ public class Sims {
                 break;
             case NOMADE_DIGITAL:
                 if (jogadorAtual.getDinheiro() > 150000 && jogadorAtual.getEducacao() > 2000){
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
-                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println();
+                    System.out.println();
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 P A R A B E N S !!!!!!! 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
                     System.out.println();
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t 🌍🏞️🏕️🏖️🛤️🗺️️🤳🏽  VOCÊ CONSEGUIU ATINGIR O SEU OBJETIVO SENDO NôMADE DIGITAL 🌍🏞️🏕️🏖️🛤️🗺️️🤳🏽");
                     System.out.println();
@@ -1283,6 +1340,8 @@ public class Sims {
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇🥂🎇");
                     return true;
                 } else {
+                    System.out.println();
+                    System.out.println();
                     System.out.println("😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭😣😭");
                     System.out.println();
                     System.out.println("😥😥 Você não conseguiu atingir o seu objetivo de vida de ser um NÔMADE DIGITAL 😥😥");
