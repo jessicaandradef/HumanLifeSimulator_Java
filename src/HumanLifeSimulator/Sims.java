@@ -82,7 +82,7 @@ public class Sims {
                 break;
         }
 
-        Jogador jogador = new Jogador(nome, 50000, objetivoDeVida, null, 100, 100, 100, 0, 0, 0);
+        Jogador jogador = new Jogador(nome, 0, objetivoDeVida, null, 100, 100, 100, 0, 0, 0);
         return jogador;
     }
 
@@ -285,28 +285,27 @@ public class Sims {
         addNPCbebe(npcAdocao10);
 
 
-
         // 2 ciclos aninhados: um para o dia e outro para os momentos do dia(4 momentos do dia );
         //100 será o total de dias;
         for (int dia = 1; dia <= 100; dia++) {
 
             switch (dia){
-                case 30:
+                case 40:
                     rotinaUniversidade(jogador);
                     break;
-                case 3:
+                case 25:
                     casamento(jogador);
                     break;
                 case 5:
                     ficarDoente(jogador);
                     break;
-                case 10:
+                case 35:
                     tempoChuvoso(jogador);
                     break;
                 case 15:
                     competicaoCrossfit(jogador);
                     break;
-                case 2:
+                case 60:
                     eventoPublico(jogador);
                     break;
 
@@ -363,7 +362,7 @@ public class Sims {
         }
     }
 
-    public void momentoDia(Jogador jogador, Shopping shopping, CentroDeEmprego centroDeEmprego) {   //precisei colocar Shopping para conseguir aceder ao que foi instanciado
+    public void momentoDia(Jogador jogador, Shopping shopping, CentroDeEmprego centroDeEmprego) {
 
         Scanner input = new Scanner(System.in);
 
@@ -472,7 +471,7 @@ public class Sims {
     public void primeiroEmprego(Jogador jogadorAtual){
         Scanner input = new Scanner(System.in);
 
-        if (jogadorAtual.getProfissao() == null) {
+        if (jogadorAtual.getProfissao() == null) { //se ainda não tiver profissão definida (jogador começa null por default)
             System.out.println();
             System.out.println("Estas prestes a dar um grande passo na tua vida profissional:");
             System.out.println("Conseguir o teu primeiro emprego 🤩🤩🤩🤩🤩");
@@ -480,18 +479,18 @@ public class Sims {
             System.out.println("🔘 Esses são os empregos disponíveis atualmente no Centro de Empregos: 🔘 ");
             System.out.println();
 
-            CentroDeEmprego.imprimirListaProfissoes();
+            CentroDeEmprego.imprimirListaProfissoes(); //imprime lista de profissões disponíveis
 
             System.out.println();
             System.out.println("Digite aqui o número do emprego que você quer: ");
             int escolha = input.nextInt();
 
-            ArrayList<Profissao> listaDeProfissao = CentroDeEmprego.getListaDeProfissoes();
+            ArrayList<Profissao> listaDeProfissao = CentroDeEmprego.getListaDeProfissoes(); //profissões disponíveis
 
-            if (escolha >= 1 && escolha <= listaDeProfissao.size()){
-                Profissao profissaoEscolhida = listaDeProfissao.get(escolha - 1);
+            if (escolha >= 1 && escolha <= listaDeProfissao.size()){ //se escolha for maior ou igual a 1 e menor ou igualk ao tamanho da lista
+                Profissao profissaoEscolhida = listaDeProfissao.get(escolha - 1); //seleciona profissão escolhida
 
-                jogadorAtual.setProfissao(profissaoEscolhida);
+                jogadorAtual.setProfissao(profissaoEscolhida); //faz o set na profissão do jogador coma  profissão escolhida
                 jogadorAtual.setEstatuto(profissaoEscolhida.getEstatuto()); //atualizar estatuto do jogador com o estatuto da profissão
 
                 System.out.println("PARABÉÉÉÉÉNS! 🎉🎉🎉🎉 Agora tens um emprego, já podes começar a ganhar dinheiro trabalhando !!!");
@@ -501,19 +500,17 @@ public class Sims {
             } else {
                 System.out.println("Escolhe uma profissão válida, por favor ");
             }
-        } else {
+        } else { //SE o jogador já tiver um emprego
             Profissao profissaoAtual = jogadorAtual.getProfissao();
-            jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + profissaoAtual.getSalarioDia());
+            jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() + profissaoAtual.getSalarioDia()); //set do dinheiro atual do jogador com o valor do salario/dia da profissão
 
             System.out.println(" Você foi recompensado com " + profissaoAtual.getSalarioDia() + " dinheiros pelo seu dia de trabalho 💸😉");
             System.out.println("O teu saldo atual é de " + jogadorAtual.getDinheiro() +" dinheiros 🤑🤑. Continuas assim que vais terminar bem!!");
         }
     }
 
-
     /**
      * Método que repõe a necessidade de sono de volta a 100;
-     *
      * @param jogadorAtual
      */
     public void dormir(Jogador jogadorAtual) {
@@ -524,7 +521,6 @@ public class Sims {
 
     /**
      * Método que repõe a necessidade de refeição de volta a 100 e diminui 5 dinheiros do Jogador;
-     *
      * @param jogadorAtual
      */
     public void comer(Jogador jogadorAtual) {
@@ -538,7 +534,6 @@ public class Sims {
 
     /**
      * Método que repõe a necessidade social de volta a 100 se o jogador escolher treinar;
-     *
      * @param jogadorAtual
      */
     public void treinar(Jogador jogadorAtual) {
@@ -596,29 +591,30 @@ public class Sims {
 
     /**
      * Método que imprime na consola as propriedades que o jogador tem;
+     * Se o jogador não tiver nenhum imóvel, receberá uma mens;
      * @param jogadorAtual
      */
     public void verPropriedades(Jogador jogadorAtual) {
 
         System.out.println("🏘️🏙️🏚️🏕️    TUAS PROPRIEDADES    🏘️🏙️🏚️🏕️");
 
-        boolean temImovel = false;
-        for (Propriedade propriedadeAtual : jogadorAtual.getPropriedades()){
+        boolean temImovel = false; //variavel booleana para verificar se o jogador tem imovel
+        for (Propriedade propriedadeAtual : jogadorAtual.getPropriedades()){ //iteração sobre as propriedades do jogador
 
-              if (propriedadeAtual instanceof Imovel){
+              if (propriedadeAtual instanceof Imovel){ //se for instancia de imovel
                 propriedadeAtual.exibirDetalhesPropriedade();
-                temImovel = true;
+                temImovel = true; //atualiza variavel
             }
         }
 
-        if (!temImovel){
+        if (!temImovel){ //se nao possuir nenhum imovel
             System.out.println("Ainda não tens nenhum imóvel registado em teu nome. 😥🤷🏽‍♀️");
             System.out.println("Podes ver o que tem disponível para compra na IMOBILIARIA SIMS DEV 🏙️🏙️🏙️🏙️");
         }
     }
 
     /**
-     * Método para o jogador procurar emprego um novo emprego e fazer set da profissão atual;
+     * Método para o jogador procurar um novo emprego e fazer set da profissão atual;
      * Primeiro imprime todas as profissões disponiveis no Centro de Emprego,
      * depois verifica se o jogador tem os criterios suficientes para fazer a mudança para o emprego escolhido ou não;
      * @param jogadorAtual
@@ -640,7 +636,7 @@ public class Sims {
         for (Profissao profissaoAtual : listaDeProfissoes) {
 
             if (profissaoAtual.getNome().equalsIgnoreCase(nomeProfissao)) {
-               profissaoEncontrada = true; //altera variavel para true
+               profissaoEncontrada = true; //atualiza variavel para true
                 profissaoEscolhida = profissaoAtual; //a profissão escolhida será a profissão atual
 
                 if (profissaoEscolhida.isFormal()){ //verificar se a profissão é formal é true
@@ -680,7 +676,7 @@ public class Sims {
     /**
      * Método que atualiza as necessidades do jogador no final de cada ciclo da iteração, ou seja, no final de cada dia.
      * A necessidade sono diminui 25 pontos, a necessidade refeição diminui 20 pontos e a necessidade social diminui 15 pontos.
-     *Alerta o usuario se necessidadeSono e necessidadeRefeição estiver abaixo de 25 pontos;
+     * Alerta o usuario se necessidadeSono e necessidadeRefeição estiver abaixo de 25 pontos;
      * @param jogadorAtual
      */
     public void atualizarNecessidades(Jogador jogadorAtual) {
@@ -710,12 +706,10 @@ public class Sims {
             System.out.println();
             System.out.println();
         }
-
     }
 
     /**
      * Método que reduz 10 dinheiros do jogador atual a cada integrante da família (array de família do jogador);
-     * Esse método verifica também se o jogador tem valor inferior a -3500 dinheiros, se tiver filhos, serão retirados
      * @param jogadorAtual
      */
     public void custoDespesaFamilia(Jogador jogadorAtual){
@@ -725,19 +719,23 @@ public class Sims {
         for (NPC npcAtual : jogadorAtual.getFamilia()){
             jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() - custoPorPessoa);
         }
-
     }
 
+    /**
+     * Método que verifica se o jogador não tem dinheiro suficiente para sustentar a familia;
+     * Remove todos os filhos (com dinheiro 0 e estatuto 0) do array de familia;
+     * @param jogadorAtual
+     */
     public void retirarFilhos(Jogador jogadorAtual){
 
-        if (jogadorAtual.getDinheiro() < 20000 && jogadorAtual.getFamilia().size() > 1){
+        if (jogadorAtual.getDinheiro() < -3500 && jogadorAtual.getFamilia().size() > 1){
 
-            ArrayList<NPC> familia = jogadorAtual.getFamilia();
-            ArrayList<NPC> copiaFamilia = new ArrayList<>(familia);
+            ArrayList<NPC> familia = jogadorAtual.getFamilia(); //array original da familia
+            ArrayList<NPC> copiaFamilia = new ArrayList<>(familia); //copia do array da familia para fazer iteração sobre ele
 
-            for (NPC npcAtual : copiaFamilia) {
+            for (NPC npcAtual : copiaFamilia) { //iteração sobre a copia do array
                 if (npcAtual.getDinheiro() == 0 && npcAtual.getEstatutoMinimo() == 0){
-                    familia.remove(npcAtual);
+                    familia.remove(npcAtual); //retira npn (filho) do array da família
                 }
             }
             System.out.println("Seu saldo atual é inferior a -3500 dinheiros 💸💸💸");

@@ -14,11 +14,17 @@ public class NPC extends Pessoa{
         this.estatutoMinimo = estatutoMinimo;
     }
 
-
+    /**
+     * Método get para obter o estatuto mínimo do NPC
+     * @return o num do estatuto do NPC
+     */
     public int getEstatutoMinimo() {
         return estatutoMinimo;
     }
 
+    /**
+     * Método que imprime na consola todos os detalhes da pessoa;
+     */
     public void exibirDetalhes() {
         System.out.println();
 

@@ -17,14 +17,26 @@ public class Propriedade {
         this.estatuto = estatuto;
     }
 
+    /**
+     * Método get para obter o nome da propriedade
+     * @return o nome da propriedade
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Método get para obter o custo da propriedade
+     * @return o custo da propriedade
+     */
     public double getCusto() {
         return custo;
     }
 
+    /**
+     * Método get para obter o estatuto
+     * @return o estatuto da propriedade
+     */
     public int getEstatuto() {
         return estatuto;
     }

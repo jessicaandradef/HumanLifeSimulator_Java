@@ -47,78 +47,154 @@ public class Jogador extends Pessoa{
         this.condicionamentoFisico = condicionamentoFisico;
     }
 
+    /**
+     * Metodo get para verificar se o jogador é casado
+     * @return TRUE se for || FALSE se não for;
+     */
     public boolean isCasado() {
         return casado;
     }
 
+    /**
+     * Método set para alterar estado do jogador
+     * @param casado ; true se casado | false se não for
+     */
     public void setCasado(boolean casado) {
         this.casado = casado;
     }
 
+    /**
+     * Método set para alterar estatuto do jogador
+     * @param estatuto , novo estatuto
+     */
     public void setEstatuto(int estatuto) {
         this.estatuto = estatuto;
     }
 
+    /**
+     * Método get que obtem profissão do jogador
+     * @return profissão atual do jogador
+     */
     public Profissao getProfissao() {
         return profissao;
     }
 
+    /**
+     * Método get que obtem o obj de vida do jogador
+     * @return objetivo de vida atual do jogador
+     */
     public Objetivo getObjetivoVida() {
         return objetivoVida;
     }
 
+    /**
+     * Método get que obtem a necessidade de sono do jogador
+     * @return num da necessidade de sono do jogador
+     */
     public int getNecessidadeSono() {
         return necessidadeSono;
     }
 
+    /**
+     * Método get que obtem a necessidade de refeição do jogador
+     * @return num da necessidade de refeição do jogador
+     */
     public int getNecessidadeRefeicao() {
         return necessidadeRefeicao;
     }
 
+    /**
+     * Método get que obtem a necessidade social do jogador
+     * @return num da necessidade social do jogador
+     */
     public int getNecessidadeSocial() {
         return necessidadeSocial;
     }
 
+    /**
+     * Método get que obtem o estatuto do jogador
+     * @return num do estatuto do jogador
+     */
     public int getEstatuto() {
         return estatuto;
     }
 
+    /**
+     * Método get que obtem a educação do jogador
+     * @return num da educação do jogador
+     */
     public int getEducacao() {
         return educacao;
     }
 
+    /**
+     * Método get para ter acesso a lista de NPC da familia do jogador
+     * @return array de npc da familia do jogador
+     */
     public ArrayList<NPC> getFamilia() {
         return familia;
     }
 
+    /**
+     * Método get para ter acesso a lista de propriedades do jogador
+     * @return array de propriedades do jogador
+     */
     public ArrayList<Propriedade> getPropriedades() {
         return propriedades;
     }
 
+    /**
+     * Método set para alterar a educação do jogador
+     * @param educacao , nova educação
+     */
     public void setEducacao(int educacao) {
         this.educacao = educacao;
     }
 
+    /**
+     * Método set para alterar necessidade de sono do jogador
+     * @param necessidadeSono , nova necessidadeSono
+     */
     public void setNecessidadeSono(int necessidadeSono) {
         this.necessidadeSono = necessidadeSono;
     }
 
+    /**
+     * Método set para alterar necessidade de refeição do jogador
+     * @param necessidadeRefeicao , nova necessidadeRefeicao
+     */
     public void setNecessidadeRefeicao(int necessidadeRefeicao) {
         this.necessidadeRefeicao = necessidadeRefeicao;
     }
 
+    /**
+     * Método set para alterar necessidade social do jogador
+     * @param necessidadeSocial , nova necessidadeSocial
+     */
     public void setNecessidadeSocial(int necessidadeSocial) {
         this.necessidadeSocial = necessidadeSocial;
     }
 
+    /**
+     * Método set para alterar profissão do jogador
+     * @param profissao , nova profissao
+     */
     public void setProfissao(Profissao profissao) {
         this.profissao = profissao;
     }
 
+    /**
+     * Método get que obtem o condicionamento fisico do jogador
+     * @return num do condicionamentoFisico do jogador
+     */
     public int getCondicionamentoFisico() {
         return condicionamentoFisico;
     }
 
+    /**
+     * Método set para alterar condicionamento físico do jogador
+     * @param condicionamentoFisico , novo condicionamentoFisico
+     */
     public void setCondicionamentoFisico(int condicionamentoFisico) {
         this.condicionamentoFisico = condicionamentoFisico;
     }
@@ -177,8 +253,8 @@ public class Jogador extends Pessoa{
     public boolean possuiAcessorioFormal(){
         for (Propriedade propriedadeAtual : propriedades){
 
-            if (propriedadeAtual instanceof AcessorioModa){
-                if (((AcessorioModa) propriedadeAtual).isFormal()){
+            if (propriedadeAtual instanceof AcessorioModa){ //se for instancia de AcessorioModa
+                if (((AcessorioModa) propriedadeAtual).isFormal()){ //se for formal, retorna true
                     return true;
                 }
             }
