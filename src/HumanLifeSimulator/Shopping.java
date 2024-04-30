@@ -11,8 +11,13 @@ import java.util.*;
 
 public class Shopping {
     //vai simular um conjunto de lojas
+
     private ArrayList<Propriedade> coisasParaComprar;
 
+    /**
+     * Método construtor da classe Shopping;
+     * Inicializa o array de coisasParaComprar;
+     */
     public Shopping() {
         this.coisasParaComprar = new ArrayList<Propriedade>();
     }
@@ -27,9 +32,8 @@ public class Shopping {
     }
 
     /**
-     * Método que retorna os itens que há no array de CoisasParaComprar;
-     *
-     * @return
+     * Método para obter a lista de propriedades disponiveis no array coisasParaComprar;
+     * @return o array de coisasParaComprar
      */
     public ArrayList<Propriedade> getCoisasParaComprar() {
         return coisasParaComprar;
@@ -64,7 +68,6 @@ public class Shopping {
 
     /**
      * Método que remove do array de CoisasParaComprar um item de propriedade;
-     *
      * @param indexPropriedade index da propriedade a ser removida;
      */
     public void removerPropriedade(int indexPropriedade) {
@@ -74,8 +77,7 @@ public class Shopping {
 
     /**
      * Método que pergunta ao utilizador qual secção do shopping a pessoa quer ir,
-     * de acordo com a escolha imprime na consola 10 itens disponiveis da secção adequada;
-     *
+     * de acordo com a escolha imprime na consola 10 itens aleatorios disponiveis da secção adequada;
      * @param pessoaAtual
      */
     public void vender(Pessoa pessoaAtual) {

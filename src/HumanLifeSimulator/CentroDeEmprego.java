@@ -13,10 +13,18 @@ public class CentroDeEmprego {
         this.listaDeProfissoes = new ArrayList<Profissao>();
     }
 
+    /**
+     * Metodo get para obter a lista de profissões disponíveis
+     * @return array da lista de profissões disponiveis no centro de emprego
+     */
     public static ArrayList<Profissao> getListaDeProfissoes() {
         return listaDeProfissoes;
     }
 
+    /**
+     * Método para adicionar uma nova profissão ao array de profissões;
+     * @param profissaoAtual
+     */
     public void addProfissao(Profissao profissaoAtual){
         listaDeProfissoes.add(profissaoAtual);
     }

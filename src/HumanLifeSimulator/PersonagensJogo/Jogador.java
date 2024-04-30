@@ -264,6 +264,7 @@ public class Jogador extends Pessoa{
 
     /**
      * Método que imprime na consola todos os detalhes da pessoa;
+     * Faz override do método exibirDetalhes da super classe Pessoa
      */
     public void exibirDetalhes() {
         System.out.println("Informações do Jogador: 🕹🎮🎰 ");
