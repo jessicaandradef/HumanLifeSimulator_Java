@@ -82,7 +82,7 @@ public class Sims {
                 break;
         }
 
-        Jogador jogador = new Jogador(nome, 0, objetivoDeVida, null, 100, 100, 100, 0, 0, 0);
+        Jogador jogador = new Jogador(nome, 50000, objetivoDeVida, null, 100, 100, 100, 0, 0, 0);
         return jogador;
     }
 
@@ -94,6 +94,7 @@ public class Sims {
         Scanner input = new Scanner(System.in);
 
         //instância dos AcessoriosModa
+
         AcessorioModa acessorioModa1 = new AcessorioModa("Fato de treino", 50, 3, "Nike", false);
         AcessorioModa acessorioModa2 = new AcessorioModa("Óculos de sol", 20, 1, "RayBan", false);
         AcessorioModa acessorioModa3 = new AcessorioModa("Saia Jeans", 70, 2, "Diesel", true);
@@ -160,13 +161,18 @@ public class Sims {
         NPC npc9 = new NPC("Paulo", 6000, 3);
         NPC npc10 = new NPC("Tiago", 22000, 2);
 
-        //npc para adoção: NPC aleatório sem dinheiro ou estatutoMinimo ao Array da família
+        //npc para adoção: NPC aleatório sem dinheiro e estatutoMinimo ao Array da família
 
         NPC npcAdocao1 = new NPC("Bibi", 0, 0);
         NPC npcAdocao2 = new NPC("Lolo", 0, 0);
         NPC npcAdocao3 = new NPC("Nuno", 0, 0);
         NPC npcAdocao4 = new NPC("Mila", 0, 0);
         NPC npcAdocao5 = new NPC("Ruizinho", 0, 0);
+        NPC npcAdocao6 = new NPC("Kaya", 0, 0);
+        NPC npcAdocao7 = new NPC("Roma", 0, 0);
+        NPC npcAdocao8 = new NPC("Nina", 0, 0);
+        NPC npcAdocao9 = new NPC("Leo", 0, 0);
+        NPC npcAdocao10 = new NPC("Luna", 0, 0);
 
 
         //instancias das profissões
@@ -183,6 +189,7 @@ public class Sims {
         Profissao profissao10 = new Profissao("Nutricionista", 230, true, 2, 3);
 
         //adicionar os empregos no Centro de Emprego
+
         CentroDeEmprego centroDeEmprego = new CentroDeEmprego();
         centroDeEmprego.addProfissao(profissao1);
         centroDeEmprego.addProfissao(profissao4);
@@ -196,6 +203,7 @@ public class Sims {
         centroDeEmprego.addProfissao(profissao10);
 
         //adicionar propriedades de acessorios de moda no Shopping
+
         Shopping shopping = new Shopping();
         shopping.addPropriedade(acessorioModa1);
         shopping.addPropriedade(acessorioModa2);
@@ -215,6 +223,7 @@ public class Sims {
 
 
         //adicionar propriedades de imóveis no Shopping
+
         shopping.addPropriedade(imovel1);
         shopping.addPropriedade(imovel2);
         shopping.addPropriedade(imovel3);
@@ -232,6 +241,7 @@ public class Sims {
         shopping.addPropriedade(imovel15);
 
         //adicionar propriedades de veiculos no Shopping
+
         shopping.addPropriedade(veiculo1);
         shopping.addPropriedade(veiculo2);
         shopping.addPropriedade(veiculo3);
@@ -248,6 +258,8 @@ public class Sims {
         shopping.addPropriedade(veiculo14);
         shopping.addPropriedade(veiculo15);
 
+        //adicionar NPC no array de npc pretendentes
+
         addNPC(npc1);
         addNPC(npc2);
         addNPC(npc3);
@@ -258,22 +270,31 @@ public class Sims {
         addNPC(npc8);
         addNPC(npc9);
         addNPC(npc10);
-        addNPC(npcAdocao1);
-        addNPC(npcAdocao2);
-        addNPC(npcAdocao3);
-        addNPC(npcAdocao4);
-        addNPC(npcAdocao5);
+
+        //adicionar NPC no array de npc bebes para adoção
+
+        addNPCbebe(npcAdocao1);
+        addNPCbebe(npcAdocao2);
+        addNPCbebe(npcAdocao3);
+        addNPCbebe(npcAdocao4);
+        addNPCbebe(npcAdocao5);
+        addNPCbebe(npcAdocao6);
+        addNPCbebe(npcAdocao7);
+        addNPCbebe(npcAdocao8);
+        addNPCbebe(npcAdocao9);
+        addNPCbebe(npcAdocao10);
+
 
 
         // 2 ciclos aninhados: um para o dia e outro para os momentos do dia(4 momentos do dia );
-        //50 será o total de dias;
-        for (int dia = 1; dia <= 2; dia++) {
+        //100 será o total de dias;
+        for (int dia = 1; dia <= 100; dia++) {
 
             switch (dia){
                 case 30:
                     rotinaUniversidade(jogador);
                     break;
-                case 4:
+                case 3:
                     casamento(jogador);
                     break;
                 case 5:
@@ -285,7 +306,7 @@ public class Sims {
                 case 15:
                     competicaoCrossfit(jogador);
                     break;
-                case 40:
+                case 2:
                     eventoPublico(jogador);
                     break;
 
@@ -709,7 +730,7 @@ public class Sims {
 
     public void retirarFilhos(Jogador jogadorAtual){
 
-        if (jogadorAtual.getDinheiro() < -3500 && jogadorAtual.getFamilia().size() > 1){
+        if (jogadorAtual.getDinheiro() < 20000 && jogadorAtual.getFamilia().size() > 1){
 
             ArrayList<NPC> familia = jogadorAtual.getFamilia();
             ArrayList<NPC> copiaFamilia = new ArrayList<>(familia);
@@ -757,7 +778,10 @@ public class Sims {
                 }
     }
 
-    //criando um arrayList de pretendentes para adicionar os NPC para o futuro casamento
+
+    /**
+     * Criação de arrayList que armazena uma lista de pretendentes NPC para o futuro casamento;
+     */
     public static ArrayList<NPC> pretendentes = new ArrayList<NPC>();
 
     /**
@@ -767,6 +791,19 @@ public class Sims {
     public void addNPC(NPC npc){
 
         pretendentes.add(npc);
+    }
+
+    /**
+     * Criação de arrayList que armazena uma lista de bebes NPC para uma futura adoção;
+     */
+    public static ArrayList<NPC> bebesAdocao = new ArrayList<NPC>();
+
+    /**
+     * Método que permite adicionar um NPC no array da lista de bebês para adoção;
+     * @param npc
+     */
+    public void addNPCbebe(NPC npc){
+        bebesAdocao.add(npc);
     }
 
     /**
@@ -782,10 +819,9 @@ public class Sims {
     }
 
     /**
-     * Método que permite do jogador a opção de CASAMENTO no dia 22 do jogo;
-     * O jogador tem a possibilidade de aceitar ou recusar e partir o coração de alguem;
+     * Método que permite do jogador a opção de CASAMENTO (evento aleatório do jogo);
+     * O jogador tem a possibilidade de aceitar ou recusar a proposta;
      * Se aceitar, é feito a verificação da escolha do NPC; será verificado também se atende aos criterios do casamento invocando os métodos necessários para a verificação;
-     *
      * @param jogadorAtual
      */
     public void casamento(Jogador jogadorAtual) {
@@ -889,7 +925,6 @@ public class Sims {
     /**
      * Método que verifica SE o jogador pode casar com o NPC escolhido mediante as exigencias do casamento:
      * O jogador ter uma propriedade que albergue 2 ou mais pessoas e ter o estatuto mínimo para casar com determinado NPC;
-     *
      * @param jogadorAtual
      * @param npcEscolhido
      * @return boolean TRUE: se tiver propriedade e estatudo minimo || FALSE: se faltar alguma exigêngia;
@@ -954,26 +989,18 @@ public class Sims {
 
     /**
      * Método que possibilita adição de um NPC aleatório ao array de familia do jogador atual;
-     * Esse método só é liberado após o casamento do jogador;
-     * É criado um novo array de NPC para adoção onde o NPC tem dinheiro = 0 e estatuto = 0;
+     * Esse método só é invocado no menu após o casamento do jogador;
      * Se o jogador tiver imovel com capacidade suficiente, a adoção é realizada;
      * @param jogadorAtual
      */
     public static void adotarCrianca(Jogador jogadorAtual){
 
         Random random = new Random();
-        ArrayList<NPC> bebesParaAdocao = new ArrayList<NPC>(); //novo array para armazenar os bebes disponiveis para adoção;
 
-        for (NPC npcAtual : pretendentes){
-            if (npcAtual.getDinheiro() == 0 && npcAtual.getEstatutoMinimo() == 0){ //verifica na lista os NPC com dinheiro 0 e estatuto 0;
-                bebesParaAdocao.add(npcAtual);
-            }
-        }
+        int indiceBebe = random.nextInt(bebesAdocao.size()); //indice aleatorio tendo como referencia o tamanho do array de bebesAdocao
+        NPC bebeAleatorio = bebesAdocao.get(indiceBebe); //seleciona o indiceBebe
 
-        int indiceBebe = random.nextInt(bebesParaAdocao.size()); //indice aleatorio tendo em consideração o tamanho do array de bebês
-        NPC bebeAleatorio = bebesParaAdocao.get(indiceBebe);
-
-        if (capacidadeImovel(jogadorAtual) > jogadorAtual.getFamilia().size()+1){ //condição para verificar se p imovel de maior capacidade do jogador é superior ao array de familia atual + jogador
+        if (capacidadeImovel(jogadorAtual) > jogadorAtual.getFamilia().size()+1){ //condição para verificar se o imovel de maior capacidade do jogador é superior ao array de familia atual + jogador
             jogadorAtual.addNPC(bebeAleatorio); //se for , adiciona o bebe
             System.out.println();
             System.out.println("Parabens! Vocês acabaram de adotar uma criança! ");
@@ -982,11 +1009,13 @@ public class Sims {
             System.out.println();
 
         } else {
+            System.out.println();
             System.out.println("😭😭😭😭😭😭");
             System.out.println("Desculpe, você e seu esposo/a ainda não tem uma casa com capacidade para abrigar toda a familia ");
             System.out.println("Minha sugestão é comprar um novo imóvel para conseguir abrigar a todos");
             System.out.println("Podes ir na imobiliaria SIMS DEV para ver os imóveis disponíveis para compra 🤩");
             System.out.println("🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡🏡");
+            System.out.println();
         }
     }
 
@@ -1164,7 +1193,7 @@ public class Sims {
     }
 
     /**
-     * Método que verifica no final do jogo se o jogador atingiu o ser objetivo de dia que foi definido no início do jogo;
+     * Método que verifica no final do jogo se o jogador atingiu o ser objetivo de vida que foi definido no início do jogo;
      * @param jogadorAtual
      * @return TRUE = se atingiu as condições para ser vencedor || FALSE = se não atingir;
      */
@@ -1185,7 +1214,7 @@ public class Sims {
 
                 int valorTotalPropriedade = 0;
                 for (Propriedade propriedadeAtual: jogadorAtual.getPropriedades()){
-                    valorTotalPropriedade += propriedadeAtual.getCusto();
+                    valorTotalPropriedade += propriedadeAtual.getCusto(); //somatorio do valor das propriedades
                 }
                 if ((jogadorAtual.getDinheiro() + valorTotalPropriedade) >= 1000000){
                     System.out.println();
@@ -1234,7 +1263,7 @@ public class Sims {
                 }
                 break;
             case CELEBRIDADE:
-                if (jogadorAtual.getEstatuto() > 700) {
+                if (jogadorAtual.getEstatuto() > 1500) {
                     System.out.println();
                     System.out.println();
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
@@ -1257,7 +1286,7 @@ public class Sims {
                 }
                 break;
             case CROSSFITEIRO:
-                if (jogadorAtual.getCondicionamentoFisico() > 10000 && jogadorAtual.getNecessidadeSocial() >= 30){
+                if (jogadorAtual.getCondicionamentoFisico() > 20000 && jogadorAtual.getNecessidadeSocial() >= 2000){
                     System.out.println();
                     System.out.println();
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
@@ -1280,7 +1309,7 @@ public class Sims {
                 }
                 break;
             case PROGRAMADOR:
-                if (jogadorAtual.getEducacao() > 5000 && jogadorAtual.getEstatuto() > 200){
+                if (jogadorAtual.getEducacao() > 10000 && jogadorAtual.getEstatuto() > 1000){
                     System.out.println();
                     System.out.println();
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
@@ -1326,7 +1355,7 @@ public class Sims {
                 }
                 break;
             case NOMADE_DIGITAL:
-                if (jogadorAtual.getDinheiro() > 150000 && jogadorAtual.getEducacao() > 2000){
+                if (jogadorAtual.getDinheiro() > 150000 && jogadorAtual.getEducacao() > 5000){
                     System.out.println();
                     System.out.println();
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
