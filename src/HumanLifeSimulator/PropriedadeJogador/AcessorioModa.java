@@ -19,6 +19,10 @@ public class AcessorioModa extends Propriedade{
         this.formal = formal;
     }
 
+    /**
+     * Método que verifica se o acessorio de moda é formal ou nao
+     * @return TRUE se for || FALSE se nao for
+     */
     public boolean isFormal() {
         return formal;
     }

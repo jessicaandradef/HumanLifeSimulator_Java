@@ -15,6 +15,10 @@ public class Imovel extends Propriedade{
         this.capacidadePessoas = capacidadePessoas;
     }
 
+    /**
+     * Método get que obtem a capacidade de pessoas do imóvel
+     * @return num da capacidade
+     */
     public int getCapacidadePessoas() {
         return capacidadePessoas;
     }
