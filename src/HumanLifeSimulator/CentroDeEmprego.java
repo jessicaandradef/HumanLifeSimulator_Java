@@ -33,7 +33,7 @@ public class CentroDeEmprego {
      * Método para imprimir na consola a lista de nomes de profissões disponíveis no Centro de Emprego
      */
     public static void imprimirListaProfissoes(){
-        int contador = 1;
+        int contador = 1; //inicializar variavel contador
         for (Profissao profissaoAtual : listaDeProfissoes){
 
             System.out.println(contador + "- 💠 Nome da profissão: " + profissaoAtual.getNome());

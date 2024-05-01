@@ -6,6 +6,11 @@ import javax.sound.sampled.Clip;
 import java.io.File;
 
 public class Audio {
+    /**
+     * Método que reproduz um arquivo de áudio que será fornecido como argumento;
+     * @param path caminho do arquivo de áudio que será reproduzido
+     * @param loop TRUE, musica fica em loop || FALSE, música não fica em loop
+     */
     public static void playMusic(String path, boolean loop){
         try{
             File audio = new File(path);
@@ -18,7 +23,7 @@ public class Audio {
                 }
                 clip.start();
             } else {
-                System.out.println("Can't find file");
+                System.out.println("Erro ao reproduzir a musica");
             }
         }catch (Exception e) {
             System.out.println("Erro ao reproduzir a musica");

@@ -25,6 +25,7 @@ public class Imovel extends Propriedade{
 
     /**
      * Método que imprime a capacidade de lotação de um imovel;
+     * Faz override do método exibirDetalhesPropriedade da super classe Propriedade
      */
     @Override
     public void exibirDetalhesPropriedade() {

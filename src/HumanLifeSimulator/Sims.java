@@ -293,7 +293,7 @@ public class Sims {
                 case 40:
                     rotinaUniversidade(jogador);
                     break;
-                case 25:
+                case 30:
                     casamento(jogador);
                     break;
                 case 5:
@@ -336,14 +336,14 @@ public class Sims {
                     }
                     atualizarNecessidades(jogador);
                     if (jogador.isCasado()){ //no final de cada dia o dinheiro do jogador aumenta em 30 dinheiros se ele for casado
-                        jogador.setDinheiro(jogador.getDinheiro() + 30);
+                        jogador.setDinheiro(jogador.getDinheiro() + 30); // +30 dinheiros no final de cada dia se jogador for casado
                         custoDespesaFamilia(jogador);
-                        retirarFilhos(jogador);
+                        retirarFilhos(jogador); //se jogador tiver filhos, verifica se tem condições para manter
                     }
             }
-        } if (verificarVitoria(jogador)){
+        } if (verificarVitoria(jogador)){ //verifica se jogador ganhou o jogo ou não
             System.out.println("Parabéns pela vitória!");
-        } else {
+        } else { //se perdeu
             System.out.println();
             System.out.println("Deseja jogar o jogo novamente?  (y/n)   ");   //reiniciar o jogo se jogador perder;
             String escolha = input.next();
@@ -354,7 +354,7 @@ public class Sims {
                 reiniciarJogo();
                 System.out.println();
 
-            } else {
+            } else { //encerra programa
                 System.out.println();
                 System.out.println("Obrigada por jogar no SIMS DEV! Te espero na próxima  😉😉😉😉");
                 System.out.println("BYE BYE 👋🏽👋🏽👋🏽👋🏽");
@@ -362,6 +362,13 @@ public class Sims {
         }
     }
 
+    /**
+     * Método que representa as opções que o jogador vai ter para ocupar o seu dia;
+     * Será exibido um menu com as opções para o jogoador escolher, se a opção não existir receberá uma mens informando
+     * @param jogador
+     * @param shopping
+     * @param centroDeEmprego
+     */
     public void momentoDia(Jogador jogador, Shopping shopping, CentroDeEmprego centroDeEmprego) {
 
         Scanner input = new Scanner(System.in);
@@ -455,8 +462,8 @@ public class Sims {
      */
     public static void reiniciarJogo(){
 
-        Sims jogo = new Sims();
-        Jogador novoJogador = criarPessoa(); //
+        Sims jogo = new Sims();  //nova instancia de sims
+        Jogador novoJogador = jogo.criarPessoa(); //invoco metodo criarPessoa
         jogo.jogo(novoJogador); //chama o método jogo() na instância jogo
 
     }
@@ -520,13 +527,13 @@ public class Sims {
     }
 
     /**
-     * Método que repõe a necessidade de refeição de volta a 100 e diminui 5 dinheiros do Jogador;
+     * Método que repõe a necessidade de refeição de volta a 100 e diminui 10 dinheiros do Jogador;
      * @param jogadorAtual
      */
     public void comer(Jogador jogadorAtual) {
 
         jogadorAtual.setNecessidadeRefeicao(100);
-        jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() - 5);
+        jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() - 10);
         System.out.println("De barriga cheia tudo fica melhor, né ? 🥪☺️");
         System.out.println("A tua refeição custou 5 dinheiros! 🤑🤑 Teu saldo total é de : " + jogadorAtual.getDinheiro() + " dinheiros. 💸💸💸");
 
@@ -574,18 +581,21 @@ public class Sims {
     }
 
     /**
-     * Método que aumenta a educação do jogador em +30 e o estatuto em +5 se escolher essa opção no menu;
+     * Método que aumenta a educação do jogador em +50 e o estatuto em +5 se escolher essa opção no menu;
+     * Reduz o dinheiro do jogador em 100 dinheiros;
      * @param jogadorAtual
      */
     public void terFormacao(Jogador jogadorAtual) {
-        jogadorAtual.setEducacao(jogadorAtual.getEducacao() + 30);
+        jogadorAtual.setEducacao(jogadorAtual.getEducacao() + 50);
         jogadorAtual.setEstatuto(jogadorAtual.getEstatuto() + 5);
+        jogadorAtual.setDinheiro(jogadorAtual.getDinheiro() - 100);
         System.out.println();
         System.out.println("Parabéns pelo teu esforço contínuo!! 🤩🤩🤩");
         System.out.println();
-        System.out.println("Essa formação tem um custo de 30 dinheiros, tenho certeza que será um bom investimento 💻💻");
+        System.out.println("Essa formação tem um custo de 100 dinheiros, tenho certeza que será um bom investimento 💻💻");
         System.out.println("Através do conhecimento vais longe! Continue assim 🥳🥳🥳");
-        System.out.println("Com essa nova formação você aumentou a sua educação em 30 pontos e seu estatuto em 5 pontos😉");
+        System.out.println();
+        System.out.println("Com essa nova formação você aumentou a sua educação em 50 pontos e seu estatuto em 5 pontos😉");
         System.out.println();
     }
 
@@ -1238,7 +1248,7 @@ public class Sims {
                 }
                 break;
             case FAMILIA_COMPLETA:
-                if (jogadorAtual.getFamilia().size() > 5){
+                if (jogadorAtual.getFamilia().size() > 5){ //se familia tiver mais de 5 integrantes
                     System.out.println();
                     System.out.println();
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
@@ -1261,7 +1271,7 @@ public class Sims {
                 }
                 break;
             case CELEBRIDADE:
-                if (jogadorAtual.getEstatuto() > 1500) {
+                if (jogadorAtual.getEstatuto() > 3000) {
                     System.out.println();
                     System.out.println();
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");

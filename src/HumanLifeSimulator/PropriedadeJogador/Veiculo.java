@@ -20,7 +20,8 @@ public class Veiculo extends Propriedade{
     }
 
     /**
-     *Método que imprime os detalhes da propriedade
+     * Método que imprime os detalhes da propriedade veículos
+     * Faz override do método exibirDetalhesPropriedade da super classe Propriedade
      */
     @Override
     public void exibirDetalhesPropriedade() {

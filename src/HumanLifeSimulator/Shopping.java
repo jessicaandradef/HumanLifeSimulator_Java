@@ -10,6 +10,7 @@ import HumanLifeSimulator.PropriedadeJogador.Veiculo;
 import java.util.*;
 
 public class Shopping {
+
     //vai simular um conjunto de lojas
 
     private ArrayList<Propriedade> coisasParaComprar;
@@ -74,7 +75,6 @@ public class Shopping {
         coisasParaComprar.remove(indexPropriedade);
     }
 
-
     /**
      * Método que pergunta ao utilizador qual secção do shopping a pessoa quer ir,
      * de acordo com a escolha imprime na consola 10 itens aleatorios disponiveis da secção adequada;
@@ -116,7 +116,7 @@ public class Shopping {
                         }
                     }
 
-                    imprimirCoisasParaComprar(vitrineImoveis);
+                    imprimirCoisasParaComprar(vitrineImoveis); //imprime os 10 itens do array de imoveis
 
                     System.out.println("Queres comprar algum imóvel? Escolhe o teu: ");
                     idImovel = input.nextInt();

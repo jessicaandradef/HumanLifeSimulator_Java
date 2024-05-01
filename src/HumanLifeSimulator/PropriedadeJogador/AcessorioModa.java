@@ -29,6 +29,7 @@ public class AcessorioModa extends Propriedade{
 
     /**
      * Método que imprime os detalhes de um AcessorioModa;
+     * Faz override do método exibirDetalhesPropriedade da super classe Propriedade
      */
     @Override
     public void exibirDetalhesPropriedade() {
