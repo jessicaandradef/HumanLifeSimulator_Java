@@ -498,7 +498,7 @@ public class Sims {
                 Profissao profissaoEscolhida = listaDeProfissao.get(escolha - 1); //seleciona profissão escolhida
 
                 jogadorAtual.setProfissao(profissaoEscolhida); //faz o set na profissão do jogador coma  profissão escolhida
-                jogadorAtual.setEstatuto(profissaoEscolhida.getEstatuto()); //atualizar estatuto do jogador com o estatuto da profissão
+                jogadorAtual.setEstatuto(jogadorAtual.getEstatuto() + profissaoEscolhida.getEstatuto()); //atualizar estatuto do jogador com o estatuto da profissão
 
                 System.out.println("PARABÉÉÉÉÉNS! 🎉🎉🎉🎉 Agora tens um emprego, já podes começar a ganhar dinheiro trabalhando !!!");
                 System.out.println();
@@ -1294,7 +1294,7 @@ public class Sims {
                 }
                 break;
             case CROSSFITEIRO:
-                if (jogadorAtual.getCondicionamentoFisico() > 20000 && jogadorAtual.getNecessidadeSocial() >= 2000){
+                if (jogadorAtual.getCondicionamentoFisico() > 10000 && jogadorAtual.getNecessidadeSocial() >= 2000){
                     System.out.println();
                     System.out.println();
                     System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉");
